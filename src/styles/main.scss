@@ -1,0 +1,10 @@
+// Required
+$theme-colors: (
+  primary: #d9d9d9,
+  secondary: #fffefe,
+  dark: #838080,
+);
+
+@import "bootstrap/dist/css/bootstrap.css";
+@import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
+@import "bootstrap";

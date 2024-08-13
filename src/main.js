@@ -4,8 +4,7 @@ import { createBootstrap } from "bootstrap-vue-next";
 import { createApp } from "vue";
 import App from "./App.vue";
 
-import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
-import "bootstrap/dist/css/bootstrap.css";
+import "@styles/main.scss";
 
 const app = createApp(App);
 
