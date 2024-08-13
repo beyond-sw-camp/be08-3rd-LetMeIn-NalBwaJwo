@@ -40,17 +40,17 @@ const routes = [
         path: "contact",
         component: ContactView,
       },
-      // 로그인 페이지
-      {
-        name: "Login",
-        path: "login",
-        component: LoginView,
-      },
       {
         path: "/:name/:pathMatch(.*)*",
         redirect: "/404",
       },
     ],
+  },
+  // 로그인 페이지
+  {
+    name: "Login",
+    path: "/login",
+    component: LoginView,
   },
   {
     path: "/:pathMatch(.*)*",

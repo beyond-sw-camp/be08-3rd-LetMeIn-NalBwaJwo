@@ -12,7 +12,7 @@
       <BNavbarNav>
         <BNavForm>
           <BButton>
-            <RouterLink class="text-black text-decoration-none" to="login"
+            <RouterLink class="text-black text-decoration-none" to="/login"
               >로그인</RouterLink
             >
           </BButton>

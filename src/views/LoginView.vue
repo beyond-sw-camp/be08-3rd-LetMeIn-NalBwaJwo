@@ -1,6 +1,6 @@
 <template lang="html">
   <div
-    class="container max-width-lg h-100 d-flex flex-column justify-content-center"
+    class="container max-width-lg vh-100 d-flex flex-column justify-content-center"
   >
     <div class="mb-3">
       <h1 class="text-center">Let me In</h1>
