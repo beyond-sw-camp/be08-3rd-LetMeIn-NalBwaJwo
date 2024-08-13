@@ -6,12 +6,14 @@
       <h1 class="text-center display-1">contact</h1>
     </div>
     <BCard class="bg-dark">
+      <!-- 전송 버튼 -->
       <div class="w-100 mb-3 d-flex justify-content-end">
         <BButton class="bg-primary text-white p-1" @click="onSubmit"
           ><span>send</span> <SendIcon class="fs-1" />
         </BButton>
       </div>
       <BFormGroup>
+        <!-- 이름, 이메일, 제목 inputs -->
         <BFormGroup class="mb-3">
           <BFormInput
             class="bg-black mb-1 text-white"
@@ -33,6 +35,7 @@
           />
         </BFormGroup>
 
+        <!-- 메세지 inputs -->
         <BFormGroup>
           <BFormTextarea
             class="bg-black text-white"

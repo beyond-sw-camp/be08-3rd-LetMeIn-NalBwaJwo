@@ -6,6 +6,7 @@
       <h1 class="text-center">Let me In</h1>
     </div>
     <BCard>
+      <!-- 아이디, 비밀번호 입력받는 inputs -->
       <BFormGroup
         class="mb-3"
         label="ID"
@@ -22,11 +23,13 @@
       >
         <BFormInput v-model="password" />
       </BFormGroup>
+      <!-- 로그인 버튼 -->
       <BFormGroup>
         <BButton class="w-100 bg-black text-white" @click="onSubmit"
           >로그인</BButton
         >
       </BFormGroup>
+      <!-- 비밀번호 찾기 네비게이션 -->
       <BNav class="mt-4">
         <BNavText class="text-decoration-underline">비밀번호 찾기</BNavText>
       </BNav>
