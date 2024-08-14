@@ -7,10 +7,10 @@
   </div>
 </template>
 <script>
-import MainNavHeaer from "@components/common/MainNavHeader.vue";
+import MainNavHeader from "@components/common/MainNavHeader.vue";
 export default {
   component: {
-    MainNavHeaer,
+    MainNavHeader,
   },
 };
 </script>
