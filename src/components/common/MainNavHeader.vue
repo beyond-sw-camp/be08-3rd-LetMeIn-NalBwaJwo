@@ -1,5 +1,7 @@
 <template lang="html">
   <BNavbar class="bg-primary" toggleable="sm">
+    <BNavbarBrand href="#">LetMeIn</BNavbarBrand>
+
     <BNavbarToggle target="nav-collapse" />
     <BCollapse id="nav-collapse" is-nav>
       <!-- 네비게이션 링크들 -->

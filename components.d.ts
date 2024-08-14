@@ -18,6 +18,7 @@ declare module 'vue' {
     BFormTextarea: typeof import('bootstrap-vue-next')['BFormTextarea']
     BNav: typeof import('bootstrap-vue-next')['BNav']
     BNavbar: typeof import('bootstrap-vue-next')['BNavbar']
+    BNavbarBrand: typeof import('bootstrap-vue-next')['BNavbarBrand']
     BNavbarNav: typeof import('bootstrap-vue-next')['BNavbarNav']
     BNavbarToggle: typeof import('bootstrap-vue-next')['BNavbarToggle']
     BNavForm: typeof import('bootstrap-vue-next')['BNavForm']
