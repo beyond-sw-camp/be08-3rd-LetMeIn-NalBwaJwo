@@ -1,4 +1,4 @@
-import { ContactView, LoginView, NotFoundView, UserView } from "@views/index";
+import { ContactView, LoginView, NotFoundView, UserView, PortfolioView } from "@views/index";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -17,7 +17,7 @@ const routes = [
       {
         name: "Main",
         path: "portfolio",
-        component: ContactView,
+        component: PortfolioView,
       },
       {
         name: "Project",
