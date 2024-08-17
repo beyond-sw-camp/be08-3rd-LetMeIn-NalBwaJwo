@@ -60,10 +60,22 @@
       </div>
 
       <!-- 링크 추가 및 제출 버튼 섹션 -->
-      <div class="mt-auto d-flex justify-content-end">
-        <LinkInput @add-link="handleAddLink" class="mr-2" />
-        <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
-        <BButton variant="point" @click="submitForm">등록</BButton>
+      <div class="mt-auto d-flex flex-column">
+
+        <div class="d-flex justify-content-end">
+          <BButton variant="secondary" @click="linkModalVisible = true" class="mr-2">
+            링크 추가
+          </BButton>
+          <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
+          <BButton variant="primary" @click="submitForm">등록</BButton>
+        </div>
+
+        <!-- 링크 입력 모달 -->
+        <LinkInput
+          v-model="linkModalVisible"
+          :initial-links="links"
+          @links-updated="handleLinksUpdated"
+        />
       </div>
     </div>
 
@@ -101,8 +113,9 @@ export default {
       description: "",
       content: "",
       images: [], // 업로드된 이미지 저장
-      links: [],
       imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
+      links: [], // 입력된 링크 리스트
+      linkModalVisible: false, // 링크 모달 표시 여부
     };
   },
   methods: {
@@ -112,8 +125,8 @@ export default {
     emitCloseModal() {
       this.$emit("close-modal");
     },
-    handleAddLink(link) {
-      this.links.push(link);
+    handleLinksUpdated(updatedLinks) {
+    this.links = updatedLinks;
     },
     handleImagesSubmitted(newImages) {
       this.images = [...newImages]; // 이미지 업데이트
