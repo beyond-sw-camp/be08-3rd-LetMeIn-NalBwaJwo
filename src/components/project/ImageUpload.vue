@@ -1,48 +1,137 @@
 <template>
-    <div class="image-upload">
-      <b-button
-        variant="outline-secondary"
-        class="w-100 h-100 d-flex justify-content-center align-items-center"
-        @click="triggerFileUpload"
-      >
-        <ImageIcon></ImageIcon>
-        <span class="ml-2">사진 추가</span>
-      </b-button>
-      <input
-        type="file"
-        ref="fileInput"
-        class="d-none"
-        @change="handleFileUpload"
-      />
+  <div>
+    <div 
+      class="image-upload border border-primary rounded p-3 text-center"
+      @dragover.prevent
+      @dragenter.prevent="isDragging = true"
+      @dragleave="isDragging = false"
+      @drop.prevent="handleDrop"
+      :class="{ 'dragging': isDragging }"
+    >
+      <p v-if="images.length === 0">이미지 파일을 드래그 앤 드롭하거나 클릭하여 업로드하세요.</p>
+      <draggable v-else v-model="images" class="image-preview d-flex flex-wrap justify-content-start overflow-auto" @end="updateImageOrder" itemKey="url">
+        <template #item="{ element, index }">
+          <div class="image-thumbnail m-2 position-relative">
+            <img :src="element.url" alt="Uploaded Image" class="img-thumbnail" />
+            <b-button variant="danger" size="sm" class="btn-delete" @click="removeImage(index)">
+              삭제
+            </b-button>
+          </div>
+        </template>
+      </draggable>
+      <input type="file" ref="fileInput" @change="handleFileSelect" accept="image/*" class="d-none" multiple />
     </div>
-  </template>
-  
-  <script>
-  import ImageIcon from "~icons/material-symbols-light/image";
-  
-  export default {
-    components: {
-      ImageIcon,
+    
+    <!-- Modal Footer -->
+    <div class="d-flex justify-content-end mt-3">
+      <b-button variant="primary" @click="triggerFileSelect" class="mr-2">이미지 선택</b-button>
+      <b-button variant="success" @click="submitImages">등록</b-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import draggable from 'vuedraggable';
+
+export default {
+  components: {
+    draggable,
+  },
+  props: {
+    initialImages: {
+      type: Array,
+      default: () => []
+    }
+  },
+  data() {
+    return {
+      isDragging: false,
+      images: [...this.initialImages], // Prop으로 받은 이미지를 데이터로 초기화
+    };
+  },
+  methods: {
+    triggerFileSelect() {
+      this.$refs.fileInput.click();
     },
-    methods: {
-      triggerFileUpload() {
-        this.$refs.fileInput.click();
-      },
-      handleFileUpload(event) {
-        const file = event.target.files[0];
-        if (file) {
-          this.$emit('file-selected', file);  // 부모 컴포넌트로 파일 전송
+    handleFileSelect(event) {
+      const files = event.target.files;
+      this.processFiles(files);
+    },
+    handleDrop(event) {
+      this.isDragging = false;
+      const files = event.dataTransfer.files;
+      this.processFiles(files);
+    },
+    processFiles(files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.images.push({
+              file,
+              url: e.target.result,
+            });
+          };
+          reader.readAsDataURL(file);
+        } else {
+          alert("이미지 파일만 업로드할 수 있습니다.");
         }
       }
-    }
-  };
-  </script>
-  
-  <style>
-  .image-upload {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    height: 200px;
+    },
+    removeImage(index) {
+      this.images.splice(index, 1);
+    },
+    submitImages() {
+      this.$emit('images-submitted', this.images);
+    },
+    updateImageOrder() {
+      // Handle image reordering
+    },
   }
-  </style>
-  
+};
+</script>
+
+<style scoped>
+.image-upload {
+  border: 2px dashed #007bff;
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  max-height: 300px;
+  overflow-y: auto; /* 이미지가 많을 경우 스크롤 */
+}
+
+.image-upload.dragging {
+  border-color: #0056b3;
+  background-color: #e9ecef;
+}
+
+.image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.image-thumbnail {
+  width: 200px; /* 썸네일 너비를 2배로 증가 */
+  height: 200px; /* 썸네일 높이를 2배로 증가 */
+  overflow: hidden;
+  position: relative;
+}
+
+.image-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 0;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+</style>
