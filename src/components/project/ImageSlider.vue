@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 .image-slider {
-  height: 300px;
+  height: 400px;
   position: relative;
 }
 

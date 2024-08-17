@@ -24,43 +24,46 @@
         </BButton>
       </div>
 
-      <div class="ml-2"></div> <!-- 오른쪽 여백을 위해 빈 div 추가 -->
+      <div class="ml-2"></div>
     </div>
 
     <!-- 모달 본문 섹션 -->
-    <div class="modal-body d-flex mt-3">
-      <ImageSlider
-        :images="images"
-        @show-image-uploader="showImageUploader"
-        class="image-slider-section"
-      />
+    <div class="modal-body d-flex mt-3 flex-column">
+      <div class="d-flex">
+        <!-- 이미지 섹션 -->
+        <ImageSlider
+          :images="images"
+          @show-image-uploader="showImageUploader"
+          class="image-slider-section"
+        />
       
-      <!-- 프로젝트 설명 및 내용 섹션 -->
-      <div class="content-section flex-grow-2">
-        <BFormGroup class="mb-3">
-          <label class="custom-label bg-primary">프로젝트 설명</label>
-          <BFormTextarea
-            v-model="description"
-            rows="3"
-            placeholder="프로젝트 설명을 입력하세요."
-          ></BFormTextarea>
-        </BFormGroup>
-        
-        <BFormGroup class="mb-3">
-          <label class="custom-label bg-primary">프로젝트 내용</label>
-          <BFormTextarea
-            v-model="content"
-            rows="5"
-            placeholder="프로젝트 내용을 입력하세요."
-          ></BFormTextarea>
-        </BFormGroup>
+        <!-- 프로젝트 설명 및 내용 섹션 -->
+        <div class="content-section flex-grow-2">
+          <BFormGroup class="mb-3">
+            <label class="custom-label bg-primary">프로젝트 설명</label>
+            <BFormTextarea
+              v-model="description"
+              rows="4"
+              placeholder="프로젝트 설명을 입력하세요."
+            ></BFormTextarea>
+          </BFormGroup>
+          
+          <BFormGroup class="mb-3">
+            <label class="custom-label bg-primary">프로젝트 내용</label>
+            <BFormTextarea
+              v-model="content"
+              rows="10"
+              placeholder="프로젝트 내용을 입력하세요."
+            ></BFormTextarea>
+          </BFormGroup>
+        </div>
       </div>
-    </div>
 
-    <!-- 링크 추가 및 제출 버튼 섹션 -->
-    <div class="modal-footer d-flex justify-content-end">
-      <LinkInput @add-link="handleAddLink" />
-      <BButton variant="primary" @click="submitForm">등록</BButton>
+      <!-- 링크 추가 및 제출 버튼 섹션 -->
+      <div class="mt-auto d-flex justify-content-end">
+        <LinkInput @add-link="handleAddLink" class="mr-2" />
+        <BButton variant="primary" @click="submitForm">등록</BButton>
+      </div>
     </div>
 
     <!-- 이미지 업로더 모달 -->
@@ -105,13 +108,13 @@ export default {
       this[section] = !this[section];
     },
     emitCloseModal() {
-      this.$emit("close-modal"); // 부모 컴포넌트에 모달 닫기 이벤트 발행
+      this.$emit("close-modal");
     },
     handleAddLink(link) {
       this.links.push(link);
     },
     handleImagesSubmitted(newImages) {
-      this.images = newImages;
+      this.images = [...newImages]; // 이미지 업데이트
       this.imageUploaderVisible = false;
     },
     showImageUploader() {
@@ -125,28 +128,24 @@ export default {
 </script>
 
 <style scoped>
-.custom-modal .modal-dialog {
-  width: 100%; /* 모달 너비 설정 */
-  margin: 30px auto;
-}
-
 .modal-body {
   display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px); /* 모달 전체 높이를 유지하면서 footer 공간을 확보 */
+  overflow-y: auto;
 }
 
 .image-slider-section {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   margin-right: 15px;
+  flex-shrink: 0; /* 이미지 슬라이더의 크기를 고정 */
 }
 
 .content-section {
   flex-grow: 2;
   padding-left: 15px;
-}
-
-.modal-footer {
-  margin-top: 15px;
+  height: 400px; /* 이미지 섹션과 동일한 높이 */
 }
 
 .fs-1 {
@@ -168,5 +167,13 @@ export default {
   border-radius: 4px;
   display: block;
   margin-bottom: 8px;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mr-2 {
+  margin-right: 0.5rem; /* 링크 추가 버튼과 등록 버튼 사이의 간격 */
 }
 </style>
