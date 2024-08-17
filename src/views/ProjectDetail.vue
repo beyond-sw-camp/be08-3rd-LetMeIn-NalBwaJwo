@@ -56,7 +56,7 @@
   </template>
   
   <script>
-  import ImageSlider from "@components/project/ImageSlider.vue";
+  import ImageSlider from "@components/project/ProjectForm/ImageSlider.vue";
   import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
   
   export default {

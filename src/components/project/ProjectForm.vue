@@ -90,9 +90,9 @@
 </template>
 
 <script>
-import ImageSlider from "./ImageSlider.vue";
-import ImageUploadModal from "./ImageUploadModal.vue";
-import LinkInput from "./LinkInput.vue";
+import ImageSlider from "./ProjectForm/ImageSlider.vue";
+import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
+import LinkInput from "./ProjectForm/LinkInput.vue";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
