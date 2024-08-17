@@ -63,7 +63,7 @@
       <div class="mt-auto d-flex justify-content-end">
         <LinkInput @add-link="handleAddLink" class="mr-2" />
         <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
-        <BButton variant="primary" @click="submitForm">등록</BButton>
+        <BButton variant="point" @click="submitForm">등록</BButton>
       </div>
     </div>
 
