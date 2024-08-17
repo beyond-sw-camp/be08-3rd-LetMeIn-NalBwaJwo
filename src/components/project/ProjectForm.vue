@@ -42,7 +42,7 @@
       <!-- 프로젝트 설명 및 내용 섹션 -->
       <div class="content-section flex-grow-2">
         <BFormGroup class="mb-3">
-          <label class="custom-label">프로젝트 설명</label>
+          <label class="custom-label bg-primary">프로젝트 설명</label>
           <BFormTextarea
             v-model="description"
             rows="3"
@@ -51,7 +51,7 @@
         </BFormGroup>
         
         <BFormGroup class="mb-3">
-          <label class="custom-label">프로젝트 내용</label>
+          <label class="custom-label bg-primary">프로젝트 내용</label>
           <BFormTextarea
             v-model="content"
             rows="5"
@@ -171,7 +171,6 @@ export default {
 }
 
 .custom-label {
-  background-color: 'primary';
   color: white;
   padding: 5px;
   border-radius: 4px;
