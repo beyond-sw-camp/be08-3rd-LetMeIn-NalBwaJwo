@@ -63,11 +63,11 @@
       <div class="mt-auto d-flex flex-column">
 
         <div class="d-flex justify-content-end">
-          <BButton variant="secondary" @click="linkModalVisible = true" class="mr-2">
+          <BButton variant="primary" @click="linkModalVisible = true" class="mr-2">
             링크 추가
           </BButton>
           <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
-          <BButton variant="primary" @click="submitForm">등록</BButton>
+          <BButton variant="point" @click="submitForm">등록</BButton>
         </div>
 
         <!-- 링크 입력 모달 -->
