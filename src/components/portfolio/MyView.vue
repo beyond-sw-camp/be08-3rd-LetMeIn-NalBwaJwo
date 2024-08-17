@@ -2,14 +2,14 @@
     <div>
         <div class="my-view">
             <div class="title">
-                <h1 class="view-title">My Views</h1>
+                <h1 class="view-title">About Me</h1>
             </div>
             <div class="about-me">
                 <section id="about-me-title" class="about-me-title">
-                    <h2 class="about-me-hedding">About Me</h2>
+                    <h2 class="about-me-hedding">Attention!</h2>
                 </section>
                 <aside id="about-me-section" class="about-me-section">
-                <h2>소제목을 입력하세요.</h2>
+                <h3>소제목을 입력하세요.</h3>
                     <p>
                         내용을 입력합니다. 조금 긴 내용을 입력하고 싶은데 할 말이 없네요. 이 자리에는 자기소개 내용이 들어갑니다.
                         <br>조금 더 할 말을 정해야 하는데 진짜로 없네요. 컴포넌트 위치 설정을 어떻게 해야할 지 고민입니다.
@@ -50,7 +50,7 @@
 .about-me {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     box-sizing: border-box;
     height: 300px;
@@ -60,6 +60,7 @@
     display: flex;
     width: 200px;
     height: 200px;
+    min-width: 200px;
     object-fit: cover;
     align-items: center;
     justify-content: center;

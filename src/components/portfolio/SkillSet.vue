@@ -1,7 +1,7 @@
 <template>
-    <div class="image-container" @mouseover="hover = true" @mouseleave="hover = false">
+    <div class="container">
         <img :src="imageUrl" alt="Circle Image" class="circle-image" />
-        <div class="overlay" v-if="hover">
+        <div class="overlay">
             <span>{{ grade }}</span>
         </div>
     </div>
@@ -9,11 +9,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-            hover: false,
-        };
-    },
     props: {
         imageUrl: String,
         grade: String
@@ -22,16 +17,17 @@ export default {
 </script>
 
 <style scoped>
-.image-container {
+.container {
     position: relative;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
 .circle-image {
@@ -39,8 +35,6 @@ export default {
     height: auto;
     max-height: 100%;
     object-fit: cover;
-    /* border-radius: 50%; */
-    /* object-position: center; */
 }
 
 .overlay {
@@ -49,14 +43,19 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* 어두워지는 효과 */
+    background-color: rgba(0, 0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 12px;
+    font-size: 13px;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.25s ease, opacity 0.25s ease;
+    opacity: 0;
+}
+
+.container:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.35);
+    opacity: 1;
 }
 </style>

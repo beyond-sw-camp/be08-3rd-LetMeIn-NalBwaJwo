@@ -5,14 +5,20 @@
     <div class="skillset-title">
       <h1 class="skills">Skills</h1>
     </div>
-    <div v-for="(skill, index) in skillsLine1" :key="index" :style="getSkillSetLine1(index)">
-      <SkillSet :grade="skill.grade" :imageUrl="skill.imageUrl" />
+    <div class="skillset-line1">
+      <div v-for="(skill, index) in skillsLine1" :key="index" :style="getSkillSet(index)">
+        <SkillSet :grade="skill.grade" :imageUrl="skill.imageUrl" />
+      </div>
     </div>
-    <div v-for="(skill, index) in skillsLine2" :key="index" :style="getSkillSetLine2(index)">
-      <SkillSet :grade="skill.grade" :imageUrl="skill.imageUrl" />
+    <div class="skillset-line2">
+      <div v-for="(skill, index) in skillsLine2" :key="index" :style="getSkillSet(index)">
+        <SkillSet :grade="skill.grade" :imageUrl="skill.imageUrl" />
+      </div>
     </div>
-    <div v-for="(skill, index) in skillsLine3" :key="index" :style="getSkillSetLine3(index)">
-      <SkillSet :grade="skill.grade" :imageUrl="skill.imageUrl" />
+    <div class="skillset-line3">
+      <div v-for="(skill, index) in skillsLine3" :key="index" :style="getSkillSet(index)">
+        <SkillSet :grade="skill.grade" :imageUrl="skill.imageUrl" />
+      </div>
     </div>
     <MyLink class="myLink"/>
   </div>
@@ -71,31 +77,15 @@ export default {
     }
   },
   methods: {
-    getSkillSetLine1(index) {
-      const leftOffset = 28 + index * 11;
+    getSkillSet(index) {
       return {
-        position: 'absolute',
-        left: `${leftOffset}%`,
-        top: '180%',
+        position: 'relative',
+        display: 'flex',
+        width: 'auto',
+        padding: '0.5rem'
       };
-    },
-    getSkillSetLine2(index) {
-      const leftOffset = 23 + index * 11;
-      return {
-        position: 'absolute',
-        left: `${leftOffset}%`,
-        top: '200%',
-      };
-    },
-    getSkillSetLine3(index) {
-      const leftOffset = 28 + index * 11;
-      return {
-        position: 'absolute',
-        left: `${leftOffset}%`,
-        top: '220%',
-      };
-    },
-  },
+    }
+  }
 };
 
 </script>
@@ -115,7 +105,6 @@ export default {
 .myLink {
   display: flex;
   justify-content: center;
-  margin-top: 32%;
 }
 
 .skillset-title {
@@ -124,6 +113,22 @@ export default {
   margin-top: 3%; 
   justify-content: center;
   width: 100%;
+}
+
+.skillset-line1 {
+  display: flex;
+  margin-top: 3%; 
+  justify-content: center;
+}
+
+.skillset-line2 {
+  display: flex;
+  justify-content: center;
+}
+
+.skillset-line3 {
+  display: flex;
+  justify-content: center;
 }
 
 .skills::before,
@@ -146,5 +151,12 @@ export default {
     transform: translateY(-50%); 
 }
 
-
+.myLink {
+  margin-top: 8%;
+  width: auto;
+  background-color: rgb(19, 19, 31);
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 1rem 0;
+}
 </style>
