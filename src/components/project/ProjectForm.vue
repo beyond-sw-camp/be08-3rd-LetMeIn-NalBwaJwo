@@ -62,12 +62,14 @@
       <!-- 링크 추가 및 제출 버튼 섹션 -->
       <div class="mt-auto d-flex justify-content-end">
         <LinkInput @add-link="handleAddLink" class="mr-2" />
+        <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
         <BButton variant="primary" @click="submitForm">등록</BButton>
       </div>
     </div>
 
     <!-- 이미지 업로더 모달 -->
     <ImageUploadModal
+      ref="imageUploadModal"
       v-model="imageUploaderVisible"
       :initial-images="images"
       @images-submitted="handleImagesSubmitted"
@@ -122,6 +124,17 @@ export default {
     },
     submitForm() {
       this.emitCloseModal(); // 폼 제출 시 모달 닫기 이벤트 발행
+    },
+    resetForm() {
+      if (confirm("정말로 모든 입력을 초기화하시겠습니까?")) {
+        this.editableTitle = "";
+        this.description = "";
+        this.content = "";
+        this.images = [];
+        this.links = [];
+        this.titleEdit = false;
+        this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
+      }
     },
   },
 };

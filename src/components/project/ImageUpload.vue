@@ -24,8 +24,8 @@
     
     <!-- Modal Footer -->
     <div class="d-flex justify-content-end mt-3">
-      <b-button variant="primary" @click="triggerFileSelect" class="mr-2">이미지 선택</b-button>
-      <b-button variant="success" @click="submitImages">등록</b-button>
+      <b-button variant="primary" @click="triggerFileSelect" class="mr-2">이미지 추가</b-button>
+      <b-button variant="point" @click="submitImages" class="text-white">등록</b-button>
     </div>
   </div>
 </template>
@@ -82,11 +82,14 @@ export default {
     removeImage(index) {
       this.images.splice(index, 1);
     },
-    submitImages() {
-      this.$emit('images-submitted', this.images);
-    },
     updateImageOrder() {
-      // Handle image reordering
+      // 드래그앤드롭으로 이미지 순서가 변경될 때 호출
+    },
+    submitImages() {
+      this.$emit('images-submitted', this.images); // 부모 컴포넌트에 이미지 배열 전달
+    },
+    resetImages() {
+      this.images = []; // 이미지 초기화
     },
   }
 };
@@ -133,5 +136,9 @@ export default {
   padding: 0;
   font-size: 0.7rem;
   line-height: 1;
+}
+
+.mr-2 {
+  margin-right: 0.5rem; /* 버튼 사이의 간격 */
 }
 </style>

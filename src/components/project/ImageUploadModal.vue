@@ -8,6 +8,7 @@
   >
     <div class="p-3">
       <ImageUpload 
+        ref="imageUpload"
         :initial-images="images"
         @images-submitted="submit"
       />
@@ -35,27 +36,32 @@ export default {
   data() {
     return {
       visible: this.modelValue,
-      images: [],
+      images: [...this.initialImages], // 이미지 복사본을 사용
     };
   },
-  watch: {
-    modelValue(newVal) {
-      this.visible = newVal;
-      if (newVal) {
-        this.images = [...this.initialImages]; // 모달이 열릴 때 초기 이미지를 복사
-      }
-    },
-    visible(newVal) {
-      this.$emit('update:modelValue', newVal);
-    },
-  },
   methods: {
-    submit(updatedImages) {
-      this.$emit('images-submitted', updatedImages);
+    submit(newImages) {
+      this.images = newImages;
+      this.$emit('images-submitted', this.images);
       this.closeModal();
     },
     closeModal() {
       this.$emit('update:modelValue', false);
+    },
+    resetImages() {
+      this.images = [];
+      this.$refs.imageUpload.resetImages(); // ImageUpload 내의 이미지도 초기화
+    },
+  },
+  watch: {
+    modelValue(newVal) {
+      this.visible = newVal;
+    },
+    visible(newVal) {
+      this.$emit('update:modelValue', newVal);
+    },
+    initialImages(newImages) {
+      this.images = [...newImages];
     },
   },
 };
