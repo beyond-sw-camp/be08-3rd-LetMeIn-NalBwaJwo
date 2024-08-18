@@ -1,4 +1,10 @@
-import { ContactView, LoginView, NotFoundView, UserView } from "@views/index";
+import {
+  ContactView,
+  LoginView,
+  NotFoundView,
+  ResumeDetailsView,
+  UserView,
+} from "@views/index";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -27,7 +33,13 @@ const routes = [
       {
         name: "Resume",
         path: "resume",
-        component: ContactView,
+        children: [
+          {
+            name: "ResumeDetail",
+            path: ":resumeId",
+            component: ResumeDetailsView,
+          },
+        ],
       },
       {
         name: "Blog",
