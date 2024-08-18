@@ -7,9 +7,17 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AwardsAndCertificationForm: typeof import('./src/components/resume/AwardsAndCertificationForm.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BCard: typeof import('bootstrap-vue-next')['BCard']
+    BCardGroup: typeof import('bootstrap-vue-next')['BCardGroup']
+    BCardHeader: typeof import('bootstrap-vue-next')['BCardHeader']
+    BCardText: typeof import('bootstrap-vue-next')['BCardText']
+    BCardTitle: typeof import('bootstrap-vue-next')['BCardTitle']
+    BCol: typeof import('bootstrap-vue-next')['BCol']
     BCollapse: typeof import('bootstrap-vue-next')['BCollapse']
+    BContainer: typeof import('bootstrap-vue-next')['BContainer']
+    BForm: typeof import('bootstrap-vue-next')['BForm']
     BFormGroup: typeof import('bootstrap-vue-next')['BFormGroup']
     BFormInput: typeof import('bootstrap-vue-next')['BFormInput']
     BFormTextarea: typeof import('bootstrap-vue-next')['BFormTextarea']
@@ -21,9 +29,17 @@ declare module 'vue' {
     BNavForm: typeof import('bootstrap-vue-next')['BNavForm']
     BNavItem: typeof import('bootstrap-vue-next')['BNavItem']
     BNavText: typeof import('bootstrap-vue-next')['BNavText']
+    BRow: typeof import('bootstrap-vue-next')['BRow']
+    EducationForm: typeof import('./src/components/resume/EducationForm.vue')['default']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
+    ResumeDetailHeader: typeof import('./src/components/resume/ResumeDetailHeader.vue')['default']
+    ResumeFormLayout: typeof import('./src/components/layout/resume/ResumeFormLayout.vue')['default']
     ResumeList: typeof import('./src/components/resume/ResumeList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    WorkExperienceForm: typeof import('./src/components/resume/WorkExperienceForm.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vBToggle: typeof import('bootstrap-vue-next')['vBToggle']
   }
 }
