@@ -10,7 +10,7 @@
 <script>
 import ProjectList from '@components/project/ProjectList.vue'
 
-/* 사진 파일 링크로 작성해서 좀 긺... */
+/* 사진 파일 링크로 작성해서 좀 긺...*/
 
 export default {
     components: {
