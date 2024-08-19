@@ -111,4 +111,34 @@ export default {
   margin: 10;
   text-align: center;
 }
+
+.project-card {
+  width: 100%;
+  flex: 1 1 100%;
+  aspect-ratio: 3 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: auto; 
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+  aspect-ratio: 3 / 2;
+}
+
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding-top: 10px;
+  text-align: center;
+  position: relative;
+  top: 16px;
+}
 </style>

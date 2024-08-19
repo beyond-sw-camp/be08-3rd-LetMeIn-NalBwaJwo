@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container project-list-container">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4 mb-4" v-for="project in projects" :key="project.id">
         <ProjectCard :project="project" />
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-4 mb-4"></div>
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
         <ProjectAdd />
       </div>
     </div>
@@ -30,4 +30,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
