@@ -12,6 +12,9 @@ import PostView from "./Blog/PostView.vue";
 // blog
 export { BlogView, PostView };
 
+// project
+export { ProjectView };
+
 export {
   ContactView,
   LoginView,

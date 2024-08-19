@@ -5,6 +5,7 @@ import {
   ResumeDetailsView,
   UserView,
   PortfolioView,
+  ProjectView,
   BlogView,
 } from "@views/index";
 
@@ -30,7 +31,7 @@ const routes = [
       {
         name: "Project",
         path: "project",
-        component: ContactView,
+        component: ProjectView,
       },
       {
         name: "Resume",
