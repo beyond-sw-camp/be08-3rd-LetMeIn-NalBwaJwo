@@ -5,9 +5,9 @@
         </div>
 
         <div class="button-container">
-            <BButton @click="toggleEditMode" class="custom-button" variant="dark">
+            <button type="button" @click="toggleEditMode" class="btn btn-primary" variant="dark">
                 {{ isEditMode ? 'Save' : 'Edit' }}
-            </BButton>
+            </button>
         </div>
         
         <PostView :posts="posts" :isEditMode="isEditMode"/>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import PostView from './PostView.vue';
+    import PostView from '@components/blog/PostView.vue';
 
     export default {
         name: 'BlogView',
@@ -49,11 +49,15 @@
 .text-center {
     margin-bottom: 30px;
 }
-.custom-button {
+.btn-primary {
+    border: 3px solid;
+    color: #2C3E50;
     float: right;
     margin-top: 30px;
     margin-bottom: 20px;
     margin-right: 20px;
+    background-color: white;
+    font-size: 25px;
 }
 .button-container {
     margin-bottom: 120px;

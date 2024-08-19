@@ -7,14 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AboutMe: typeof import('./src/components/portfolio/AboutMe.vue')['default']
     AwardsAndCertificationForm: typeof import('./src/components/resume/AwardsAndCertificationForm.vue')['default']
     BannerSlider: typeof import('./src/components/portfolio/BannerSlider.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BCard: typeof import('bootstrap-vue-next')['BCard']
     BCardBody: typeof import('bootstrap-vue-next')['BCardBody']
     BCardGroup: typeof import('bootstrap-vue-next')['BCardGroup']
-    BCardHeader: typeof import('bootstrap-vue-next')['BCardHeader']
     BCardText: typeof import('bootstrap-vue-next')['BCardText']
     BCardTitle: typeof import('bootstrap-vue-next')['BCardTitle']
     BCol: typeof import('bootstrap-vue-next')['BCol']
@@ -26,7 +24,6 @@ declare module 'vue' {
     BFormSelect: typeof import('bootstrap-vue-next')['BFormSelect']
     BFormTextarea: typeof import('bootstrap-vue-next')['BFormTextarea']
     BImg: typeof import('bootstrap-vue-next')['BImg']
-    BInputGroup: typeof import('bootstrap-vue-next')['BInputGroup']
     BModal: typeof import('bootstrap-vue-next')['BModal']
     BNav: typeof import('bootstrap-vue-next')['BNav']
     BNavbar: typeof import('bootstrap-vue-next')['BNavbar']
@@ -50,6 +47,7 @@ declare module 'vue' {
     MainTechnologies: typeof import('./src/components/resume/MainTechnologies.vue')['default']
     MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
     MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
+    PostView: typeof import('./src/components/blog/PostView.vue')['default']
     Profile: typeof import('./src/components/resume/Profile.vue')['default']
     ProjectDescription: typeof import('./src/components/project/ProjectDescription.vue')['default']
     ProjectForm: typeof import('./src/components/project/ProjectForm.vue')['default']
@@ -63,17 +61,5 @@ declare module 'vue' {
     TechnologyList: typeof import('./src/components/resume/TechnologyList.vue')['default']
     TechnologyListItem: typeof import('./src/components/resume/TechnologyListItem.vue')['default']
     WorkExperienceForm: typeof import('./src/components/resume/WorkExperienceForm.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
-    MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
-    MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
-    ProjectDescription: typeof import('./src/components/project/ProjectDescription.vue')['default']
-    ProjectForm: typeof import('./src/components/project/ProjectForm.vue')['default']
-    ProjectTitle: typeof import('./src/components/project/ProjectTitle.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
-    SkillSet: typeof import('./src/components/portfolio/SkillSet.vue')['default']
-    vBToggle: typeof import('bootstrap-vue-next')['vBToggle']
   }
 }
