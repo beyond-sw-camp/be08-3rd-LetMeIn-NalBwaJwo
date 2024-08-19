@@ -2,6 +2,7 @@ import {
   ContactView,
   LoginView,
   NotFoundView,
+  ResumeDetailsView,
   UserView,
   PortfolioView,
   ProjectView,
@@ -35,7 +36,13 @@ const routes = [
       {
         name: "Resume",
         path: "resume",
-        component: ContactView,
+        children: [
+          {
+            name: "ResumeDetail",
+            path: ":resumeId",
+            component: ResumeDetailsView,
+          },
+        ],
       },
       {
         name: "Blog",
