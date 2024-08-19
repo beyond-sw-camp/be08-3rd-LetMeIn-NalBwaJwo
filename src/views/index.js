@@ -8,6 +8,7 @@ import PortfolioView from "./PortfolioView.vue";
 
 import BlogView from "./Blog/BlogView.vue";
 import PostView from "./Blog/PostView.vue";
+import ProjectView from "./ProjectView.vue";
 
 // blog
 export { BlogView, PostView };
