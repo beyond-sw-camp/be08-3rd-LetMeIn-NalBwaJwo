@@ -1,26 +1,33 @@
 <template>
-    <div class="project-list">
-      <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-4" v-for="project in projects" :key="project.id">
+        <ProjectCard :project="project" />
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+        <ProjectAdd />
+      </div>
     </div>
-  </template>
-  
-  <script>
-  import ProjectCard from './ProjectCard.vue'
-  
-  export default {
-    components: {
-      ProjectCard
-    },
-    props: {
-      projects: {
-        type: Array,
-        required: true
-      }
+  </div>
+</template>
+
+<script>
+import ProjectCard from '@components/project/ProjectCard.vue'
+import ProjectAdd from '@components/project/ProjectAdd.vue'
+
+export default {
+  components: {
+    ProjectCard,
+    ProjectAdd
+  },
+  props: {
+    projects: {
+      type: Array,
+      required: true
     }
   }
-  </script>
-  
-  <style scoped>
-  /* 스타일 설정 */
-  </style>
-  
+}
+</script>
+
+<style scoped>
+</style>
