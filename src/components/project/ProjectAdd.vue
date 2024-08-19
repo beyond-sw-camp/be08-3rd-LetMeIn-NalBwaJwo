@@ -1,5 +1,6 @@
 <template>
-  <div class="card project-add-card shadow-sm border-0" @click="ProjectForm.vue">
+  <div class="card project-add-card shadow-sm border-0" @click="ProjectForm.vue"> 
+    <!-- @click 하면 ProjectForm 모달 창이 뜨도록 -->
     <div class="card-body d-flex justify-content-center align-items-center text-center">
       <i class="bi bi-plus-circle custom-icon"></i>
     </div>
@@ -14,9 +15,7 @@ export default {
     }
   }, 
   methods: {
-    // goToAddProject() {
-    //   this.$router.push('/add-project'); 
-    // }
+
   }
 }
 </script>

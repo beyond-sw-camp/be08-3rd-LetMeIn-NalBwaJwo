@@ -39,7 +39,7 @@ export default {
       } else {
         this.addFavorite();
       }
-      // 하트 상태 반전
+      // 하트 상태 반전 기능
       this.isFavorite = !this.isFavorite;
     },
     addFavorite() {
