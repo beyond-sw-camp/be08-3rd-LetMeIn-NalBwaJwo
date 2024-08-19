@@ -5,36 +5,14 @@
     </BRow>
     <BRow>
       <BCol md="4" class="me-5">
-        <BRow class="mb-3">
-          <BCard bg-variant="primary" text-variant="white" title="계용운">
-            <BCardGroup>
-              <BCardText>
-                <MainIcon />
-              </BCardText>
-              <BCardText> rpdyddns3620.com</BCardText>
-            </BCardGroup>
-            <BCardGroup>
-              <BCardText>
-                <PhoneIcon />
-              </BCardText>
-              <BCardText>010-3333-4444</BCardText>
-            </BCardGroup>
-          </BCard>
-        </BRow>
-        <BRow class="mb-3">
-          <BCard bg-variant="primary" text-variant="white">
-            <BCardText><GithubIcon /> Github Repository</BCardText>
-          </BCard>
-        </BRow>
-        <BRow class="mb-3">
-          <BCard bg-variant="primary" text-variant="white">
-            <BCardTitle>Main Technologies</BCardTitle>
-          </BCard>
-        </BRow>
-        <BRow class="mb-3">
-          <BCard bg-variant="primary" text-variant="white">
-            <BCardTitle>Desired Job</BCardTitle>
-          </BCard>
+        <BRow
+          class="mb-3"
+          v-for="sideDetail in sideDetails"
+          :key="sideDetail.id"
+        >
+          <BCol>
+            <component :is="sideDetail.name"></component>
+          </BCol>
         </BRow>
       </BCol>
       <BCol md="7">
@@ -67,14 +45,15 @@
   </BContainer>
 </template>
 <script>
-import MaterialSymbolsLightMailOutline from "~icons/material-symbols-light/mail-outline";
-import MaterialSymbolsLightPhoneAndroidOutlineRounded from "~icons/material-symbols-light/phone-android-outline-rounded";
-import PajamasGithub from "~icons/pajamas/github";
 import {
   ResumeDetailHeader,
   WorkExperienceForm,
   EducationForm,
   AwardsAndCertificationForm,
+  Profile,
+  GithubRepository,
+  MainTechnologies,
+  DesiredJob,
 } from "@components/index";
 
 import { RESUME_MUTATION_TYPES } from "@store/modules/resume/mutation.js";
@@ -84,14 +63,18 @@ export default {
     EducationForm,
     WorkExperienceForm,
     AwardsAndCertificationForm,
-    MainIcon: MaterialSymbolsLightMailOutline,
-    PhoneIcon: MaterialSymbolsLightPhoneAndroidOutlineRounded,
-    GithubIcon: PajamasGithub,
+    Profile,
+    GithubRepository,
+    MainTechnologies,
+    DesiredJob,
   },
 
   computed: {
     details() {
       return this.$store.state.Resume.details;
+    },
+    sideDetails() {
+      return this.$store.state.Resume.sideDetails;
     },
   },
 

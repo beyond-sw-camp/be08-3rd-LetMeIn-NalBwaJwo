@@ -1,6 +1,24 @@
 import { mutations } from "./mutation";
 
 const initState = {
+  sideDetails: [
+    {
+      id: "profile",
+      name: "Profile",
+    },
+    {
+      id: "githubRepository",
+      name: "GithubRepository",
+    },
+    {
+      id: "mainTech",
+      name: "MainTechnologies",
+    },
+    {
+      id: "desiredJob",
+      name: "DesiredJob",
+    },
+  ],
   details: [
     {
       id: "workExperience",
