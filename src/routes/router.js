@@ -1,4 +1,11 @@
-import { ContactView, LoginView, NotFoundView, UserView, PortfolioView } from "@views/index";
+import {
+  ContactView,
+  LoginView,
+  NotFoundView,
+  UserView,
+  PortfolioView,
+  BlogView,
+} from "@views/index";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -32,7 +39,7 @@ const routes = [
       {
         name: "Blog",
         path: "blog",
-        component: ContactView,
+        component: BlogView,
       },
       // contact 페이지
       {
