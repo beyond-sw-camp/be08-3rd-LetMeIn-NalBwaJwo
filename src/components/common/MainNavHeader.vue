@@ -2,7 +2,7 @@
   <BNavbar class="bg-primary" toggleable="sm">
     <BNavbarBrand class="text-white" href="#">LetMeIn</BNavbarBrand>
 
-    <BNavbarToggle target="nav-collapse" />
+    <BNavbarToggle target="nav-collapse" class="bg-white`" />
     <BCollapse id="nav-collapse" is-nav>
       <!-- 네비게이션 링크들 -->
       <BNavbarNav
