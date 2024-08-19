@@ -4,4 +4,19 @@ import NotFoundView from "./NotFoundView.vue";
 import ResumeDetailsView from "./ResumeDetailsView.vue";
 import UserView from "./UserView.vue";
 
-export { ContactView, LoginView, NotFoundView, ResumeDetailsView, UserView };
+import PortfolioView from "./PortfolioView.vue";
+
+import BlogView from "./Blog/BlogView.vue";
+import PostView from "./Blog/PostView.vue";
+
+// blog
+export { BlogView, PostView };
+
+export {
+  ContactView,
+  LoginView,
+  NotFoundView,
+  PortfolioView,
+  ResumeDetailsView,
+  UserView,
+};

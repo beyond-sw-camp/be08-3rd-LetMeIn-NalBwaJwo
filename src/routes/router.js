@@ -4,6 +4,8 @@ import {
   NotFoundView,
   ResumeDetailsView,
   UserView,
+  PortfolioView,
+  BlogView,
 } from "@views/index";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -23,7 +25,7 @@ const routes = [
       {
         name: "Main",
         path: "portfolio",
-        component: ContactView,
+        component: PortfolioView,
       },
       {
         name: "Project",
@@ -44,7 +46,7 @@ const routes = [
       {
         name: "Blog",
         path: "blog",
-        component: ContactView,
+        component: BlogView,
       },
       // contact 페이지
       {

@@ -7,7 +7,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AboutMe: typeof import('./src/components/portfolio/AboutMe.vue')['default']
     AwardsAndCertificationForm: typeof import('./src/components/resume/AwardsAndCertificationForm.vue')['default']
+    BannerSlider: typeof import('./src/components/portfolio/BannerSlider.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BCard: typeof import('bootstrap-vue-next')['BCard']
     BCardBody: typeof import('bootstrap-vue-next')['BCardBody']
@@ -23,6 +25,8 @@ declare module 'vue' {
     BFormInput: typeof import('bootstrap-vue-next')['BFormInput']
     BFormSelect: typeof import('bootstrap-vue-next')['BFormSelect']
     BFormTextarea: typeof import('bootstrap-vue-next')['BFormTextarea']
+    BImg: typeof import('bootstrap-vue-next')['BImg']
+    BModal: typeof import('bootstrap-vue-next')['BModal']
     BNav: typeof import('bootstrap-vue-next')['BNav']
     BNavbar: typeof import('bootstrap-vue-next')['BNavbar']
     BNavbarBrand: typeof import('bootstrap-vue-next')['BNavbarBrand']
@@ -39,17 +43,26 @@ declare module 'vue' {
     GithubRepository: typeof import('./src/components/resume/GithubRepository.vue')['default']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
     MainTechnologies: typeof import('./src/components/resume/MainTechnologies.vue')['default']
+    MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
+    MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
     Profile: typeof import('./src/components/resume/Profile.vue')['default']
     ResumeDetailHeader: typeof import('./src/components/resume/ResumeDetailHeader.vue')['default']
     ResumeFormLayout: typeof import('./src/components/layout/resume/ResumeFormLayout.vue')['default']
     ResumeList: typeof import('./src/components/resume/ResumeList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SkillSet: typeof import('./src/components/portfolio/SkillSet.vue')['default']
     TechnologyList: typeof import('./src/components/resume/TechnologyList.vue')['default']
     TechnologyListItem: typeof import('./src/components/resume/TechnologyListItem.vue')['default']
     WorkExperienceForm: typeof import('./src/components/resume/WorkExperienceForm.vue')['default']
   }
   export interface ComponentCustomProperties {
+    MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
+    MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
+    MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    SkillSet: typeof import('./src/components/portfolio/SkillSet.vue')['default']
     vBToggle: typeof import('bootstrap-vue-next')['vBToggle']
   }
 }
