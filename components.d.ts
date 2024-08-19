@@ -22,6 +22,7 @@ declare module 'vue' {
     BNavItem: typeof import('bootstrap-vue-next')['BNavItem']
     BNavText: typeof import('bootstrap-vue-next')['BNavText']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
+    ProjectAdd: typeof import('./src/components/common/project/ProjectAdd.vue')['default']
     ProjectCard: typeof import('./src/components/common/project/ProjectCard.vue')['default']
     ProjectList: typeof import('./src/components/common/project/ProjectList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
