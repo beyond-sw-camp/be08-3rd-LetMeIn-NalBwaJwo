@@ -6,12 +6,11 @@ import UserView from "./UserView.vue";
 
 import PortfolioView from "./PortfolioView.vue";
 
-import BlogView from "./Blog/BlogView.vue";
-import PostView from "./Blog/PostView.vue";
+import BlogView from "./BlogView.vue";
 import ProjectView from "./ProjectView.vue";
 
 // blog
-export { BlogView, PostView };
+export { BlogView };
 
 // project
 export { ProjectView };

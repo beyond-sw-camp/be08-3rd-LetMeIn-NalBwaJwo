@@ -9,54 +9,54 @@
 
                 <div class="post-container">
                     <BImg :src="post.image" thumbnail fluid :alt="post.title" class="post-image"/>
-                    <p><a class="link-opacity-100" :href="post.link">{{ post.title }}</a></p>
+                    <p><a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" :href="post.link">{{ post.title }}</a></p>
                     <div class="title-overlay">{{ post.title }}</div>
                 </div>
             </div>
 
             <div v-if="isEditMode" class="grid-item add-post-container" :style="{ order: posts.length + 1 }">
-                <button type="button" class="add-post-btn" @click="showModal = true">
+                <BButton type="button" class="add-post-btn" @click="showModal = true">
                     + Add Post
-                </button>
+                </BButton>
             </div>
         </div>
 
-        <b-modal v-model="showModal" :title="editMode ? 'Edit Post' : 'Add New Post'" @ok="editMode !== null ? updatePost() : addNewPost()">
-            <b-form @submit.prevent="editMode !== null ? updatePost() : addNewPost()">
-                <b-form-group label="Image URL" label-for="image-url">
-                    <b-form-input
+        <BModal v-model="showModal" :title="editMode ? 'Edit Post' : 'Add New Post'" @ok="editMode !== null ? updatePost() : addNewPost()"
+                @hide="resetForm">
+            <BForm @submit.prevent="editMode !== null ? updatePost() : addNewPost()">
+                <BFormGroup label="Image URL" label-for="image-url">
+                    <BFormInput
                         id="image-url"
                         v-model="newImageUrl"
                         required
                         placeholder="Enter image URL"
-                    ></b-form-input>
-                </b-form-group>
+                    ></BFormInput>
+                </BFormGroup>
 
-                <b-form-group label="Post Title" label-for="post-title">
-                    <b-form-input
+                <BFormGroup label="Post Title" label-for="post-title">
+                    <BFormInput
                         id="post-title"
                         v-model="newImageTitle"
                         required
                         placeholder="Enter post title"
-                    ></b-form-input>
-                </b-form-group>
+                    ></BFormInput>
+                </BFormGroup>
 
-                <b-form-group label="Post URL" label-for="post-url">
-                    <b-form-input
+                <BFormGroup label="Post URL" label-for="post-url">
+                    <BFormInput
                         id="post-url"
                         v-model="newPostUrl"
                         required
                         placeholder="Enter post url"
-                    ></b-form-input>
-                </b-form-group>
-            </b-form>
-        </b-modal>
+                    ></BFormInput>
+                </BFormGroup>
+            </BForm>
+        </BModal>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'PostView',
     data() {
         return {
             showModal: false,
@@ -148,6 +148,7 @@ export default {
         transform: scale(1.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         filter: brightness(0.8);
+        margin-bottom: 15px;
     }
 
     .post-container:hover .title-overlay {
@@ -188,5 +189,9 @@ export default {
     .add-post-btn:hover {
         background-color: #e0e0e0;
         color: #000;
+    }
+
+    .link-body-emphasis{
+        font-size: 20px;
     }
 </style>
