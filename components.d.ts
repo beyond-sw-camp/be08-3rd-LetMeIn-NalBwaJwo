@@ -7,15 +7,23 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AboutMe: typeof import('./src/components/portfolio/AboutMe.vue')['default']
+    BannerSlider: typeof import('./src/components/portfolio/BannerSlider.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BCard: typeof import('bootstrap-vue-next')['BCard']
+    BCardBody: typeof import('bootstrap-vue-next')['BCardBody']
+    BCardGroup: typeof import('bootstrap-vue-next')['BCardGroup']
     BCardText: typeof import('bootstrap-vue-next')['BCardText']
+    BCardTitle: typeof import('bootstrap-vue-next')['BCardTitle']
     BCol: typeof import('bootstrap-vue-next')['BCol']
     BCollapse: typeof import('bootstrap-vue-next')['BCollapse']
     BContainer: typeof import('bootstrap-vue-next')['BContainer']
+    BForm: typeof import('bootstrap-vue-next')['BForm']
     BFormGroup: typeof import('bootstrap-vue-next')['BFormGroup']
     BFormInput: typeof import('bootstrap-vue-next')['BFormInput']
+    BFormSelect: typeof import('bootstrap-vue-next')['BFormSelect']
     BFormTextarea: typeof import('bootstrap-vue-next')['BFormTextarea']
+    BImg: typeof import('bootstrap-vue-next')['BImg']
     BInputGroup: typeof import('bootstrap-vue-next')['BInputGroup']
     BModal: typeof import('bootstrap-vue-next')['BModal']
     BNav: typeof import('bootstrap-vue-next')['BNav']
@@ -32,10 +40,13 @@ declare module 'vue' {
     ImageUploadModal: typeof import('./src/components/project/ImageUploadModal.vue')['default']
     LinkInput: typeof import('./src/components/project/LinkInput.vue')['default']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
+    MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
+    MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
     ProjectDescription: typeof import('./src/components/project/ProjectDescription.vue')['default']
     ProjectForm: typeof import('./src/components/project/ProjectForm.vue')['default']
     ProjectTitle: typeof import('./src/components/project/ProjectTitle.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SkillSet: typeof import('./src/components/portfolio/SkillSet.vue')['default']
   }
 }
