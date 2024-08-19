@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AboutMe: typeof import('./src/components/portfolio/AboutMe.vue')['default']
+    BannerSlider: typeof import('./src/components/portfolio/BannerSlider.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BCard: typeof import('bootstrap-vue-next')['BCard']
     BCol: typeof import('bootstrap-vue-next')['BCol']
@@ -27,7 +29,10 @@ declare module 'vue' {
     BNavText: typeof import('bootstrap-vue-next')['BNavText']
     BRow: typeof import('bootstrap-vue-next')['BRow']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
+    MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
+    MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SkillSet: typeof import('./src/components/portfolio/SkillSet.vue')['default']
   }
 }
