@@ -18,8 +18,9 @@
       <!-- 로그인, 로그아웃 버튼 -->
       <BNavbarNav class="ms-auto">
         <BNavForm>
-          <BButton>
-            <RouterLink class="text-black text-decoration-none" to="/login">
+          <BButton v-if="isLogin" @click="handleLogout"> 로그아웃 </BButton>
+          <BButton v-else>
+            <RouterLink class="text-black text-decoration-none" :to="'/login'">
               로그인
             </RouterLink>
           </BButton>
@@ -32,6 +33,7 @@
 export default {
   data() {
     return {
+      isLogin: localStorage.getItem("ACCESS_TOKEN") !== null,
       navs: [
         {
           name: "Home",
@@ -55,6 +57,15 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    handleLogout() {
+      const user = JSON.parse(localStorage.getItem("CURRENT_USER"));
+      localStorage.removeItem("ACCESS_TOKEN");
+      localStorage.removeItem("CURRENT_USER");
+      this.isLogin = false;
+      this.$router.replace(`/${user.name}/portfolio`);
+    },
   },
 };
 </script>
