@@ -13,13 +13,14 @@ import TechnologyList from "./resume/TechnologyList.vue";
 import TechnologyListItem from "./resume/TechnologyListItem.vue";
 import DesiredJobList from "./resume/DesiredJobList.vue";
 import DesiredJobListItem from "./resume/DesiredJobListItem.vue";
-
+import ResumeList from "./resume/ResumeList.vue";
 // common
 export { MainNavHeader };
 
 // resume
 export {
   ResumeDetailHeader,
+  ResumeList,
   Profile,
   GithubRepository,
   MainTechnologies,
