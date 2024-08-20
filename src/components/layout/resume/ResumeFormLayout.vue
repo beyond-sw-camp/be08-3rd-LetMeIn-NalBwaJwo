@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="bg-secondary p-5">
+  <div class="bg-grey p-5">
     <div class="mb-4">
       <slot name="form"></slot>
     </div>

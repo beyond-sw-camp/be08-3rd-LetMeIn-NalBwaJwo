@@ -7,6 +7,7 @@ import {
   PortfolioView,
   ProjectView,
   BlogView,
+  ResumesView,
 } from "@views/index";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -37,6 +38,11 @@ const routes = [
         name: "Resume",
         path: "resume",
         children: [
+          {
+            name: "Resumes",
+            path: "",
+            component: ResumesView,
+          },
           {
             name: "ResumeDetail",
             path: ":resumeId",
