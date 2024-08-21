@@ -7,8 +7,8 @@
       <div class="w-75">
         <DesiredJobList :jobs="jobs" />
       </div>
-      <BButton>저장</BButton>
-      <BFormSelect class="mt-4" :options="options" />
+      <BButton v-if="isLogin">저장</BButton>
+      <BFormSelect v-if="isLogin" class="mt-4" :options="options" />
     </BCardBody>
   </BCard>
 </template>
@@ -22,6 +22,11 @@ export default {
     return {
       jobs: ["Backend", "FrontEnd"],
     };
+  },
+  computed:{
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    },
   },
 };
 </script>

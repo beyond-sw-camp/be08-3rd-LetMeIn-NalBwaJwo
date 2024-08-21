@@ -15,9 +15,9 @@
     export default {
         data() {
             return {
-                companyName: "beyond",
-                stack: "fdfjlskf",
-                job: "adfs",
+                companyName: "한화시스템",
+                stack: "ALL",
+                job: "대표이사",
                 startDate: "2020-02-28",
                 endDate: "2024-04-08"
             }

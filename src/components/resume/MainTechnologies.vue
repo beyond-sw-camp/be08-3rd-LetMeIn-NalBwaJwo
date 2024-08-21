@@ -7,8 +7,8 @@
       <div class="w-75">
         <TechnologyList :technologies="technologies" />
       </div>
-      <BButton>저장</BButton>
-      <BFormSelect class="mt-4" :options="options" />
+      <BButton v-if="isLogin">저장</BButton>
+      <BFormSelect v-if="isLogin" class="mt-4" :options="options" />
     </BCardBody>
   </BCard>
 </template>
@@ -17,6 +17,11 @@ import { TechnologyList } from "@components/index";
 export default {
   components: {
     TechnologyList,
+  },
+  computed:{
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    },
   },
   data() {
     return {

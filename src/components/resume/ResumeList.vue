@@ -3,22 +3,13 @@
   <div v-for="(list, index) in resumes" :key="list.resumeId" class="resume">
     <div class="info">
       <div class="icons-wrapper">
-        <span @click="editResume(list.resumeId)"><EditIcon class="icon" /></span>
-        <span @click="onClickDetail(list.resumeId)">
-          <!-- <RouterLink :to="`resume/${list.resumeId}`"> -->
-          <PageViewIcon class="icon" />
-
-          <!-- </RouterLink> -->
-        </span>
-        <span @click="copyResume(projectId)"><CopyIcon class="icon" /></span>
-        <!-- 삭제 아이콘 클릭 시 삭제 확인 절차 -->
-        <span @click="confirmDelete(projectId)"><DeleteIcon class="icon" /></span>
+        <span v-if="isLogin" @click="confirmSelect(list.resumeId)" class="click-text icon"><emptyStar /></span>
+        <span v-if="isLogin" @click="confirmDelete(index)" class="click-text icon"><DeleteIcon /></span>
       </div>
-      <h3 class="text-bold">
-        <span @click="confirmSelect(projectId)" class="click-text">{{ list.title }}</span>
-        <!-- 별 아이콘 위치설정 -->
+      <h3 class="text-bold resume-title" @click="onClickDetail(list.resumeId)">
+        <span>{{ list.title }}</span>
         <span class="star-box">
-          <StarIcon v-if="selectedIndex === projectId" class="icon star-icon"/>
+          <StarIcon v-if="selectedIndex === list.resumeId" class="icon star-icon" />
         </span>
       </h3>
       <p>{{ list.date }}</p>
@@ -34,51 +25,45 @@ import MaterialSymbolsLightPageviewOutline from "~icons/material-symbols-light/p
 import MaterialSymbolsLightFileCopyOutlineRounded from "~icons/material-symbols-light/file-copy-outline-rounded";
 import MaterialSymbolsLightDeleteOutline from "~icons/material-symbols-light/delete-outline";
 import MeteoconsStarFill from '~icons/meteocons/star-fill';
-import { RouterLink } from "vue-router";
+import MaterialSymbolsLightStarOutline from '~icons/material-symbols-light/star-outline';
 
 export default {
   name: "ResumeList",
-  
   data() {
     return {
-      selectedIndex: null, // 선택된 이력서 인덱스
+      selectedIndex: null,
       resumes: [
-        { resumeId: 1, title: "일등", date: "2023-03-23" },
+        { resumeId: 1, title: "일등", date: "2022-03-23" },
         { resumeId: 2, title: "이등", date: "2023-03-23" },
-        { resumeId: 3, title: "삼등", date: "2023-03-23" }
+        { resumeId: 3, title: "삼등", date: "2024-03-23" }
       ],
     };
   },
   methods: {
     confirmSelect(resumeId) {
       if (this.selectedIndex === resumeId) {
-        // 이미 선택된 이력서가 다시 클릭되었을 때 경고 메시지
         alert("이미 선택된 이력서입니다.");
       } else {
-        // 새로운 이력서 선택
         if (confirm("이 이력서를 대표 이력서로 설정하시겠습니까?")) {
           this.selectItem(resumeId);
         }
       }
     },
     selectItem(resumeId) {
-      this.selectedIndex = resumeId; // 선택된 인덱스를 업데이트
+      this.selectedIndex = resumeId;
     },
-    confirmDelete(resumeId) {
-      // 삭제 확인
-    if (confirm("정말 이 이력서를 삭제하시겠습니까?")) {
-      this.deleteResume(resumeId); // 확인 시 삭제 수행
-    }
-      
+    confirmDelete(index) {
+      if (confirm("정말 이 이력서를 삭제하시겠습니까?")) {
+        this.deleteResume(index);
+      }
     },
-    deleteResume(resumeId) {
-      // 특정 인덱스의 이력서를 삭제
-      this.resumes.splice(resumeId, 1);
+    deleteResume(index) {
+      this.resumes.splice(index, 1);
       
-      // 이력서가 삭제되면 선택된 이력서를 초기화
-      if (this.selectedIndex === resumeId) {
+      // 삭제된 후 selectedIndex 조정
+      if (this.selectedIndex === this.resumes[index]?.resumeId) {
         this.selectedIndex = null;
-      } else if (this.selectedIndex > resumeId) {
+      } else if (this.selectedIndex > this.resumes[index]?.resumeId) {
         this.selectedIndex--;
       }
     },
@@ -86,12 +71,6 @@ export default {
       console.log(resumeId);
       this.$router.push(`resume/${resumeId}`);
     },
-    editResume(resumeId) {
-    },
-    viewResume(resumeId) {
-    },
-    copyResume(resumeId) {
-    }
   },
   components: {
     EditIcon: MaterialSymbolsLightEditOutline,
@@ -99,17 +78,20 @@ export default {
     CopyIcon: MaterialSymbolsLightFileCopyOutlineRounded,
     DeleteIcon: MaterialSymbolsLightDeleteOutline,
     StarIcon: MeteoconsStarFill,
+    emptyStar: MaterialSymbolsLightStarOutline
   },
   computed: {
     selectedItem() {
       return this.selectedIndex !== null
-              ? this.resumes[this.selectedIndex]
-              : null;
+        ? this.resumes.find(item => item.resumeId === this.selectedIndex)
+        : null;
+    },
+    isLogin() {
+      return this.$store.state.Auth.isLogin
     },
   },
 };
 </script>
-
 
 <style scoped>
 * {
@@ -149,6 +131,7 @@ button {
 .resume {
   width: 100%;
   display: flex;
+  flex-direction: column;
   padding: 1rem;
 }
 
@@ -168,6 +151,12 @@ button {
 .icon {
   font-size: 24px;
   cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.icon:hover {
+  color: #084485; /* 아이콘 색상 변경 */
+  transform: scale(1.1); /* 아이콘 크기 증가 */
 }
 
 .click-text {
@@ -191,5 +180,20 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* 반응형 효과 추가 */
+.resume-title {
+  transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  max-width: calc(100% - 40px); /* 아이콘과의 간격 고려 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 텍스트가 길어지면 생략부호 추가 */
+  white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
+}
+
+.resume-title:hover {
+  color: #084485; /* 커서가 올라갈 때 변경할 색상 */
+  transform: scale(1.02); /* 커서가 올라갈 때 크기 증가 효과 */
 }
 </style>

@@ -55,7 +55,6 @@ export default {
   },
   data() {
     return {
-      isLogin: true,
       isEmailEdit: false,
       isPhoneEdit: false,
     };
@@ -66,6 +65,11 @@ export default {
     },
     onClickPhomeEdit() {
       this.isPhoneEdit = true;
+    },
+  },
+  computed:{
+    isLogin() {
+      return this.$store.state.Auth.isLogin
     },
   },
 };

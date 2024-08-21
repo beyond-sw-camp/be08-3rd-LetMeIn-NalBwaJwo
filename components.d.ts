@@ -45,6 +45,7 @@ declare module 'vue' {
     ImageUpload: typeof import('./src/components/project/ProjectForm/ImageUpload.vue')['default']
     ImageUploadModal: typeof import('./src/components/project/ProjectForm/ImageUploadModal.vue')['default']
     LinkInput: typeof import('./src/components/project/ProjectForm/LinkInput.vue')['default']
+    LoginForm: typeof import('./src/components/login/LoginForm.vue')['default']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
     MainTechnologies: typeof import('./src/components/resume/MainTechnologies.vue')['default']
     MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']
@@ -68,6 +69,5 @@ declare module 'vue' {
     TechnologyListItem: typeof import('./src/components/resume/TechnologyListItem.vue')['default']
     WorkExperienceDetail: typeof import('./src/components/resume/WorkExperienceDetail.vue')['default']
     WorkExperienceForm: typeof import('./src/components/resume/WorkExperienceForm.vue')['default']
-    WrokExperienceDetail: typeof import('./src/components/resume/WorkExperienceDetail.vue')['default']
   }
 }

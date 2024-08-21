@@ -45,7 +45,7 @@
           <BCollapse :id="detail.id" v-model="detail.formVisible">
             <BRow>
               <BCol>
-                <component class="mb-3"
+                <component class="mb-3" :style="{ width: '96%' }"
                   v-if="isLogin" 
                   :is="detail.form" 
                   :formId="detail.id"
@@ -75,7 +75,6 @@ import {
 } from "@components/index";
 
 import { RESUME_MUTATION_TYPES } from "@store/modules/resume/mutation.js";
-import { BCard } from "bootstrap-vue-next";
 
 export default {
   components: {
@@ -91,14 +90,12 @@ export default {
     EducationDetail,
     AwardsAndCertificationDetail,
   },
-
-  data() {
-    return {
-      isLogin: true,
-    };
-  },
+  
 
   computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    },
     details() {
       return this.$store.state.Resume.details;
     },
