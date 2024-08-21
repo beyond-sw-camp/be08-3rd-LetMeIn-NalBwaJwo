@@ -24,15 +24,6 @@
         <BModal v-model="showModal" :title="editMode !== null ? 'Edit Post' : 'Add New Post'" @ok="editMode !== null ? updatePost() : addNewPost()"
                 @hide="resetForm">
             <BForm @submit.prevent="editMode !== null ? updatePost() : addNewPost()">
-                <BFormGroup label="Image URL" label-for="image-url">
-                    <BFormInput
-                        id="image-url"
-                        v-model="newImageUrl"
-                        placeholder="Enter image URL"
-                    ></BFormInput>
-                </BFormGroup>
-
-
 
                 <BFormGroup>
                     <div 
@@ -128,6 +119,7 @@ export default {
             this.newPostUrl = post.link;
             this.imagePreview = post.image;
             this.showModal = true;
+            this.image = null;
         },
         updatePost() {
             if (this.newImageUrl && this.newPostTitle && this.newPostUrl && this.newPostContent && this.editMode !== null) {
@@ -135,7 +127,7 @@ export default {
                 post.image = this.newImageUrl;
                 post.title = this.newPostTitle;
                 post.link = this.newPostUrl;
-                post.content = this.content;
+                post.content = this.newPostContent;
 
                 this.resetForm();
             }
@@ -152,8 +144,20 @@ export default {
         onImageUpload(event) {
             const file = event.target.files[0];
             if (file) {
-                this.newImageUrl = URL.createObjectURL(file);
-                this.imagePreview = this.newImageUrl;
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    this.newImageUrl = e.target.result;
+                    this.imagePreview = e.target.result;
+                    this.image = e.target.result;
+                };
+
+                if(file.type.startsWith('image/')){
+                    reader.readAsDataURL(file);
+                }else{
+                    alert('이미지 파일만 업로드가 가능합니다.');
+                }
+
             }
         },
         triggerFileInput() {
@@ -176,7 +180,8 @@ export default {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: auto;
-        gap: 20px;
+        gap: 10px;
+        margin: 0 auto;
     }
 
     .btn {
@@ -192,12 +197,15 @@ export default {
     .post-container {
         position: relative;
         text-align: center;
+        padding-top: 25px;
+        padding-bottom: 25px;
     }
 
     .post-image {
         width: 400px;
-        height: 350px;
+        height: 270px;
         transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        margin-bottom: 15px;
     }
 
     .post-image:hover {
@@ -212,11 +220,13 @@ export default {
 
     .title-overlay {
         position: absolute;
+        width: 350px;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -80%);
         color: white;
-        padding: 30px 80px;
+        font-weight: bold;
+        padding: 10px 20px;
         border-radius: 5px;
         border: 2px solid white; 
         opacity: 0;
@@ -230,7 +240,7 @@ export default {
 
     .add-post-btn {
         width: 400px;
-        height: 350px;
+        height: 270px;
         border: 2px dashed #ccc;
         background-color: #f9f9f9;
         color: #333;
@@ -238,7 +248,7 @@ export default {
         font-weight: bold;
         text-align: center;
         cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.4s ease, color 0.3s ease;
     }
 
     .add-post-btn:hover {
@@ -247,7 +257,37 @@ export default {
     }
 
     .link-body-emphasis{
-        font-size: 20px;
+        font-size: 14px;
+    }
+
+    .drop-zone {
+        width: 100%;
+        height: 200px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+    }
+
+    .drop-zone:hover {
+        background-color: #e0e0e0;
+    }
+
+    .drop-zone img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .addImage{
+        color: white;
+        float: right;
+        background-color: #2C3E50;
     }
 
     .drop-zone {

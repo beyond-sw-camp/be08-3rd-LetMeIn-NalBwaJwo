@@ -11,8 +11,6 @@
 <script>
 import ProjectCard from '@components/project/ProjectCard.vue'
 
-
-
 export default {
   components: {
     ProjectCard,
