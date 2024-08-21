@@ -1,4 +1,14 @@
-import { ContactView, LoginView, NotFoundView, UserView, ProjectView } from "@views/index";
+import {
+  ContactView,
+  LoginView,
+  NotFoundView,
+  ResumeDetailsView,
+  UserView,
+  PortfolioView,
+  ProjectView,
+  BlogView,
+  ResumesView,
+} from "@views/index";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -17,7 +27,7 @@ const routes = [
       {
         name: "Main",
         path: "portfolio",
-        component: ContactView,
+        component: PortfolioView,
       },
       {
         name: "Project",
@@ -27,12 +37,23 @@ const routes = [
       {
         name: "Resume",
         path: "resume",
-        component: ContactView,
+        children: [
+          {
+            name: "Resumes",
+            path: "",
+            component: ResumesView,
+          },
+          {
+            name: "ResumeDetail",
+            path: ":resumeId",
+            component: ResumeDetailsView,
+          },
+        ],
       },
       {
         name: "Blog",
         path: "blog",
-        component: ContactView,
+        component: BlogView,
       },
       // contact 페이지
       {

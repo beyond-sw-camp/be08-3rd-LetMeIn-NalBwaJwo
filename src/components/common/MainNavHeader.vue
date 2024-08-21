@@ -1,20 +1,22 @@
 <template lang="html">
   <BNavbar class="bg-primary" toggleable="sm">
-    <BNavbarBrand href="#">LetMeIn</BNavbarBrand>
+    <BNavbarBrand class="text-white" href="#">LetMeIn</BNavbarBrand>
 
-    <BNavbarToggle target="nav-collapse" />
+    <BNavbarToggle target="nav-collapse" class="bg-white" />
     <BCollapse id="nav-collapse" is-nav>
       <!-- 네비게이션 링크들 -->
-      <BNavbarNav class="d-flex flex-grow-1 justify-content-around">
+      <BNavbarNav
+        class="nav-items-container d-flex flex-grow-1 justify-content-around"
+      >
         <BNavItem v-for="(nav, index) in navs" :key="nav.name">
-          <RouterLink class="text-black text-decoration-none" :to="nav.path">
+          <RouterLink class="text-white text-decoration-none" :to="nav.path">
             {{ nav.name }}
           </RouterLink>
         </BNavItem>
       </BNavbarNav>
 
       <!-- 로그인, 로그아웃 버튼 -->
-      <BNavbarNav>
+      <BNavbarNav class="ms-auto">
         <BNavForm>
           <BButton>
             <RouterLink class="text-black text-decoration-none" to="/login">
@@ -56,4 +58,8 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style scoped>
+.nav-items-container {
+  max-width: 600px;
+}
+</style>
