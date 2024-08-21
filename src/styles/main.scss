@@ -1,12 +1,18 @@
 // Required
 $theme-colors: (
-  primary: #2c3e50,
-  secondary: #3498db,
-  grey: #d9d9d9,
+  primary: rgb(19, 19, 31),
+  secondary: gainsboro,
+  grey: aliceblue,
   dark: #838080,
-  point: #f39c12,
+  point: rgb(255, 248, 43),
 );
 
 @import "bootstrap/dist/css/bootstrap.css";
 @import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
 @import "bootstrap";
+
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css');
+
+body, h1, h2, h3, h4, h5, h6, p {
+  font-family: 'SUIT', sans-serif;
+}

@@ -9,7 +9,7 @@
                     <h2 class="about-me-hedding">Attention!</h2>
                 </section>
                 <aside id="about-me-section" class="about-me-section">
-                <h3 class="about-me-little-title">GREAT CHALLENGER</h3>
+                <h3 class="about-me-little-title">GREAT CHALLENGER 👍</h3>
                     <p>
                         저는 일의 온전한 주인으로서 책임감 있게 결정하고 경쟁자보다 더 빠르게 움직이기 위해 미루지 않고 신속하게 행동합니다.
                         <br>또한 업계의 상식을 뒤엎는 대담한 목표를 가지며 한발 앞선 결과를 지속적으로 만들어 냅니다.

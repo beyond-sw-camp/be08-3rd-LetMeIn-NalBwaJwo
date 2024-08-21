@@ -10,10 +10,9 @@
 
           <BCol cols="4">
             <!-- 비율 수정 -->
-            <BCard
+            <BCard v-if="isLogin"
               @click="ShowModal"
               class="d-flex align-items-center justify-content-center card-3-2">
-              <!-- <AddIcon font-scale="5"></AddIcon> -->
               <br><br>
               <i class="bi bi-plus-circle custom-icon"></i>
               <BCardText></BCardText>
@@ -30,12 +29,14 @@
       hide-header
       size="xl">
       <ProjectDetail 
+        :id="selectedProject?.id"
         :title="selectedProject?.title" 
         :description="selectedProject?.description" 
         :content="selectedProject?.content" 
         :images="selectedProject?.images" 
-        :links="selectedProject?.links" 
         @close-modal="HideDetailModal"
+        @save-project="updateProject"
+        @delete-project="deleteProject"
       />
     </BModal>
 
@@ -53,20 +54,31 @@
 <script>
 import ProjectForm from '@components/project/ProjectForm.vue';
 import ProjectDetail from '../components/project/ProjectDetail.vue';
-import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
 import ProjectList from '@components/project/ProjectList.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   components: {
     ProjectForm,
     ProjectDetail,
-    AddIcon,
+  },
+  computed:{
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    }
   },
   data() {
     return {
       isModalVisible: false,
       isDetailModalVisible: false,
-      projects: [], // 프로젝트 리스트를 저장할 배열
+      projects: [
+        { id: uuidv4(), title: 'kakaomap', content: 'Description A', images: [{url: 'https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp'}, {url: 'https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg'}] },
+        { id: uuidv4(), title: 'TMAP', content: 'Description B', images: [{url: 'https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg'}] },
+        { id: uuidv4(), title: '배달의 민족', content: 'Description C', images: [{url: 'https://image.newdaily.co.kr/site/data/img/2021/06/08/2021060800063_0.jpg'}] },
+        { id: uuidv4(), title: '치지직', content: 'Description D', images: [{url: 'https://kr.aving.net/news/photo/202404/1789380_724854_1624.jpg'}] },
+        { id: uuidv4(), title: '트위치', content: 'Description E', images: [{url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVBGnE2rva5bDMpCoLVrM6c_y8U6nQttpSg&s'}] },
+        { id: uuidv4(), title: '제목6', content: 'Description F', images: ['']}
+      ], // 프로젝트 리스트를 저장할 배열
       selectedProject: null, // 선택된 프로젝트
     };
   },
@@ -90,7 +102,33 @@ export default {
       
       this.projects.push(newProject); // 새 프로젝트를 리스트에 추가
       this.HideModal(); // 모달 닫기
+    },
+    updateProject(newProject) {
+      // id 통해서 바꿔야할 프로젝트 찾고 newProject로 내용 바꾸기
+      console.log("[ProjectView] [updateProject]");
+      
+      console.log(newProject);
+      
+      const target = this.projects.find((project) => newProject.id === project.id);
+
+      target.title = newProject.title;
+      target.content = newProject.content;
+      target.images = newProject.images;
+        
+      
+      this.HideModal();
+    },
+
+    deleteProject(newProject) {
+    console.log("[ProjectView] [deleteProject]");
+    console.log(newProject);
+    
+    this.projects = this.projects.filter((project) => project.id !== newProject.id);
+    
+    this.HideModal();
     }
+
+
   }
 };
 </script>
