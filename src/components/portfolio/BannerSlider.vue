@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-        <h1 class="title">Welcome! Developer 이름입니다.</h1>
+        <h1 class="title">Welcome! Developer 길동입니다.</h1>
         <div class="slider">
             <div class="slides" :style="{ transform: 'translateX(' + currentTranslateX + '%)' }">
                 <div class="slide" v-for="(slide, index) in slides" :key="index">
