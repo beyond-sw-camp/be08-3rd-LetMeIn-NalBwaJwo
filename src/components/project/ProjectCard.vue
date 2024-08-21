@@ -1,22 +1,24 @@
 <template>
   <div class="project-card">
     <div class="card-header">
-      <!-- 빈 하트와 채워진 하트 클릭에 따라 동적으로 변경 -->
+      <!-- 즐겨찾기 버튼 -->
       <button class="favorite-button" @click="toggleFavorite">
         <i :class="isFavorite ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
       </button>
-      <button class="edit-button" @click="editProject">
+      <!-- 수정 버튼 -->
+      <button class="edit-button" @click="emitEditProject">
         <i class="bi bi-pencil"></i>
       </button>
-      <button class="delete-button" @click="deleteProject">
+      <!-- 삭제 버튼 -->
+      <button class="delete-button" @click="emitDeleteProject">
         <i class="bi bi-trash"></i>
       </button>
     </div>
-    <img :src="project.image" alt="Project Image" class="project-image" />
+    <!-- 프로젝트 이미지 -->
+    <img :src="project.images?.[0]?.url || 'default-image.jpg'" alt="Project Image" class="project-image" />
     <h2 class="project-title">{{ project.title }}</h2>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -28,63 +30,52 @@ export default {
   },
   data() {
     return {
-      // 기본으로 빈하트
-      isFavorite: false
+      isFavorite: false, // 즐겨찾기 상태
     };
   },
   methods: {
     toggleFavorite() {
-      if (this.isFavorite) {
-        this.cancelFavorite();
-      } else {
-        this.addFavorite();
-      }
-      // 하트 상태 반전 기능
       this.isFavorite = !this.isFavorite;
+      if (this.isFavorite) {
+        alert('즐겨찾기에 추가되었습니다.');
+      } else {
+        alert('즐겨찾기에서 취소되었습니다.');
+      }
     },
-    addFavorite() {
-      // 즐겨찾기 추가 기능 
-      alert('즐겨찾기에 추가되었습니다.');
+    emitEditProject() {
+      this.$emit('edit-project', this.project);
     },
-    cancelFavorite() {
-      // 즐겨찾기 취소 기능 
-      alert('즐겨찾기에서 취소되었습니다.');
-    },
-    editProject() {
-      // 수정 기능 
-    },
-    deleteProject() {
-      // 삭제 기능 
-      alert('삭제하시겠습니까?');
+    emitDeleteProject() {
+      if (confirm('정말로 삭제하시겠습니까?')) {
+        this.$emit('delete-project', this.project);
+      }
     }
   }
 }
 </script>
 
-
 <style scoped>
 .project-card {
   position: relative;
   flex: 1 1 calc(33.333% - 32px);
-  aspect-ratio: 3 / 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  box-sizing: border-box;
   background-color: #fff;
   margin: 48px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden; /* 카드에서 요소가 넘치지 않도록 설정 */
 }
 
 .card-header {
-  position: absolute;
-  top: -40px;
-  left: 8px;
+  position: relative;
+  top: 0px;
+  left: 120px;
   display: flex;
-  flex-direction: row;
   gap: 8px;
-  align-items: center;
 }
 
 .favorite-button,
@@ -96,22 +87,6 @@ export default {
   font-size: 1.5rem;
   color: rgb(238, 44, 95);
 }
-
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px 4px 0 0;
-}
-
-.project-title {
-  font-size: 1.6rem;
-  font-weight: 500;
-  padding-top: 10px;
-  margin: 10;
-  text-align: center;
-}
-
 .project-card {
   width: 100%;
   flex: 1 1 100%;
@@ -138,7 +113,5 @@ export default {
   font-weight: 500;
   padding-top: 10px;
   text-align: center;
-  position: relative;
-  top: 16px;
 }
 </style>

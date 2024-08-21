@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid'; // uuid 라이브러리에서 v4 함수 가져오기
 import ImageSlider from "./ProjectForm/ImageSlider.vue";
 import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
 import LinkInput from "./ProjectForm/LinkInput.vue";
@@ -126,7 +127,7 @@ export default {
       this.$emit("close-modal");
     },
     handleLinksUpdated(updatedLinks) {
-    this.links = updatedLinks;
+      this.links = updatedLinks;
     },
     handleImagesSubmitted(newImages) {
       this.images = [...newImages]; // 이미지 업데이트
@@ -138,6 +139,7 @@ export default {
     submitForm() {
       // 부모 컴포넌트로 데이터 전달
       const newProject = {
+        id: uuidv4(), // UUID로 고유 ID 생성
         title: this.editableTitle,
         description: this.description,
         content: this.content,

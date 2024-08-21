@@ -128,7 +128,7 @@ export default {
     },
     isEditable: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
@@ -180,10 +180,6 @@ export default {
         this.emitCloseModal();
       }
     },
-    showImageUploader() {
-      // 실제 이미지 업로드 로직을 추가해야 합니다.
-      alert("이미지 업로더를 표시합니다.");
-    }
   },
   watch: {
     title(newTitle) {
