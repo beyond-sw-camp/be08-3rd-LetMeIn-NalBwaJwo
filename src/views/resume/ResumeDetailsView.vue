@@ -6,30 +6,26 @@
     <BRow>
       <!-- 왼쪽 사이드 -->
       <BCol md="4" class="me-5">
-        <BRow
-          class="mb-3"
-          v-for="sideDetail in sideDetails"
-          :key="sideDetail.id"
-        >
+        <BRow class="mb-3" v-for="side in leftSideCardList" :key="side.id">
           <BCol>
-            <component :is="sideDetail.name"></component>
+            <component :is="side.component"></component>
           </BCol>
         </BRow>
       </BCol>
       <!-- 오른쪽 사이드 -->
       <BCol md="7">
-        <BRow v-for="detail in details" :key="detail.id">
+        <BRow v-for="main in mainCardList" :key="main.id">
           <BRow class="mb-3">
             <BCol>
-              <ResumeDetailHeader :title="detail.title">
+              <ResumeDetailHeader :title="main.title">
                 <!-- '추가' 버튼 -->
                 <BButton
                   v-if="isLogin"
                   class="bg-dark text-white me-3"
-                  :class="detail.formVisible ? null : 'collapsed'"
-                  :aria-expanded="detail.formVisible ? 'true' : 'false'"
-                  :aria-controls="detail.id"
-                  @click="toggleForm(detail.id)"
+                  :class="main.formVisible ? null : 'collapsed'"
+                  :aria-expanded="main.formVisible ? 'true' : 'false'"
+                  :aria-controls="main.id"
+                  @click="openForm(main.id)"
                 >
                   추가
                 </BButton>
@@ -38,17 +34,19 @@
           </BRow>
           <BRow>
             <BCol class="mb-3">
-              <component :is="detail.content"/>
+              <component :is="main.detailComponent" />
             </BCol>
           </BRow>
           <!-- 입력 폼 -->
-          <BCollapse :id="detail.id" v-model="detail.formVisible">
+          <BCollapse :id="main.id" v-model="main.formVisible">
             <BRow>
               <BCol>
-                <component class="mb-3" :style="{ width: '96%' }"
-                  v-if="isLogin" 
-                  :is="detail.form" 
-                  :formId="detail.id"
+                <component
+                  v-if="isLogin"
+                  class="mb-3"
+                  :is="main.formComponent"
+                  :formId="main.id"
+                  @close-form="closeForm"
                 ></component>
               </BCol>
             </BRow>
@@ -90,23 +88,71 @@ export default {
     EducationDetail,
     AwardsAndCertificationDetail,
   },
-  
+
+  data() {
+    return {
+      // 왼쪽 사이드에 출력되는 카드 리스트
+      leftSideCardList: [
+        {
+          id: "profile",
+          component: "Profile",
+        },
+        {
+          id: "githubRepository",
+          component: "GithubRepository",
+        },
+        {
+          id: "mainTech",
+          component: "MainTechnologies",
+        },
+        {
+          id: "desiredJob",
+          component: "DesiredJob",
+        },
+      ],
+      // 오른쪽에 출력되는 카드 리스트
+      mainCardList: [
+        {
+          id: "workExperience",
+          title: "업무경험",
+          detailComponent: "WorkExperienceDetail",
+          formComponent: "WorkExperienceForm",
+          formVisible: false,
+        },
+        {
+          id: "education",
+          title: "학력",
+          detailComponent: "EducationDetail",
+          formComponent: "EducationForm",
+          formVisible: false,
+        },
+        {
+          id: "awardsAndCertification",
+          title: "수상/자격증",
+          detailComponent: "awardsAndCertificationDetail",
+          formComponent: "AwardsAndCertificationForm",
+          formVisible: false,
+        },
+      ],
+    };
+  },
 
   computed: {
     isLogin() {
-      return this.$store.state.Auth.isLogin
-    },
-    details() {
-      return this.$store.state.Resume.details;
-    },
-    sideDetails() {
-      return this.$store.state.Resume.sideDetails;
+      return this.$store.state.Auth.isLogin;
     },
   },
 
   methods: {
-    toggleForm(formId) {
-      this.$store.commit({ type: RESUME_MUTATION_TYPES.TOGGLE_FORM, formId });
+    // 폼 열기
+    openForm(formId) {
+      const target = this.mainCardList.find((card) => card.id === formId);
+      target.formVisible = true;
+    },
+    // 폼 닫기
+    closeForm(formId) {
+      const target = this.mainCardList.find((card) => card.id === formId);
+      target.formVisible = false;
     },
   },
 };
