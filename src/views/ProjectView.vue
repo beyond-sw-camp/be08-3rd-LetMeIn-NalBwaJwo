@@ -13,7 +13,6 @@
             <BCard
               @click="ShowModal"
               class="d-flex align-items-center justify-content-center card-3-2">
-              <!-- <AddIcon font-scale="5"></AddIcon> -->
               <br><br>
               <i class="bi bi-plus-circle custom-icon"></i>
               <BCardText></BCardText>
@@ -65,14 +64,14 @@ export default {
   data() {
     return {
       isModalVisible: false,
-      isDetailModalVisible: true,
+      isDetailModalVisible: false,
       projects: [
-        // { id: 1, title: 'kakaomap', description: 'Description A', image: 'https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp' },
+        { id: 1, title: 'kakaomap', content: '내용입니다.내용입니다.', images: 'https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp' },
         // { id: 2, title: 'TMAP', description: 'Description B', image: 'https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg' },
         // { id: 3, title: '배달의 민족', description: 'Description C', image: 'https://image.newdaily.co.kr/site/data/img/2021/06/08/2021060800063_0.jpg' },
         // { id: 4, title: '치지직', description: 'Description D', image: 'https://kr.aving.net/news/photo/202404/1789380_724854_1624.jpg' },
         // { id: 5, title: '트위치', description: 'Description E', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVBGnE2rva5bDMpCoLVrM6c_y8U6nQttpSg&s' },
-        // { id: 6, title: '제목6', description: 'Description F', image: ''}
+        { id: 6, title: '제목6', content: 'Description F', image: ''}
       ], // 프로젝트 리스트를 저장할 배열
       selectedProject: null, // 선택된 프로젝트
     };

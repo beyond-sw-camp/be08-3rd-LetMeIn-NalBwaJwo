@@ -39,14 +39,6 @@
       
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
-          <BFormGroup class="mb-3">
-            <label class="custom-label bg-primary">프로젝트 설명</label>
-            <BFormTextarea
-              v-model="description"
-              rows="4"
-              placeholder="프로젝트 설명을 입력하세요."
-            ></BFormTextarea>
-          </BFormGroup>
           
           <BFormGroup class="mb-3">
             <label class="custom-label bg-primary">프로젝트 내용</label>
@@ -111,7 +103,6 @@ export default {
     return {
       editableTitle: "",
       titleEdit: false,
-      description: "",
       content: "",
       images: [], // 업로드된 이미지 저장
       imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
@@ -141,7 +132,6 @@ export default {
       const newProject = {
         id: uuidv4(), // UUID로 고유 ID 생성
         title: this.editableTitle,
-        description: this.description,
         content: this.content,
         images: this.images,
         links: this.links,
@@ -152,13 +142,27 @@ export default {
     resetForm() {
       if (confirm("정말로 모든 입력을 초기화하시겠습니까?")) {
         this.editableTitle = "";
-        this.description = "";
         this.content = "";
         this.images = [];
         this.links = [];
         this.titleEdit = false;
         this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
       }
+    },
+  },
+  
+  watch: {
+    title(newTitle) {
+      this.localTitle = newTitle;
+    },
+    content(newContent) {
+      this.localContent = newContent;
+    },
+    images(newImages) {
+      this.localImages = [...newImages];
+    },
+    links(newLinks) {
+      this.localLinks = [...newLinks];
     },
   },
 };

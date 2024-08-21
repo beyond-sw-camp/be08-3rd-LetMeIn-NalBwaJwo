@@ -40,21 +40,11 @@
           :images="localImages"
           @click="showImageUploader"
           class="image-slider-section"
-          v-if="isEditable && localImages.length > 0"
+          v-if="isEditable"
         />
 
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
-          <BFormGroup class="mb-3">
-            <label class="custom-label bg-primary">프로젝트 설명</label>
-            <p v-if="!isEditable">{{ localDescription }}</p>
-            <BFormTextarea
-              v-else
-              v-model="localDescription"
-              rows="4"
-              placeholder="프로젝트 설명을 입력하세요."
-            ></BFormTextarea>
-          </BFormGroup>
           
           <BFormGroup class="mb-3">
             <label class="custom-label bg-primary">프로젝트 내용</label>
@@ -62,7 +52,7 @@
             <BFormTextarea
               v-else
               v-model="localContent"
-              rows="10"
+              rows="18"
               placeholder="프로젝트 내용을 입력하세요."
             ></BFormTextarea>
           </BFormGroup>
@@ -96,11 +86,22 @@
       <BButton v-if="isEditable" variant="danger" class="red-button" @click="deleteProject">삭제</BButton>
       <BButton variant="primary" @click="saveChanges">저장</BButton>
     </div>
+
+    
+    <!-- 이미지 업로더 모달 -->
+    <ImageUploadModal
+      ref="imageUploadModal"
+      v-model="imageUploaderVisible"
+      :initial-images="localImages"
+      @images-submitted="handleImagesSubmitted"
+    />
+
   </div>
 </template>
 
 <script>
 import ImageSlider from "@components/project/ProjectForm/ImageSlider.vue";
+import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
 import LinkInput from "@components/project/ProjectForm/LinkInput.vue";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
@@ -135,11 +136,11 @@ export default {
     return {
       titleEdit: false,
       localTitle: this.title,
-      localDescription: this.description,
       localContent: this.content,
       localImages: [...this.images],
       localLinks: [...this.links],
       isLinkModalVisible: false,
+      imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
     };
   },
   methods: {
@@ -158,8 +159,8 @@ export default {
     deleteProject() {
       if (confirm("정말로 이 프로젝트를 삭제하시겠습니까?")) {
         this.$emit("delete-project", {
+          id: this.id,
           title: this.localTitle,
-          description: this.localDescription,
           content: this.localContent,
           images: this.localImages,
           links: this.localLinks,
@@ -170,8 +171,8 @@ export default {
     saveChanges() {
       if (confirm("저장하시겠습니까?")) {
         const updatedProject = {
+          id: this.id,
           title: this.localTitle,
-          description: this.localDescription,
           content: this.localContent,
           images: this.localImages,
           links: this.localLinks,
@@ -180,13 +181,17 @@ export default {
         this.emitCloseModal();
       }
     },
+    showImageUploader() {
+      this.imageUploaderVisible = true;
+    },
+    handleImagesSubmitted(newImages) {
+      this.images = [...newImages]; // 이미지 업데이트
+      this.imageUploaderVisible = false;
+    },
   },
   watch: {
     title(newTitle) {
       this.localTitle = newTitle;
-    },
-    description(newDescription) {
-      this.localDescription = newDescription;
     },
     content(newContent) {
       this.localContent = newContent;
