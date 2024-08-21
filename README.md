@@ -42,7 +42,7 @@
 [Figma 바로가기](https://www.figma.com/design/EV81DsJRDIgnZxRSLyqw3A/Untitled?node-id=0-1&t=IAdWOXM1TXy2L9wM-0)
 ![image](https://github.com/user-attachments/assets/6f83a21b-3fd5-4693-86e3-df5e4eae0a05)
 
-
+## 📚WBS
 
 
 ## 📌테스트 
