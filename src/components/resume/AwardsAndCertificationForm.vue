@@ -1,10 +1,13 @@
 <template lang="html">
   <resume-form-layout>
     <template v-slot:form>
-      <BFormGroup class="mb-3" label="수상/취득내용">
+      <BFormGroup class="mb-3" label="수상 / 자격명">
         <BFormInput />
       </BFormGroup>
-      <BFormGroup label="수상/취득년월">
+      <BFormGroup class="mb-3" label="수상 / 자격 취득 내용">
+        <BFormInput />
+      </BFormGroup>
+      <BFormGroup label="수상 / 자격 취득일">
         <BFormInput type="date" />
       </BFormGroup>
     </template>

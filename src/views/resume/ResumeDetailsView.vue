@@ -4,6 +4,7 @@
       <BCol><h1>이력서2</h1></BCol>
     </BRow>
     <BRow>
+      <!-- 왼쪽 사이드 -->
       <BCol md="4" class="me-5">
         <BRow
           class="mb-3"
@@ -15,12 +16,15 @@
           </BCol>
         </BRow>
       </BCol>
+      <!-- 오른쪽 사이드 -->
       <BCol md="7">
         <BRow v-for="detail in details" :key="detail.id">
           <BRow class="mb-3">
             <BCol>
               <ResumeDetailHeader :title="detail.title">
+                <!-- '추가' 버튼 -->
                 <BButton
+                  v-if="isLogin"
                   class="bg-dark text-white me-3"
                   :class="detail.formVisible ? null : 'collapsed'"
                   :aria-expanded="detail.formVisible ? 'true' : 'false'"
@@ -32,10 +36,20 @@
               </ResumeDetailHeader>
             </BCol>
           </BRow>
+          <BRow>
+            <BCol class="mb-3">
+              <component :is="detail.content"/>
+            </BCol>
+          </BRow>
+          <!-- 입력 폼 -->
           <BCollapse :id="detail.id" v-model="detail.formVisible">
             <BRow>
               <BCol>
-                <component :is="detail.form" :formId="detail.id"></component>
+                <component class="mb-3"
+                  v-if="isLogin" 
+                  :is="detail.form" 
+                  :formId="detail.id"
+                ></component>
               </BCol>
             </BRow>
           </BCollapse>
@@ -44,6 +58,7 @@
     </BRow>
   </BContainer>
 </template>
+
 <script>
 import {
   ResumeDetailHeader,
@@ -54,9 +69,14 @@ import {
   GithubRepository,
   MainTechnologies,
   DesiredJob,
+  WorkExperienceDetail,
+  EducationDetail,
+  AwardsAndCertificationDetail,
 } from "@components/index";
 
 import { RESUME_MUTATION_TYPES } from "@store/modules/resume/mutation.js";
+import { BCard } from "bootstrap-vue-next";
+
 export default {
   components: {
     ResumeDetailHeader,
@@ -67,6 +87,15 @@ export default {
     GithubRepository,
     MainTechnologies,
     DesiredJob,
+    WorkExperienceDetail,
+    EducationDetail,
+    AwardsAndCertificationDetail,
+  },
+
+  data() {
+    return {
+      isLogin: true,
+    };
   },
 
   computed: {
@@ -85,4 +114,5 @@ export default {
   },
 };
 </script>
+
 <style lang="css" scoped></style>

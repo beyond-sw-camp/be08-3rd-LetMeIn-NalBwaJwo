@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AwardsAndCertificationDetail: typeof import('./src/components/resume/AwardsAndCertificationDetail.vue')['default']
     AwardsAndCertificationForm: typeof import('./src/components/resume/AwardsAndCertificationForm.vue')['default']
     BannerSlider: typeof import('./src/components/portfolio/BannerSlider.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
@@ -37,6 +38,7 @@ declare module 'vue' {
     DesiredJob: typeof import('./src/components/resume/DesiredJob.vue')['default']
     DesiredJobList: typeof import('./src/components/resume/DesiredJobList.vue')['default']
     DesiredJobListItem: typeof import('./src/components/resume/DesiredJobListItem.vue')['default']
+    EducationDetail: typeof import('./src/components/resume/EducationDetail.vue')['default']
     EducationForm: typeof import('./src/components/resume/EducationForm.vue')['default']
     GithubRepository: typeof import('./src/components/resume/GithubRepository.vue')['default']
     ImageSlider: typeof import('./src/components/project/ImageSlider.vue')['default']
@@ -60,6 +62,8 @@ declare module 'vue' {
     SkillSet: typeof import('./src/components/portfolio/SkillSet.vue')['default']
     TechnologyList: typeof import('./src/components/resume/TechnologyList.vue')['default']
     TechnologyListItem: typeof import('./src/components/resume/TechnologyListItem.vue')['default']
+    WorkExperienceDetail: typeof import('./src/components/resume/WorkExperienceDetail.vue')['default']
     WorkExperienceForm: typeof import('./src/components/resume/WorkExperienceForm.vue')['default']
+    WrokExperienceDetail: typeof import('./src/components/resume/WorkExperienceDetail.vue')['default']
   }
 }

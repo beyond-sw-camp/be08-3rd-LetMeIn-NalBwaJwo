@@ -14,6 +14,10 @@ import TechnologyListItem from "./resume/TechnologyListItem.vue";
 import DesiredJobList from "./resume/DesiredJobList.vue";
 import DesiredJobListItem from "./resume/DesiredJobListItem.vue";
 import ResumeList from "./resume/ResumeList.vue";
+import WorkExperienceDetail from "./resume/WorkExperienceDetail.vue";
+import EducationDetail from "./resume/EducationDetail.vue";
+import AwardsAndCertificationDetail from "./resume/awardsAndCertificationDetail.vue";
+
 // common
 export { MainNavHeader };
 
@@ -33,4 +37,7 @@ export {
   TechnologyListItem,
   DesiredJobList,
   DesiredJobListItem,
+  WorkExperienceDetail,
+  EducationDetail,
+  AwardsAndCertificationDetail,
 };

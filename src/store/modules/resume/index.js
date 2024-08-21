@@ -23,18 +23,21 @@ const initState = {
     {
       id: "workExperience",
       title: "업무경험",
+      content: "WorkExperienceDetail",
       form: "WorkExperienceForm",
       formVisible: false,
     },
     {
       id: "education",
       title: "학력",
+      content : "EducationDetail",
       form: "EducationForm",
       formVisible: false,
     },
     {
       id: "awardsAndCertification",
       title: "수상/자격증",
+      content: "awardsAndCertificationDetail",
       form: "AwardsAndCertificationForm",
       formVisible: false,
     },

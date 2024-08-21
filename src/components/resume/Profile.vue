@@ -7,6 +7,8 @@
         class="edit-form ms-2 d-flex flex-grow-1 flex-nowrap justify-content-between"
       >
         <BFormInput class="w-75" />
+
+        <!-- 저장 버튼 -->
         <BButton>저장</BButton>
       </div>
       <div
@@ -16,7 +18,8 @@
         <div>
           <BCardText class="ps-2"> rpdyddns3620@gmail.com </BCardText>
         </div>
-        <BButton @click="onClickEmailEdit">수정</BButton>
+        <!-- 수정 버튼 -->
+        <BButton v-if="isLogin" @click="onClickEmailEdit">수정</BButton>
       </div>
     </BCardGroup>
     <BCardGroup class="d-flex flex-nowrap align-items-center">
@@ -26,6 +29,7 @@
         class="edit-form ms-2 d-flex flex-grow-1 flex-nowrap justify-content-between"
       >
         <BFormInput class="w-75" />
+        <!-- 저장 버튼 -->
         <BButton>저장</BButton>
       </div>
       <div
@@ -35,7 +39,8 @@
         <div>
           <BCardText class="ps-2"> 010-3333-4444 </BCardText>
         </div>
-        <BButton @click="onClickPhomeEdit">수정</BButton>
+        <!-- 수정 버튼 -->
+        <BButton v-if="isLogin" @click="onClickPhomeEdit">수정</BButton>
       </div>
     </BCardGroup>
   </BCard>
@@ -50,6 +55,7 @@ export default {
   },
   data() {
     return {
+      isLogin: true,
       isEmailEdit: false,
       isPhoneEdit: false,
     };
