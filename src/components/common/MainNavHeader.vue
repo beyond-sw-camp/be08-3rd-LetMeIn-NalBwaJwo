@@ -30,10 +30,15 @@
   </BNavbar>
 </template>
 <script>
+import { AUTH_MUTATION_TYPES } from '@store/modules/auth/mutaion';
 export default {
+  computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    }
+  },
   data() {
     return {
-      isLogin: localStorage.getItem("ACCESS_TOKEN") !== null,
       navs: [
         {
           name: "Home",
@@ -60,11 +65,11 @@ export default {
   },
   methods: {
     handleLogout() {
-      const user = JSON.parse(localStorage.getItem("CURRENT_USER"));
+      
       localStorage.removeItem("ACCESS_TOKEN");
       localStorage.removeItem("CURRENT_USER");
-      this.isLogin = false;
-      this.$router.replace(`/${user.name}/portfolio`);
+      this.$store.commit(AUTH_MUTATION_TYPES.LOGOUT)
+      this.$router.replace(`/@yongun/portfolio`);
     },
   },
 };
