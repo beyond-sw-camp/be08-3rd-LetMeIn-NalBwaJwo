@@ -7,7 +7,7 @@
       </BButton>
 
       <div class="d-flex align-items-center justify-content-center flex-grow-1 bg-primary text-white">
-        <h4 v-if="!titleEdit || !isEditable" class="mb-0 text-center fs-2">
+        <h4 v-if="!titleEdit" class="mb-0 text-center fs-2">
           {{ localTitle || "프로젝트 제목" }}
         </h4>
         <BFormInput
@@ -18,7 +18,7 @@
           @keyup.enter="toggleEdit('titleEdit')"
         />
         <BButton
-          v-if="isEditable"
+          v-if="isLogin"
           size="sm"
           variant="light"
           class="ml-2"
@@ -40,16 +40,15 @@
             <ImageSlider
             :images="localImages"
             class="image-slider-section"
-            v-if="isEditable"
           />
-          <BButton variant="primary" class="mt-2 mr-2" @click="showImageUploader">이미지 수정</BButton>
+          <BButton v-if="isLogin" variant="primary" class="mt-2 mr-2" @click="showImageUploader">이미지 수정</BButton>
           </div>
 
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
           <BFormGroup class="mb-3">
             <label class="custom-label bg-primary">프로젝트 내용</label>
-            <p v-if="!isEditable">{{ localContent }}</p>
+            <p v-if="!isLogin">{{ localContent }}</p>
             <BFormTextarea
               v-else
               v-model="localContent"
@@ -63,7 +62,7 @@
 
     <!-- 링크 섹션 -->
     <div class="modal-footer d-flex flex-wrap justify-content-end">
-      <template v-if="isEditable">
+      <template v-if="isLogin">
         <BButton variant="primary" class="mr-2" @click="showLinkModal">링크 수정</BButton>
         <LinkInput
           v-if="isLinkModalVisible"
@@ -84,8 +83,8 @@
           {{ link.name }}
         </BButton>
       </template>
-      <BButton v-if="isEditable" variant="danger" class="red-button" @click="deleteProject">삭제</BButton>
-      <BButton variant="primary" @click="saveChanges">저장</BButton>
+      <BButton v-if="isLogin" variant="danger" class="red-button" @click="deleteProject">삭제</BButton>
+      <BButton v-if="isLogin" variant="primary" @click="saveChanges">저장</BButton>
     </div>
 
     <!-- 이미지 업로더 모달 -->
@@ -129,9 +128,10 @@ export default {
       type: Array,
       default: () => []
     },
-    isEditable: {
-      type: Boolean,
-      default: true
+  },
+  computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin
     }
   },
   data() {

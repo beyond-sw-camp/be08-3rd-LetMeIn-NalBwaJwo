@@ -1,6 +1,6 @@
 <template>
   <div class="project-card">
-    <div class="card-header">
+    <div class="card-header" v-if="isLogin">
       <!-- 즐겨찾기 버튼 -->
       <button class="favorite-button" @click="toggleFavorite">
         <i :class="isFavorite ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
@@ -28,6 +28,11 @@ export default {
     project: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin
     }
   },
   data() {
