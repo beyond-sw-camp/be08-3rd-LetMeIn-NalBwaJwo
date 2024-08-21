@@ -32,7 +32,7 @@
 <script>
 import { useVuelidate } from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
-import apiClient from "@apis";
+import {AUTH_MUTATION_TYPES} from "@store/modules/auth/mutaion.js"
 export default {
   setup() {
     return { v$: useVuelidate() };
@@ -41,6 +41,10 @@ export default {
     return {
       id: "",
       password: "",
+      target: {
+        id: "yongun",
+        password: "qwer1234!"
+      }
     };
   },
   methods: {
@@ -48,23 +52,11 @@ export default {
       const isFormCorrect = await this.v$.$validate();
 
       if (isFormCorrect) {
-        try {
-          const response = await apiClient.post("/users/login", {
-            username: this.id,
-            password: this.password,
-          });
-          console.log(response);
-
-          const user = response.data.result.user;
-          const accessToken = response.data.result.accessToken;
-          const refreshToken = response.data.result.refreshToken;
-
-          localStorage.setItem("CURRENT_USER", JSON.stringify(user));
-          localStorage.setItem("ACCESS_TOKEN", accessToken);
-
-          this.$router.push(`/${user.name}`);
-        } catch (err) {
-          console.log(err);
+        if (this.id === this.target.id && this.password === this.target.password) {
+            this.$store.commit(AUTH_MUTATION_TYPES.LOGIN);
+            localStorage.setItem("ACCESS_TOKEN", "login");
+            localStorage.setItem("CURRENT_USER", {id: 1, name: "@yongun"})
+            this.$router.push("/@yongun")
         }
       }
     },

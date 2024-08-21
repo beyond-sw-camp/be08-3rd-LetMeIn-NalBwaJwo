@@ -20,7 +20,7 @@
                     box-shadow: 0 4px 13px rgba(255, 255, 255, 0.4);"
                 >
                 <BCardText>
-                    작업한 파일과 코드가 궁금하다면 이쪽도 좋은 선택입니다.
+                    프로젝트에 사용된 코드가 궁금하다면 깃허브에서 확인하세요.
                     <br><br>
                 </BCardText>
 
@@ -36,7 +36,8 @@
                     box-shadow: 0 4px 13px rgba(255, 255, 255, 0.4);"
                 >
                 <BCardText>
-                    인간적으로 누군가가 궁금하다면 블로그가 좋지 않을까요? 일상과 작업 과정이 공개되고 있을 지도 모릅니다.
+                    저의 일상과 작업 과정이 공개되어 있습니다. 블로그를 방문해 보세요.
+                    <br><br>
                 </BCardText>
 
                 <BButton href="https://velog.io/" variant="primary" target="_blank" rel="noopener noreferrer">Go myblog</BButton>
