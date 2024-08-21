@@ -51,23 +51,12 @@
         </div>
       </div>
 
-      <!-- 링크 추가 및 제출 버튼 섹션 -->
       <div class="mt-auto d-flex flex-column">
 
         <div class="d-flex justify-content-end">
-          <BButton variant="primary" @click="linkModalVisible = true" class="mr-2">
-            링크 추가
-          </BButton>
           <BButton variant="secondary" @click="confirmReset" class="mr-2">초기화</BButton>
           <BButton variant="point" @click="submitForm">등록</BButton>
         </div>
-
-        <!-- 링크 입력 모달 -->
-        <LinkInput
-          v-model="linkModalVisible"
-          :initial-links="links"
-          @links-updated="handleLinksUpdated"
-        />
       </div>
     </div>
 
@@ -85,7 +74,6 @@
 import { v4 as uuidv4 } from 'uuid'; // uuid 라이브러리에서 v4 함수 가져오기
 import ImageSlider from "./ProjectForm/ImageSlider.vue";
 import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
-import LinkInput from "./ProjectForm/LinkInput.vue";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
@@ -94,7 +82,6 @@ export default {
   components: {
     ImageSlider,
     ImageUploadModal,
-    LinkInput,
     EditIcon: MaterialSymbolsEdit,
     CheckIcon: MaterialSymbolsCheck,
     CancelIcon: MaterialSymbolsCancel,
@@ -106,7 +93,6 @@ export default {
       content: "",
       images: [], // 업로드된 이미지 저장
       imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
-      links: [], // 입력된 링크 리스트
       linkModalVisible: false, // 링크 모달 표시 여부
     };
   },
@@ -139,7 +125,6 @@ export default {
         title: this.editableTitle,
         content: this.content,
         images: this.images,
-        links: this.links,
       };
       this.$emit("submit-project", newProject);
       this.resetForm();
@@ -149,7 +134,6 @@ export default {
       this.editableTitle = "";
       this.content = "";
       this.images = [];
-      this.links = [];
       this.titleEdit = false;
       this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
       }
@@ -163,9 +147,6 @@ export default {
     },
     images(newImages) {
       this.localImages = [...newImages];
-    },
-    links(newLinks) {
-      this.localLinks = [...newLinks];
     },
   },
 };

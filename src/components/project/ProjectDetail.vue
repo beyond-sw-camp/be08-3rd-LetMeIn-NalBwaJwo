@@ -63,28 +63,17 @@
     <!-- 링크 섹션 -->
     <div class="modal-footer d-flex flex-wrap justify-content-end">
       <template v-if="isLogin">
-        <BButton variant="primary" class="mr-2" @click="showLinkModal">링크 수정</BButton>
         <LinkInput
           v-if="isLinkModalVisible"
           :modelValue="localLinks"
           @update:modelValue="updateLinks"
           @close="isLinkModalVisible = false"
         />
-      </template>
-      <template v-else>
-        <BButton
-          v-for="(link, index) in localLinks"
-          :key="index"
-          variant="primary"
-          class="mr-2"
-          :href="link.url"
-          target="_blank"
-        >
-          {{ link.name }}
+        <BButton variant="danger" class="red-button" @click="deleteProject">
+          삭제
         </BButton>
+        <BButton variant="primary" @click="saveChanges">저장</BButton>
       </template>
-      <BButton v-if="isLogin" variant="danger" class="red-button" @click="deleteProject">삭제</BButton>
-      <BButton v-if="isLogin" variant="primary" @click="saveChanges">저장</BButton>
     </div>
 
     <!-- 이미지 업로더 모달 -->
@@ -101,7 +90,6 @@
 <script>
 import ImageSlider from "@components/project/ProjectForm/ImageSlider.vue";
 import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
-import LinkInput from "@components/project/ProjectForm/LinkInput.vue";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
@@ -111,7 +99,6 @@ export default {
   components: {
     ImageSlider,
     ImageUploadModal,
-    LinkInput,
     CancelIcon: MaterialSymbolsCancel,
     EditIcon: MaterialSymbolsEdit,
     CheckIcon: MaterialSymbolsCheck,
@@ -140,7 +127,6 @@ export default {
       localTitle: this.title,
       localContent: this.content,
       localImages: [...this.images],
-      localLinks: [...this.links],
       isLinkModalVisible: false,
       imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
     };
@@ -155,9 +141,6 @@ export default {
     showLinkModal() {
       this.isLinkModalVisible = true;
     },
-    updateLinks(updatedLinks) {
-      this.localLinks = updatedLinks;
-    },
     deleteProject() {
       if (confirm("정말로 이 프로젝트를 삭제하시겠습니까?")) {
         this.$emit("delete-project", {
@@ -165,7 +148,6 @@ export default {
           title: this.localTitle,
           content: this.localContent,
           images: this.localImages,
-          links: this.localLinks,
         });
         this.emitCloseModal();
       }
@@ -177,7 +159,6 @@ export default {
           title: this.localTitle,
           content: this.localContent,
           images: this.localImages,
-          links: this.localLinks,
         };
         console.log(`[ProjectDetail]`);
         console.log(updatedProject);
@@ -204,9 +185,6 @@ export default {
     },
     images(newImages) {
       this.localImages = [...newImages];
-    },
-    links(newLinks) {
-      this.localLinks = [...newLinks];
     },
   },
 };

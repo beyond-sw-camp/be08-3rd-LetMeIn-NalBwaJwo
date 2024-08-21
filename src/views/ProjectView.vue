@@ -34,7 +34,6 @@
         :description="selectedProject?.description" 
         :content="selectedProject?.content" 
         :images="selectedProject?.images" 
-        :links="selectedProject?.links" 
         @close-modal="HideDetailModal"
         @save-project="updateProject"
         @delete-project="deleteProject"
