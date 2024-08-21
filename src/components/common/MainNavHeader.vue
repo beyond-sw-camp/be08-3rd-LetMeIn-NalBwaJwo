@@ -18,8 +18,9 @@
       <!-- 로그인, 로그아웃 버튼 -->
       <BNavbarNav class="ms-auto">
         <BNavForm>
-          <BButton>
-            <RouterLink class="text-black text-decoration-none" to="/login">
+          <BButton v-if="isLogin" @click="handleLogout"> 로그아웃 </BButton>
+          <BButton v-else>
+            <RouterLink class="text-black text-decoration-none" :to="'/login'">
               로그인
             </RouterLink>
           </BButton>
@@ -29,7 +30,13 @@
   </BNavbar>
 </template>
 <script>
+import { AUTH_MUTATION_TYPES } from '@store/modules/auth/mutaion';
 export default {
+  computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    }
+  },
   data() {
     return {
       navs: [
@@ -55,6 +62,15 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    handleLogout() {
+      
+      localStorage.removeItem("ACCESS_TOKEN");
+      localStorage.removeItem("CURRENT_USER");
+      this.$store.commit(AUTH_MUTATION_TYPES.LOGOUT)
+      this.$router.replace(`/@yongun/portfolio`);
+    },
   },
 };
 </script>
