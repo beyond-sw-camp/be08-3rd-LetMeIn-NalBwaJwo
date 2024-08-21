@@ -18,7 +18,7 @@
           <BFormInput />
         </BFormGroup>
       </div>
-      <BFormGroup class="mb-3" label="학점">
+      <BFormGroup class="mb-3" label="평균학점">
         <BFormInput />
       </BFormGroup>
       <BFormGroup label="최대학점">

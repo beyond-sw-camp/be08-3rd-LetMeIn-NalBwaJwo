@@ -62,10 +62,10 @@ const routes = [
         path: "contact",
         component: ContactView,
       },
-      {
-        path: "/:name/:pathMatch(.*)*",
-        redirect: "/404",
-      },
+      // {
+      //   path: "/:name/:pathMatch(.*)*",
+      //   redirect: "/404",
+      // },
     ],
   },
   // 로그인 페이지
@@ -74,10 +74,10 @@ const routes = [
     path: "/login",
     component: LoginView,
   },
-  {
-    path: "/:pathMatch(.*)*",
-    redirect: "/404",
-  },
+  // {
+  //   path: "/:pathMatch(.*)*",
+  //   redirect: "/404",
+  // },
   {
     path: "/404",
     component: NotFoundView,
