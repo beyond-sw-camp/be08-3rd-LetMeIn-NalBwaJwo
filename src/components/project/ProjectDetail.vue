@@ -36,12 +36,14 @@
     <div class="modal-body d-flex mt-3 flex-column">
       <div class="d-flex">
         <!-- 이미지 섹션 -->
-        <ImageSlider
-          :images="localImages"
-          @click="showImageUploader"
-          class="image-slider-section"
-          v-if="isEditable"
-        />
+          <div class="align-items-center justify-content-center">
+            <ImageSlider
+            :images="localImages"
+            class="image-slider-section"
+            v-if="isEditable"
+          />
+          <BButton variant="primary" class="mt-2 mr-2" @click="showImageUploader">이미지 수정</BButton>
+          </div>
 
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
@@ -104,6 +106,7 @@ import LinkInput from "@components/project/ProjectForm/LinkInput.vue";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
+import { BButton } from "bootstrap-vue-next";
 
 export default {
   components: {
