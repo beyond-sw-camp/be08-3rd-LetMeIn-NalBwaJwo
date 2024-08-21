@@ -21,6 +21,7 @@
       </div>
     </div>
     <MyLink class="myLink"/>
+    <a class="btn btn-dark scroll-top" href="#" role="button">▲</a>
   </div>
 </template>
 <script>
@@ -157,6 +158,18 @@ export default {
   background-color: rgb(19, 19, 31);
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0 1rem 0;
+  padding: 2rem 0 3rem 0;
+}
+
+a.scroll-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 10px 15px;
+  background-color: white;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: none;
+  z-index: 9999;
 }
 </style>

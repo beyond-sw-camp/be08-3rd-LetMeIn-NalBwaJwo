@@ -24,6 +24,7 @@
         <BModal v-model="showModal" :title="editMode !== null ? 'Edit Post' : 'Add New Post'" @ok="editMode !== null ? updatePost() : addNewPost()"
                 @hide="resetForm">
             <BForm @submit.prevent="editMode !== null ? updatePost() : addNewPost()">
+
                 <BFormGroup>
                     <div 
                         class="drop-zone" 
@@ -126,7 +127,7 @@ export default {
                 post.image = this.newImageUrl;
                 post.title = this.newPostTitle;
                 post.link = this.newPostUrl;
-                post.content = this.content;
+                post.content = this.newPostContent;
 
                 this.resetForm();
             }
@@ -156,6 +157,7 @@ export default {
                 }else{
                     alert('이미지 파일만 업로드가 가능합니다.');
                 }
+
             }
         },
         triggerFileInput() {
@@ -209,7 +211,7 @@ export default {
     .post-image:hover {
         transform: scale(1.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        filter: brightness(0.5);
+        filter: brightness(0.8);
     }
 
     .post-container:hover .title-overlay {
@@ -256,6 +258,36 @@ export default {
 
     .link-body-emphasis{
         font-size: 14px;
+    }
+
+    .drop-zone {
+        width: 100%;
+        height: 200px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+    }
+
+    .drop-zone:hover {
+        background-color: #e0e0e0;
+    }
+
+    .drop-zone img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .addImage{
+        color: white;
+        float: right;
+        background-color: #2C3E50;
     }
 
     .drop-zone {

@@ -9,11 +9,11 @@
                     <h2 class="about-me-hedding">Attention!</h2>
                 </section>
                 <aside id="about-me-section" class="about-me-section">
-                <h3>소제목을 입력하세요.</h3>
+                <h3 class="about-me-little-title">GREAT CHALLENGER 👍</h3>
                     <p>
-                        내용을 입력합니다. 조금 긴 내용을 입력하고 싶은데 할 말이 없네요. 이 자리에는 자기소개 내용이 들어갑니다.
-                        <br>조금 더 할 말을 정해야 하는데 진짜로 없네요. 컴포넌트 위치 설정을 어떻게 해야할 지 고민입니다.
-                        <br>감사합니다.
+                        저는 일의 온전한 주인으로서 책임감 있게 결정하고 경쟁자보다 더 빠르게 움직이기 위해 미루지 않고 신속하게 행동합니다.
+                        <br>또한 업계의 상식을 뒤엎는 대담한 목표를 가지며 한발 앞선 결과를 지속적으로 만들어 냅니다.
+                        <br>시시각각 변화하는 시장에서 과거의 성과에 자만하지도 안주하지도 않습니다.
                     </p>
                 </aside>
             </div>
@@ -50,11 +50,12 @@
 .about-me {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     box-sizing: border-box;
-    height: 300px;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    
 }
 .about-me-title {
     display: flex;
@@ -68,9 +69,12 @@
     background-color: aliceblue;
 }
 
+.about-me-little-title {
+    margin-bottom: 1rem;
+}
+
 .about-me-content {
     margin-bottom: 4rem;
-    margin-right: 2rem;
 }
 
 .view-title::before,
@@ -93,14 +97,9 @@
     transform: translateY(-50%); 
 }
 
-#about-me-title {
-    float: left;
-    /* width: 20%; */
-    margin-left: 3rem;
-    margin-right: 6rem;
-}
-
 #about-me-section {
+    margin-left: 3rem;
+    margin-right: 3rem;
     float: right;
 }
 </style>

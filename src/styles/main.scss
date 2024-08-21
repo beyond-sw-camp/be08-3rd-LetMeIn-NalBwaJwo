@@ -2,7 +2,7 @@
 $theme-colors: (
   primary: rgb(19, 19, 31),
   secondary: gainsboro,
-  grey: #d9d9d9,
+  grey: aliceblue,
   dark: #838080,
   point: rgb(255, 248, 43),
 );
@@ -10,3 +10,9 @@ $theme-colors: (
 @import "bootstrap/dist/css/bootstrap.css";
 @import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
 @import "bootstrap";
+
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css');
+
+body, h1, h2, h3, h4, h5, h6, p {
+  font-family: 'SUIT', sans-serif;
+}
