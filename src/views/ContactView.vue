@@ -2,7 +2,7 @@
   <div
     class="container max-width-lg h-100 d-flex flex-column justify-content-center"
   >
-    <div class="mb-1">
+    <div class="mb-1 contact">
       <h1 class="text-center">Contact Me</h1>
       <p class="text-center mt-4">If you’re interested in collaborating with me or having a chat about anything, 
         <br>please leave your message :)</p><br>
@@ -94,10 +94,15 @@ export default {
 };
 </script>
 <style scoped>
+.contact {
+  margin-top: 3rem;
+}
+
 .contact-box {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   background-size: auto 100%;
   background-position: center;
+  margin-bottom: 5rem;
 }
 
 .contact-field {
