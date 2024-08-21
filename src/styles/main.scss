@@ -1,10 +1,10 @@
 // Required
 $theme-colors: (
-  primary: #2c3e50,
-  secondary: #3498db,
+  primary: rgb(19, 19, 31),
+  secondary: gainsboro,
   grey: #d9d9d9,
   dark: #838080,
-  point: #f39c12,
+  point: rgb(255, 248, 43),
 );
 
 @import "bootstrap/dist/css/bootstrap.css";

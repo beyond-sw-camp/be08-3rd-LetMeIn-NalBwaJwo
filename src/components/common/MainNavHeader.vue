@@ -1,6 +1,10 @@
 <template lang="html">
   <BNavbar class="bg-primary" toggleable="sm">
-    <BNavbarBrand class="text-white" href="#">LetMeIn</BNavbarBrand>
+    <BNavbarBrand href="#">
+      <BImg :src="logourl" style="width: 200px; height: auto;" />
+    </BNavbarBrand>
+    
+    
 
     <BNavbarToggle target="nav-collapse" class="bg-white" />
     <BCollapse id="nav-collapse" is-nav>
@@ -9,7 +13,7 @@
         class="nav-items-container d-flex flex-grow-1 justify-content-around"
       >
         <BNavItem v-for="(nav, index) in navs" :key="nav.name">
-          <RouterLink class="text-white text-decoration-none" :to="nav.path">
+          <RouterLink class="text-white text-decoration-none" :to="nav.path" active-class="active-link">
             {{ nav.name }}
           </RouterLink>
         </BNavItem>
@@ -30,10 +34,13 @@
   </BNavbar>
 </template>
 <script>
+import logo from '@assets/portfolio/icons/logo.png';
 export default {
+  
   data() {
     return {
       isLogin: localStorage.getItem("ACCESS_TOKEN") !== null,
+      logourl: logo,
       navs: [
         {
           name: "Home",
@@ -73,4 +80,12 @@ export default {
 .nav-items-container {
   max-width: 600px;
 }
+.text-white:hover {
+  color: rgb(255, 248, 43) !important;
+}
+.active-link {
+  color: rgb(255, 248, 43) !important;
+}
+
+
 </style>

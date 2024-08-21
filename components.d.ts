@@ -44,6 +44,7 @@ declare module 'vue' {
     ImageUploadModal: typeof import('./src/components/project/ImageUploadModal.vue')['default']
     LinkInput: typeof import('./src/components/project/LinkInput.vue')['default']
     LoginForm: typeof import('./src/components/login/LoginForm.vue')['default']
+    MainFooter: typeof import('./src/components/common/MainFooter.vue')['default']
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
     MainTechnologies: typeof import('./src/components/resume/MainTechnologies.vue')['default']
     MyLink: typeof import('./src/components/portfolio/MyLink.vue')['default']

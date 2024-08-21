@@ -1,4 +1,5 @@
 import MainNavHeader from "./common/MainNavHeader.vue";
+import MainFooter from "./common/MainFooter.vue";
 import WorkExperienceForm from "./resume/WorkExperienceForm.vue";
 import AwardsAndCertificationForm from "./resume/AwardsAndCertificationForm.vue";
 import ResumeFormLayout from "./layout/resume/ResumeFormLayout.vue";
@@ -19,8 +20,9 @@ import DesiredJobList from "./resume/DesiredJobList.vue";
 import DesiredJobListItem from "./resume/DesiredJobListItem.vue";
 import ResumeList from "./resume/ResumeList.vue";
 
+
 // common
-export { MainNavHeader };
+export { MainNavHeader,  MainFooter};
 
 // login
 export { LoginForm };

@@ -178,7 +178,8 @@ export default {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: auto;
-        gap: 20px;
+        gap: 10px;
+        margin: 0 auto;
     }
 
     .btn {
@@ -194,22 +195,21 @@ export default {
     .post-container {
         position: relative;
         text-align: center;
-        padding-left: 25px;
-        padding-right: 25px;
         padding-top: 25px;
         padding-bottom: 25px;
     }
 
     .post-image {
         width: 400px;
-        height: 350px;
+        height: 270px;
         transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        margin-bottom: 15px;
     }
 
     .post-image:hover {
         transform: scale(1.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        filter: brightness(0.8);
+        filter: brightness(0.5);
     }
 
     .post-container:hover .title-overlay {
@@ -218,11 +218,13 @@ export default {
 
     .title-overlay {
         position: absolute;
+        width: 350px;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -80%);
         color: white;
-        padding: 30px 80px;
+        font-weight: bold;
+        padding: 10px 20px;
         border-radius: 5px;
         border: 2px solid white; 
         opacity: 0;
@@ -236,7 +238,7 @@ export default {
 
     .add-post-btn {
         width: 400px;
-        height: 350px;
+        height: 270px;
         border: 2px dashed #ccc;
         background-color: #f9f9f9;
         color: #333;
@@ -244,7 +246,7 @@ export default {
         font-weight: bold;
         text-align: center;
         cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.4s ease, color 0.3s ease;
     }
 
     .add-post-btn:hover {
@@ -253,7 +255,7 @@ export default {
     }
 
     .link-body-emphasis{
-        font-size: 20px;
+        font-size: 14px;
     }
 
     .drop-zone {
