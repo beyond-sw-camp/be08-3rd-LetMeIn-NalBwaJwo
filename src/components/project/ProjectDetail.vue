@@ -176,6 +176,10 @@ export default {
           images: this.localImages,
           links: this.localLinks,
         };
+        console.log(`[ProjectDetail]`);
+        console.log(updatedProject);
+        
+        
         this.$emit("save-project", updatedProject);
         this.emitCloseModal();
       }

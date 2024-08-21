@@ -15,12 +15,14 @@
       </button>
     </div>
     <!-- 프로젝트 이미지 -->
-    <img :src="project.images?.[0]?.url || 'default-image.jpg'" alt="Project Image" class="project-image" />
+    <img :src="project.images?.[0] || 'default-image.jpg'" alt="Project Image" class="project-image" 
+      @error="onImageError"/>
     <h2 class="project-title">{{ project.title }}</h2>
   </div>
 </template>
 
 <script>
+
 export default {
   props: {
     project: {
@@ -49,6 +51,9 @@ export default {
       if (confirm('정말로 삭제하시겠습니까?')) {
         this.$emit('delete-project', this.project);
       }
+    },
+    onImageError(event){
+      // event.target.src = require("@assets/project/default-image.png");
     }
   }
 }
@@ -72,7 +77,7 @@ export default {
 
 .card-header {
   position: relative;
-  top: 0px;
+  top:0px;
   left: 120px;
   display: flex;
   gap: 8px;
@@ -86,6 +91,7 @@ export default {
   cursor: pointer;
   font-size: 1.5rem;
   color: rgb(238, 44, 95);
+  height: 40px;
 }
 .project-card {
   width: 100%;
@@ -101,7 +107,7 @@ export default {
 }
 
 .project-image {
-  width: 100%;
+  width: 60%;
   height: auto; 
   object-fit: cover;
   border-radius: 4px 4px 0 0;

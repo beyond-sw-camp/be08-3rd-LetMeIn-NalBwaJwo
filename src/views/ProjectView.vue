@@ -29,12 +29,15 @@
       hide-header
       size="xl">
       <ProjectDetail 
+        :id="selectedProject?.id"
         :title="selectedProject?.title" 
         :description="selectedProject?.description" 
         :content="selectedProject?.content" 
         :images="selectedProject?.images" 
         :links="selectedProject?.links" 
         @close-modal="HideDetailModal"
+        @save-project="updateProject"
+        @delete-project="deleteProject"
       />
     </BModal>
 
@@ -54,6 +57,7 @@ import ProjectForm from '@components/project/ProjectForm.vue';
 import ProjectDetail from '../components/project/ProjectDetail.vue';
 import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
 import ProjectList from '@components/project/ProjectList.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   components: {
@@ -66,12 +70,12 @@ export default {
       isModalVisible: false,
       isDetailModalVisible: false,
       projects: [
-        { id: 1, title: 'kakaomap', content: '내용입니다.내용입니다.', images: 'https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp' },
-        // { id: 2, title: 'TMAP', description: 'Description B', image: 'https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg' },
-        // { id: 3, title: '배달의 민족', description: 'Description C', image: 'https://image.newdaily.co.kr/site/data/img/2021/06/08/2021060800063_0.jpg' },
-        // { id: 4, title: '치지직', description: 'Description D', image: 'https://kr.aving.net/news/photo/202404/1789380_724854_1624.jpg' },
-        // { id: 5, title: '트위치', description: 'Description E', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVBGnE2rva5bDMpCoLVrM6c_y8U6nQttpSg&s' },
-        { id: 6, title: '제목6', content: 'Description F', image: ''}
+        { id: uuidv4(), title: 'kakaomap', description: 'Description A', images: ['https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp'] },
+        { id: uuidv4(), title: 'TMAP', description: 'Description B', images: ['https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg'] },
+        { id: uuidv4(), title: '배달의 민족', description: 'Description C', images: ['https://image.newdaily.co.kr/site/data/img/2021/06/08/2021060800063_0.jpg'] },
+        { id: uuidv4(), title: '치지직', description: 'Description D', images: ['https://kr.aving.net/news/photo/202404/1789380_724854_1624.jpg'] },
+        { id: uuidv4(), title: '트위치', description: 'Description E', images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVBGnE2rva5bDMpCoLVrM6c_y8U6nQttpSg&s'] },
+        { id: uuidv4(), title: '제목6', description: 'Description F', images: ['']}
       ], // 프로젝트 리스트를 저장할 배열
       selectedProject: null, // 선택된 프로젝트
     };
@@ -96,7 +100,35 @@ export default {
       
       this.projects.push(newProject); // 새 프로젝트를 리스트에 추가
       this.HideModal(); // 모달 닫기
+    },
+    updateProject(newProject) {
+      // id 통해서 바꿔야할 프로젝트 찾고 newProject로 내용 바꾸기
+      console.log("[ProjectView] [updateProject]");
+      
+      console.log(newProject);
+      
+      const target = this.projects.find((project) => newProject.id === project.id);
+      
+      // this.projects = this.projects.map(project => project.id === id ? {...newProject} : project);
+
+      target.title = newProject.title;
+      target.description = newProject.description;
+      target.images = newProject.images;
+        
+      
+      this.HideModal();
+    },
+
+    deleteProject(newProject) {
+    console.log("[ProjectView] [deleteProject]");
+    console.log(newProject);
+    
+    this.projects = this.projects.filter((project) => project.id !== newProject.id);
+    
+    this.HideModal();
     }
+
+
   }
 };
 </script>
