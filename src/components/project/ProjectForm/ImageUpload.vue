@@ -25,7 +25,7 @@
     <!-- Modal Footer -->
     <div class="d-flex justify-content-end mt-3">
       <b-button variant="primary" @click="triggerFileSelect" class="mr-2">이미지 추가</b-button>
-      <b-button variant="point" @click="submitImages" class="text-white">등록</b-button>
+      <b-button variant="point" @click="submitImages" class="text-black">등록</b-button>
     </div>
   </div>
 </template>

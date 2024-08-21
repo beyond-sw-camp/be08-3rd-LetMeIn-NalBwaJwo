@@ -192,6 +192,7 @@ export default {
   border-radius: 4px;
   display: block;
   margin-bottom: 8px;
+  padding-left: 15px;
 }
 
 .mt-auto {
