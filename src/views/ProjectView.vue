@@ -70,12 +70,12 @@ export default {
       isModalVisible: false,
       isDetailModalVisible: false,
       projects: [
-        { id: uuidv4(), title: 'kakaomap', description: 'Description A', images: ['https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp'] },
-        { id: uuidv4(), title: 'TMAP', description: 'Description B', images: ['https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg'] },
-        { id: uuidv4(), title: '배달의 민족', description: 'Description C', images: ['https://image.newdaily.co.kr/site/data/img/2021/06/08/2021060800063_0.jpg'] },
-        { id: uuidv4(), title: '치지직', description: 'Description D', images: ['https://kr.aving.net/news/photo/202404/1789380_724854_1624.jpg'] },
-        { id: uuidv4(), title: '트위치', description: 'Description E', images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVBGnE2rva5bDMpCoLVrM6c_y8U6nQttpSg&s'] },
-        { id: uuidv4(), title: '제목6', description: 'Description F', images: ['']}
+        { id: uuidv4(), title: 'kakaomap', content: 'Description A', images: [{url: 'https://i.namu.wiki/i/PJXhYEqwxDj8ck8vHS4zfbrur-ZxVdWSeKTuvAJnoDtLwky1YuZxN0DVu5DYCUwWfITmQGf0gB6km50-Yva3Cg.webp'}] },
+        { id: uuidv4(), title: 'TMAP', content: 'Description B', images: [{url: 'https://newsimg.sedaily.com/2022/05/13/265YCDPXAM_1.jpg'}] },
+        { id: uuidv4(), title: '배달의 민족', content: 'Description C', images: [{url: 'https://image.newdaily.co.kr/site/data/img/2021/06/08/2021060800063_0.jpg'}] },
+        { id: uuidv4(), title: '치지직', content: 'Description D', images: [{url: 'https://kr.aving.net/news/photo/202404/1789380_724854_1624.jpg'}] },
+        { id: uuidv4(), title: '트위치', content: 'Description E', images: [{url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVBGnE2rva5bDMpCoLVrM6c_y8U6nQttpSg&s'}] },
+        { id: uuidv4(), title: '제목6', content: 'Description F', images: ['']}
       ], // 프로젝트 리스트를 저장할 배열
       selectedProject: null, // 선택된 프로젝트
     };
@@ -112,7 +112,7 @@ export default {
       // this.projects = this.projects.map(project => project.id === id ? {...newProject} : project);
 
       target.title = newProject.title;
-      target.description = newProject.description;
+      target.content = newProject.content;
       target.images = newProject.images;
         
       

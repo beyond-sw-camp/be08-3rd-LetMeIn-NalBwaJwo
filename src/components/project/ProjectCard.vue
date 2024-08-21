@@ -15,7 +15,7 @@
       </button>
     </div>
     <!-- 프로젝트 이미지 -->
-    <img :src="project.images?.[0] || 'default-image.jpg'" alt="Project Image" class="project-image" 
+    <img :src="project.images?.[0].url" alt="Project Image" class="project-image" 
       @error="onImageError"/>
     <h2 class="project-title">{{ project.title }}</h2>
   </div>
