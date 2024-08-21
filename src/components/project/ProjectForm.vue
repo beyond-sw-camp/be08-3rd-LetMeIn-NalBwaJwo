@@ -90,9 +90,9 @@
 </template>
 
 <script>
-import ImageSlider from "./ImageSlider.vue";
-import ImageUploadModal from "./ImageUploadModal.vue";
-import LinkInput from "./LinkInput.vue";
+import ImageSlider from "./ProjectForm/ImageSlider.vue";
+import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
+import LinkInput from "./ProjectForm/LinkInput.vue";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
@@ -136,6 +136,15 @@ export default {
       this.imageUploaderVisible = true;
     },
     submitForm() {
+      // 부모 컴포넌트로 데이터 전달
+      const newProject = {
+        title: this.editableTitle,
+        description: this.description,
+        content: this.content,
+        images: this.images,
+        links: this.links,
+      };
+      this.$emit("submit-project", newProject);
       this.emitCloseModal(); // 폼 제출 시 모달 닫기 이벤트 발행
     },
     resetForm() {
