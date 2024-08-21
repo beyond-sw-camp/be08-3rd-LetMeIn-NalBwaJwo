@@ -39,14 +39,6 @@
       
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
-          <BFormGroup class="mb-3">
-            <label class="custom-label bg-primary">프로젝트 설명</label>
-            <BFormTextarea
-              v-model="description"
-              rows="4"
-              placeholder="프로젝트 설명을 입력하세요."
-            ></BFormTextarea>
-          </BFormGroup>
           
           <BFormGroup class="mb-3">
             <label class="custom-label bg-primary">프로젝트 내용</label>
@@ -59,23 +51,12 @@
         </div>
       </div>
 
-      <!-- 링크 추가 및 제출 버튼 섹션 -->
       <div class="mt-auto d-flex flex-column">
 
         <div class="d-flex justify-content-end">
-          <BButton variant="primary" @click="linkModalVisible = true" class="mr-2">
-            링크 추가
-          </BButton>
-          <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
+          <BButton variant="secondary" @click="confirmReset" class="mr-2">초기화</BButton>
           <BButton variant="point" @click="submitForm">등록</BButton>
         </div>
-
-        <!-- 링크 입력 모달 -->
-        <LinkInput
-          v-model="linkModalVisible"
-          :initial-links="links"
-          @links-updated="handleLinksUpdated"
-        />
       </div>
     </div>
 
@@ -90,9 +71,9 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid'; // uuid 라이브러리에서 v4 함수 가져오기
 import ImageSlider from "./ProjectForm/ImageSlider.vue";
 import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
-import LinkInput from "./ProjectForm/LinkInput.vue";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
@@ -101,7 +82,6 @@ export default {
   components: {
     ImageSlider,
     ImageUploadModal,
-    LinkInput,
     EditIcon: MaterialSymbolsEdit,
     CheckIcon: MaterialSymbolsCheck,
     CancelIcon: MaterialSymbolsCancel,
@@ -110,11 +90,9 @@ export default {
     return {
       editableTitle: "",
       titleEdit: false,
-      description: "",
       content: "",
       images: [], // 업로드된 이미지 저장
       imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
-      links: [], // 입력된 링크 리스트
       linkModalVisible: false, // 링크 모달 표시 여부
     };
   },
@@ -126,7 +104,7 @@ export default {
       this.$emit("close-modal");
     },
     handleLinksUpdated(updatedLinks) {
-    this.links = updatedLinks;
+      this.links = updatedLinks;
     },
     handleImagesSubmitted(newImages) {
       this.images = [...newImages]; // 이미지 업데이트
@@ -135,28 +113,40 @@ export default {
     showImageUploader() {
       this.imageUploaderVisible = true;
     },
+    confirmReset() {
+      if (confirm("정말로 모든 입력을 초기화하시겠습니까?")) {
+        this.resetForm(); // 초기화 확인 시 폼 초기화
+      }
+    },
     submitForm() {
       // 부모 컴포넌트로 데이터 전달
       const newProject = {
+        id: uuidv4(), // UUID로 고유 ID 생성
         title: this.editableTitle,
-        description: this.description,
         content: this.content,
         images: this.images,
-        links: this.links,
       };
       this.$emit("submit-project", newProject);
+      this.resetForm();
       this.emitCloseModal(); // 폼 제출 시 모달 닫기 이벤트 발행
     },
     resetForm() {
-      if (confirm("정말로 모든 입력을 초기화하시겠습니까?")) {
-        this.editableTitle = "";
-        this.description = "";
-        this.content = "";
-        this.images = [];
-        this.links = [];
-        this.titleEdit = false;
-        this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
+      this.editableTitle = "";
+      this.content = "";
+      this.images = [];
+      this.titleEdit = false;
+      this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
       }
+    },
+  watch: {
+    title(newTitle) {
+      this.localTitle = newTitle;
+    },
+    content(newContent) {
+      this.localContent = newContent;
+    },
+    images(newImages) {
+      this.localImages = [...newImages];
     },
   },
 };
@@ -202,6 +192,7 @@ export default {
   border-radius: 4px;
   display: block;
   margin-bottom: 8px;
+  padding-left: 15px;
 }
 
 .mt-auto {

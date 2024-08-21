@@ -25,7 +25,7 @@
     <!-- Modal Footer -->
     <div class="d-flex justify-content-end mt-3">
       <b-button variant="primary" @click="triggerFileSelect" class="mr-2">이미지 추가</b-button>
-      <b-button variant="point" @click="submitImages" class="text-white">등록</b-button>
+      <b-button variant="point" @click="submitImages" class="text-black">등록</b-button>
     </div>
   </div>
 </template>
@@ -91,7 +91,12 @@ export default {
     resetImages() {
       this.images = []; // 이미지 초기화
     },
-  }
+  },
+  watch: {
+    initialImages(newImages) {
+      this.images = [...newImages]; // 초기 이미지가 변경되면 데이터 반영
+    },
+  },
 };
 </script>
 

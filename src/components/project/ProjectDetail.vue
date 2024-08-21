@@ -7,7 +7,7 @@
       </BButton>
 
       <div class="d-flex align-items-center justify-content-center flex-grow-1 bg-primary text-white">
-        <h4 v-if="!titleEdit || !isEditable" class="mb-0 text-center fs-2">
+        <h4 v-if="!titleEdit" class="mb-0 text-center fs-2">
           {{ localTitle || "프로젝트 제목" }}
         </h4>
         <BFormInput
@@ -18,7 +18,7 @@
           @keyup.enter="toggleEdit('titleEdit')"
         />
         <BButton
-          v-if="isEditable"
+          v-if="isLogin"
           size="sm"
           variant="light"
           class="ml-2"
@@ -36,33 +36,23 @@
     <div class="modal-body d-flex mt-3 flex-column">
       <div class="d-flex">
         <!-- 이미지 섹션 -->
-        <ImageSlider
-          :images="localImages"
-          @click="showImageUploader"
-          class="image-slider-section"
-          v-if="isEditable && localImages.length > 0"
-        />
+          <div class="align-items-center justify-content-center">
+            <ImageSlider
+            :images="localImages"
+            class="image-slider-section"
+          />
+          <BButton v-if="isLogin" variant="primary" class="mt-2 mr-2" @click="showImageUploader">이미지 수정</BButton>
+          </div>
 
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
           <BFormGroup class="mb-3">
-            <label class="custom-label bg-primary">프로젝트 설명</label>
-            <p v-if="!isEditable">{{ localDescription }}</p>
-            <BFormTextarea
-              v-else
-              v-model="localDescription"
-              rows="4"
-              placeholder="프로젝트 설명을 입력하세요."
-            ></BFormTextarea>
-          </BFormGroup>
-          
-          <BFormGroup class="mb-3">
             <label class="custom-label bg-primary">프로젝트 내용</label>
-            <p v-if="!isEditable">{{ localContent }}</p>
+            <p v-if="!isLogin">{{ localContent }}</p>
             <BFormTextarea
               v-else
               v-model="localContent"
-              rows="10"
+              rows="18"
               placeholder="프로젝트 내용을 입력하세요."
             ></BFormTextarea>
           </BFormGroup>
@@ -72,51 +62,50 @@
 
     <!-- 링크 섹션 -->
     <div class="modal-footer d-flex flex-wrap justify-content-end">
-      <template v-if="isEditable">
-        <BButton variant="primary" class="mr-2" @click="showLinkModal">링크 수정</BButton>
+      <template v-if="isLogin">
         <LinkInput
           v-if="isLinkModalVisible"
           :modelValue="localLinks"
           @update:modelValue="updateLinks"
           @close="isLinkModalVisible = false"
         />
-      </template>
-      <template v-else>
-        <BButton
-          v-for="(link, index) in localLinks"
-          :key="index"
-          variant="primary"
-          class="mr-2"
-          :href="link.url"
-          target="_blank"
-        >
-          {{ link.name }}
+        <BButton variant="danger" class="red-button" @click="deleteProject">
+          삭제
         </BButton>
+        <BButton variant="primary" @click="saveChanges">저장</BButton>
       </template>
-      <BButton v-if="isEditable" variant="danger" class="red-button" @click="deleteProject">삭제</BButton>
-      <BButton variant="primary" @click="saveChanges">저장</BButton>
     </div>
+
+    <!-- 이미지 업로더 모달 -->
+    <ImageUploadModal
+      ref="imageUploadModal"
+      v-model="imageUploaderVisible"
+      :initial-images="localImages"
+      @images-submitted="handleImagesSubmitted"
+    />
+
   </div>
 </template>
 
 <script>
 import ImageSlider from "@components/project/ProjectForm/ImageSlider.vue";
-import LinkInput from "@components/project/ProjectForm/LinkInput.vue";
+import ImageUploadModal from "./ProjectForm/ImageUploadModal.vue";
 import MaterialSymbolsCancel from "~icons/material-symbols-light/cancel";
 import MaterialSymbolsEdit from "~icons/material-symbols-light/edit";
 import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
+import { BButton } from "bootstrap-vue-next";
 
 export default {
   components: {
     ImageSlider,
-    LinkInput,
+    ImageUploadModal,
     CancelIcon: MaterialSymbolsCancel,
     EditIcon: MaterialSymbolsEdit,
     CheckIcon: MaterialSymbolsCheck,
   },
   props: {
+    id: String, // id prop 추가
     title: String,
-    description: String,
     content: String,
     images: {
       type: Array,
@@ -126,20 +115,20 @@ export default {
       type: Array,
       default: () => []
     },
-    isEditable: {
-      type: Boolean,
-      default: false
+  },
+  computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin
     }
   },
   data() {
     return {
       titleEdit: false,
       localTitle: this.title,
-      localDescription: this.description,
       localContent: this.content,
       localImages: [...this.images],
-      localLinks: [...this.links],
       isLinkModalVisible: false,
+      imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
     };
   },
   methods: {
@@ -152,17 +141,13 @@ export default {
     showLinkModal() {
       this.isLinkModalVisible = true;
     },
-    updateLinks(updatedLinks) {
-      this.localLinks = updatedLinks;
-    },
     deleteProject() {
       if (confirm("정말로 이 프로젝트를 삭제하시겠습니까?")) {
         this.$emit("delete-project", {
+          id: this.id,
           title: this.localTitle,
-          description: this.localDescription,
           content: this.localContent,
           images: this.localImages,
-          links: this.localLinks,
         });
         this.emitCloseModal();
       }
@@ -170,36 +155,36 @@ export default {
     saveChanges() {
       if (confirm("저장하시겠습니까?")) {
         const updatedProject = {
+          id: this.id,
           title: this.localTitle,
-          description: this.localDescription,
           content: this.localContent,
           images: this.localImages,
-          links: this.localLinks,
         };
+        console.log(`[ProjectDetail]`);
+        console.log(updatedProject);
+        
+        
         this.$emit("save-project", updatedProject);
         this.emitCloseModal();
       }
     },
     showImageUploader() {
-      // 실제 이미지 업로드 로직을 추가해야 합니다.
-      alert("이미지 업로더를 표시합니다.");
-    }
+      this.imageUploaderVisible = true;
+    },
+    handleImagesSubmitted(newImages) {
+      this.localImages = [...newImages]; // 이미지 업데이트
+      this.imageUploaderVisible = false;
+    },
   },
   watch: {
     title(newTitle) {
       this.localTitle = newTitle;
-    },
-    description(newDescription) {
-      this.localDescription = newDescription;
     },
     content(newContent) {
       this.localContent = newContent;
     },
     images(newImages) {
       this.localImages = [...newImages];
-    },
-    links(newLinks) {
-      this.localLinks = [...newLinks];
     },
   },
 };
@@ -247,6 +232,7 @@ export default {
   border-radius: 4px;
   display: block;
   margin-bottom: 8px;
+  padding-left: 15px;
 }
 
 .mr-2 {
