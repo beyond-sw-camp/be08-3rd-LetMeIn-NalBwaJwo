@@ -6,7 +6,7 @@
 
         <!-- 프로젝트 목록 -->
         <BRow class="text-center mt-4">
-          <ProjectList :projects="projects" @project-clicked="showProjectDetails" />
+          <!-- <ProjectList :projects="projects" @project-clicked="showProjectDetails" /> -->
           <BCol cols="4">
             <BCard
               @click="ShowModal"
@@ -50,14 +50,12 @@
 
 <script>
 import ProjectForm from '@components/project/ProjectForm.vue';
-import ProjectList from '@components/project/ProjectList.vue';
 import ProjectDetail from '../components/project/ProjectDetail.vue';
 import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
 
 export default {
   components: {
     ProjectForm,
-    ProjectList,
     ProjectDetail,
     AddIcon,
   },
