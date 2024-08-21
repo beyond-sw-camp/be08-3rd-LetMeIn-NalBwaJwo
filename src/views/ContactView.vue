@@ -2,33 +2,38 @@
   <div
     class="container max-width-lg h-100 d-flex flex-column justify-content-center"
   >
-    <div class="mb-3">
-      <h1 class="text-center display-1">contact</h1>
+    <div class="mb-1">
+      <h1 class="text-center">Contact Me</h1>
+      <p class="text-center mt-4">If you’re interested in collaborating with me or having a chat about anything, 
+        <br>please leave your message :)</p><br>
     </div>
-    <BCard class="bg-dark">
+    <BCard class="bg-grey border-0 contact-box"
+    :style="{ backgroundImage: `url(${background})` }">
       <!-- 전송 버튼 -->
       <div class="w-100 mb-3 d-flex justify-content-end">
-        <BButton class="bg-primary text-white p-1" @click="onSubmit"
-          ><span>send</span> <SendIcon class="fs-1" />
+        <BButton class="bg-transparent text-white border-0 p-1" @click="onSubmit"
+          style="font-size: 1.5rem;"
+          ><span></span> 
+          <SendIcon class="fs-4" />
         </BButton>
       </div>
       <BFormGroup>
         <!-- 이름, 이메일, 제목 inputs -->
         <BFormGroup class="mb-3">
           <BFormInput
-            class="bg-black mb-1 text-white"
+            class="bg-secondary-80 mb-2 text-black contact-field"
             placeholder="Your name"
             v-model="name"
             :state="v$.name.$dirty ? !v$.name.$error : null"
           />
           <BFormInput
-            class="bg-black mb-1 text-white"
+            class="bg-secondary-20 mb-2 text-black contact-field"
             placeholder="Your email Address"
             v-model="email"
             :state="v$.email.$dirty ? !v$.email.$error : null"
           />
           <BFormInput
-            class="bg-black text-white"
+            class="bg-secondary-20 text-black contact-field"
             placeholder="Subject"
             v-model="subject"
             :state="v$.subject.$dirty ? !v$.subject.$error : null"
@@ -38,7 +43,7 @@
         <!-- 메세지 inputs -->
         <BFormGroup>
           <BFormTextarea
-            class="bg-black text-white"
+            class="bg-secondary-20 text-black contact-field"
             placeholder="Message"
             v-model="message"
             :state="v$.message.$dirty ? !v$.message.$error : null"
@@ -49,13 +54,16 @@
   </div>
 </template>
 <script>
-import MaterialSymbolsLightSendOutline from "~icons/material-symbols-light/send-outline";
+// import MaterialSymbolsLightSendOutline from "~icons/material-symbols-light/send-outline";
+// import ArcticonsLibremmail from '~icons/arcticons/libremmail';
+import MaterialSymbolsLightAlternateEmailRounded from '~icons/material-symbols-light/alternate-email-rounded';
 import { useVuelidate } from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
+import background from "@assets/contact/background.jpg";
 
 export default {
   components: {
-    SendIcon: MaterialSymbolsLightSendOutline,
+    SendIcon: MaterialSymbolsLightAlternateEmailRounded,
   },
   setup() {
     return { v$: useVuelidate() };
@@ -66,6 +74,7 @@ export default {
       email: "",
       subject: "",
       message: "",
+      background: background,
     };
   },
   methods: {
@@ -85,18 +94,29 @@ export default {
 };
 </script>
 <style scoped>
+.contact-box {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  background-size: auto 100%;
+  background-position: center;
+}
+
+.contact-field {
+  font-size: smaller;
+  opacity: 0.7;
+}
+
 .max-width-lg {
   max-width: 720px;
 }
 
 input::placeholder {
-  color: white;
+  color: black;
 }
 
 textarea,
 textarea::placeholder {
   height: 240px;
-  color: white;
+  color: black;
   overflow-y: hidden;
 }
 </style>
