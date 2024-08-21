@@ -2,7 +2,7 @@
   <BContainer>
     <div class="container max-width-lg h-100 d-flex flex-column justify-content-center">
       <div class="mb-3">
-
+        <ProjectList />
         <BRow class="text-center mt-5">
           <BCol cols="4">
             <!-- 비율 수정 -->
@@ -33,6 +33,7 @@
 <script>
 import ProjectForm from '@components/project/ProjectForm.vue';
 import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
+import ProjectList from '@components/project/ProjectList.vue';
 
 export default {
   components: {

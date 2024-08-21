@@ -25,11 +25,6 @@ const routes = [
         component: ProjectView,
       },
       {
-        name: "Project",
-        path: "projectList",
-        component: ProjectListView,
-      },
-      {
         name: "Resume",
         path: "resume",
         component: ContactView,

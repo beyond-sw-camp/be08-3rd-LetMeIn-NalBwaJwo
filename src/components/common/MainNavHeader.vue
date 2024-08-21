@@ -37,7 +37,7 @@ export default {
         },
         {
           name: "Project",
-          path: `projectList`,
+          path: `project`,
         },
         {
           name: "Resume",
