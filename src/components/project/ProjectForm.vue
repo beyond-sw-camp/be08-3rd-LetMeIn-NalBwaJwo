@@ -137,6 +137,7 @@ export default {
         links: this.links,
       };
       this.$emit("submit-project", newProject);
+      this.resetForm();
       this.emitCloseModal(); // 폼 제출 시 모달 닫기 이벤트 발행
     },
     resetForm() {

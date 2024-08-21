@@ -45,7 +45,6 @@
 
         <!-- 프로젝트 설명 및 내용 섹션 -->
         <div class="content-section flex-grow-2">
-          
           <BFormGroup class="mb-3">
             <label class="custom-label bg-primary">프로젝트 내용</label>
             <p v-if="!isEditable">{{ localContent }}</p>
@@ -87,7 +86,6 @@
       <BButton variant="primary" @click="saveChanges">저장</BButton>
     </div>
 
-    
     <!-- 이미지 업로더 모달 -->
     <ImageUploadModal
       ref="imageUploadModal"
@@ -110,14 +108,15 @@ import MaterialSymbolsCheck from "~icons/material-symbols-light/check";
 export default {
   components: {
     ImageSlider,
+    ImageUploadModal,
     LinkInput,
     CancelIcon: MaterialSymbolsCancel,
     EditIcon: MaterialSymbolsEdit,
     CheckIcon: MaterialSymbolsCheck,
   },
   props: {
+    id: String, // id prop 추가
     title: String,
-    description: String,
     content: String,
     images: {
       type: Array,
@@ -185,7 +184,7 @@ export default {
       this.imageUploaderVisible = true;
     },
     handleImagesSubmitted(newImages) {
-      this.images = [...newImages]; // 이미지 업데이트
+      this.localImages = [...newImages]; // 이미지 업데이트
       this.imageUploaderVisible = false;
     },
   },
