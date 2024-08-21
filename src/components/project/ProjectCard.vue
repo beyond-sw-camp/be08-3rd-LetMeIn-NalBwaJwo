@@ -94,7 +94,7 @@ export default {
   background: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: rgb(252, 158, 124);
+  color: rgb(238, 44, 95);
 }
 
 .project-image {
