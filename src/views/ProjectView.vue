@@ -51,7 +51,7 @@
 <script>
 import ProjectForm from '@components/project/ProjectForm.vue';
 import ProjectList from '@components/project/ProjectList.vue';
-import ProjectDetail from './ProjectDetail.vue';
+import ProjectDetail from '../components/project/ProjectDetail.vue';
 import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
 
 export default {

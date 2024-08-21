@@ -39,6 +39,7 @@ declare module 'vue' {
     MainNavHeader: typeof import('./src/components/common/MainNavHeader.vue')['default']
     ProjectCard: typeof import('./src/components/project/ProjectCard.vue')['default']
     ProjectDescription: typeof import('./src/components/project/ProjectForm/ProjectDescription.vue')['default']
+    ProjectDetail: typeof import('./src/components/project/ProjectDetail.vue')['default']
     ProjectForm: typeof import('./src/components/project/ProjectForm.vue')['default']
     ProjectList: typeof import('./src/components/project/ProjectList.vue')['default']
     ProjectTitle: typeof import('./src/components/project/ProjectForm/ProjectTitle.vue')['default']
