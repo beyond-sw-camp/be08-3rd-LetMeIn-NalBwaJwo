@@ -2,8 +2,12 @@
   <BContainer>
     <div class="container max-width-lg h-100 d-flex flex-column justify-content-center">
       <div class="mb-3">
-        <ProjectList />
-        <BRow class="text-center mt-5">
+        <h1 class="text-center mt-5">Project</h1>
+
+        <!-- 프로젝트 목록 -->
+        <BRow class="text-center mt-4">
+          <ProjectList :projects="projects" @project-clicked="showProjectDetails" />
+
           <BCol cols="4">
             <!-- 비율 수정 -->
             <BCard
@@ -19,30 +23,51 @@
       </div>
     </div>
 
-    <!-- 모달 구성 -->
+    <!-- 프로젝트 상세 모달 -->
+    <BModal 
+      v-model="isDetailModalVisible" 
+      hide-footer 
+      hide-header
+      size="xl">
+      <ProjectDetail 
+        :title="selectedProject?.title" 
+        :description="selectedProject?.description" 
+        :content="selectedProject?.content" 
+        :images="selectedProject?.images" 
+        :links="selectedProject?.links" 
+        @close-modal="HideDetailModal"
+      />
+    </BModal>
+
+    <!-- 프로젝트 추가 모달 -->
     <BModal 
       v-model="isModalVisible" 
       hide-footer 
       hide-header
       size="xl">
-      <ProjectForm @close-modal="HideModal" />
+      <ProjectForm @submit-project="addProject" @close-modal="HideModal" />
     </BModal>
   </BContainer>
 </template>
 
 <script>
 import ProjectForm from '@components/project/ProjectForm.vue';
+import ProjectDetail from '../components/project/ProjectDetail.vue';
 import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
 import ProjectList from '@components/project/ProjectList.vue';
 
 export default {
   components: {
     ProjectForm,
+    ProjectDetail,
     AddIcon,
   },
   data() {
     return {
       isModalVisible: false,
+      isDetailModalVisible: false,
+      projects: [], // 프로젝트 리스트를 저장할 배열
+      selectedProject: null, // 선택된 프로젝트
     };
   },
   methods: {
@@ -51,6 +76,20 @@ export default {
     },
     HideModal() {
       this.isModalVisible = false;
+    },
+    showProjectDetails(project) {
+      this.selectedProject = project;
+      this.isDetailModalVisible = true;
+    },
+    HideDetailModal() {
+      this.isDetailModalVisible = false;
+      this.selectedProject = null;
+    },
+    addProject(newProject) {
+      console.log(newProject);
+      
+      this.projects.push(newProject); // 새 프로젝트를 리스트에 추가
+      this.HideModal(); // 모달 닫기
     }
   }
 };

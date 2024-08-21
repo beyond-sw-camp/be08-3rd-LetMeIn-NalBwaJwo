@@ -1,7 +1,7 @@
 import { createLogger, createStore } from "vuex";
-import counter from "./modules/counter";
+import resume from "./modules/resume";
 
 export default createStore({
-  modules: { Counter: counter },
+  modules: { Resume: resume },
   plugins: [createLogger()],
 });
