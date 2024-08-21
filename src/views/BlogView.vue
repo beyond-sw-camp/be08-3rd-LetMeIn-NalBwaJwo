@@ -27,14 +27,15 @@
         data() {
             return {
                 posts: [
-                    { id: 1, title: 'Post 1', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=54' },
-                    { id: 2, title: 'Post 2', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=58' },
-                    { id: 3, title: 'Post 3', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=59' },
-                    { id: 4, title: 'Post 4', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=59' },
-                    { id: 5, title: 'Post 5', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=54' },
-                    { id: 2, title: 'Post 6', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=58' }
+                    { id: 1, title: 'Post 1', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=54', content: 'dddd' },
+                    { id: 2, title: 'Post 2', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=58', content: 'dddd' },
+                    { id: 3, title: 'Post 3', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=59', content: 'dddd' },
+                    { id: 4, title: 'Post 4', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=59', content: 'dddd' },
+                    { id: 5, title: 'Post 5', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=54', content: 'dddd' },
+                    { id: 2, title: 'Post 6', link: 'https://www.naver.com', image: 'https://picsum.photos/250/250/?image=58', content: 'dddd' }
                 ],
                 isEditMode: false, 
+                isLogin: localStorage.getItem("ACCESS_TOKEN") !== null,
             }
         },
         methods: {
