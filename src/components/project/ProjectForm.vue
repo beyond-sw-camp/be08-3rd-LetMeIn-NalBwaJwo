@@ -58,7 +58,7 @@
           <BButton variant="primary" @click="linkModalVisible = true" class="mr-2">
             링크 추가
           </BButton>
-          <BButton variant="secondary" @click="resetForm" class="mr-2">초기화</BButton>
+          <BButton variant="secondary" @click="confirmReset" class="mr-2">초기화</BButton>
           <BButton variant="point" @click="submitForm">등록</BButton>
         </div>
 
@@ -127,6 +127,11 @@ export default {
     showImageUploader() {
       this.imageUploaderVisible = true;
     },
+    confirmReset() {
+      if (confirm("정말로 모든 입력을 초기화하시겠습니까?")) {
+        this.resetForm(); // 초기화 확인 시 폼 초기화
+      }
+    },
     submitForm() {
       // 부모 컴포넌트로 데이터 전달
       const newProject = {
@@ -141,17 +146,14 @@ export default {
       this.emitCloseModal(); // 폼 제출 시 모달 닫기 이벤트 발행
     },
     resetForm() {
-      if (confirm("정말로 모든 입력을 초기화하시겠습니까?")) {
-        this.editableTitle = "";
-        this.content = "";
-        this.images = [];
-        this.links = [];
-        this.titleEdit = false;
-        this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
+      this.editableTitle = "";
+      this.content = "";
+      this.images = [];
+      this.links = [];
+      this.titleEdit = false;
+      this.$refs.imageUploadModal.resetImages(); // 이미지 업로더 모달의 이미지도 초기화
       }
     },
-  },
-  
   watch: {
     title(newTitle) {
       this.localTitle = newTitle;
