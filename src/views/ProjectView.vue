@@ -55,7 +55,6 @@
 <script>
 import ProjectForm from '@components/project/ProjectForm.vue';
 import ProjectDetail from '../components/project/ProjectDetail.vue';
-import AddIcon from '~icons/material-symbols-light/AddCircleOutline';
 import ProjectList from '@components/project/ProjectList.vue';
 import { v4 as uuidv4 } from 'uuid';
 
