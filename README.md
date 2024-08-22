@@ -61,37 +61,20 @@
 
 
 ## ✏️ 요구사항 명세서 
-<a href="https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0" target="_blank">새 탭에서 열기</a><br>
-![image](https://github.com/user-attachments/assets/79bc81b2-52d3-4497-9704-76d02dd481f9)
-
+[바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0){:target="_blank"}
 
 <br>
 <br>
 
 ## 📁 기능 명세서
-[새 탭에서 열기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)<br>
+[바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)<br>
 ![image](https://github.com/user-attachments/assets/3211f3b0-4447-4736-9629-d83be76ab902)
-
-
-
-<br>
-<br>
-
-## 📋 모델링
-[새 탭에서 열기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1603772059#gid=1603772059)<br>
-![image](https://github.com/user-attachments/assets/c98dad27-5fb6-4402-8a22-340d36f12897)
-
-<br>
-
-[새 탭에서 열기](https://www.erdcloud.com/d/bHwGquKuqyZhcPCKa)<br>
-![image](https://github.com/user-attachments/assets/7da6d7d5-9afd-4305-ab58-be7cb6b86879)
-
 
 <br>
 <br>
 
 ## 💻 화면 설계서 
-[새 탭에서 열기](https://www.figma.com/design/EV81DsJRDIgnZxRSLyqw3A/Untitled?node-id=0-1&t=IAdWOXM1TXy2L9wM-0)<br>
+[바로가기](https://www.figma.com/design/EV81DsJRDIgnZxRSLyqw3A/Untitled?node-id=0-1&t=IAdWOXM1TXy2L9wM-0)<br>
 ![image](https://github.com/user-attachments/assets/1d2b8fcb-e228-4012-bfd5-576cb3dd7664)
 
 
@@ -99,7 +82,7 @@
 <br>
 
 ## 📚 WBS
-[새 탭에서 열기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)<br>
+[바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)<br>
 ![image](https://github.com/user-attachments/assets/b074a957-5f70-4744-8a7c-b0df198c4e73)
 
 
