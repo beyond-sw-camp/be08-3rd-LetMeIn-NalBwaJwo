@@ -1,7 +1,7 @@
 <template>
     <div class="blog-container">
-        <div class="header">
-            <h1 class="text-center ">Blog</h1>
+        <div class="mb-1 contact">
+            <h1 class="text-center">Blog</h1>
             <p class="text-center mt-4">The road to success and the road to failure are almost exactly the same.</p>
         </div>
 
@@ -65,14 +65,13 @@
     border: 3px solid;
     color: #2C3E50;
     float: right;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-right: 20px;
     background-color: white;
     font-size: 13px;
 }
 .button-container {
-    margin-bottom: 120px;
+    margin-bottom: 70px;
 }
 .post-view-margin {
     margin-top: 40px;
