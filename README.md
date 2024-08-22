@@ -152,7 +152,7 @@
     <blockquote>
         <details>
             <summary>이력서 조회</summary>
-            <img src="https://github.com/user-attachments/assets/bcb1978b-feaa-4f19-bc33-23710a70c19a">
+            <img src="https://github.com/user-attachments/assets/e2474e53-4599-49c2-825a-d94fe480045a">
         </details>
       <br>
       <details>
