@@ -1,4 +1,3 @@
-
 import {
   ContactView,
   LoginView,
@@ -10,6 +9,7 @@ import {
   BlogView,
   ResumesView,
 } from "@views/index";
+import store from "@store/index";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -43,6 +43,12 @@ const routes = [
             name: "Resumes",
             path: "",
             component: ResumesView,
+            beforeEnter: (to, from, next) => {
+              if (!store.state.Auth.isLogin) {
+                next(`resume/${store.getters.getDefaultResumeId}`);
+              }
+              next();
+            },
           },
           {
             name: "ResumeDetail",

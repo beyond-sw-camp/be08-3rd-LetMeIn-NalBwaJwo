@@ -1,7 +1,9 @@
 <template lang="html">
   <BContainer class="pt-5" gutter-x="0">
     <BRow md="12" lg="12" class="mb-4">
-      <BCol><h1>이력서2</h1></BCol>
+      <BCol
+        ><h1>{{ title }}</h1></BCol
+      >
     </BRow>
     <BRow>
       <!-- 왼쪽 사이드 -->
@@ -67,8 +69,10 @@ import {
   GithubRepository,
   MainTechnologies,
   DesiredJob,
-  WorkExperienceDetail,
+  WorkExperienceList,
+  EducationList,
   EducationDetail,
+  AwardAndCertificationList,
   AwardsAndCertificationDetail,
 } from "@components/index";
 
@@ -84,9 +88,22 @@ export default {
     GithubRepository,
     MainTechnologies,
     DesiredJob,
-    WorkExperienceDetail,
+    WorkExperienceList,
+    EducationList,
     EducationDetail,
+    AwardAndCertificationList,
     AwardsAndCertificationDetail,
+  },
+
+  computed: {
+    title() {
+      return this.$store.state.Resume.resumes.find(
+        (resume) => resume.resumeId === +this.$route.params.resumeId
+      ).title;
+    },
+    isLogin() {
+      return this.$store.state.Auth.isLogin;
+    },
   },
 
   data() {
@@ -115,32 +132,26 @@ export default {
         {
           id: "workExperience",
           title: "업무경험",
-          detailComponent: "WorkExperienceDetail",
+          detailComponent: "WorkExperienceList",
           formComponent: "WorkExperienceForm",
           formVisible: false,
         },
         {
           id: "education",
           title: "학력",
-          detailComponent: "EducationDetail",
+          detailComponent: "EducationList",
           formComponent: "EducationForm",
           formVisible: false,
         },
         {
           id: "awardsAndCertification",
           title: "수상/자격증",
-          detailComponent: "awardsAndCertificationDetail",
+          detailComponent: "AwardAndCertificationList",
           formComponent: "AwardsAndCertificationForm",
           formVisible: false,
         },
       ],
     };
-  },
-
-  computed: {
-    isLogin() {
-      return this.$store.state.Auth.isLogin;
-    },
   },
 
   methods: {

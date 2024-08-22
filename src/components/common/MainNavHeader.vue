@@ -1,10 +1,8 @@
 <template lang="html">
   <BNavbar class="bg-primary" toggleable="sm">
     <BNavbarBrand href="#">
-      <BImg :src="logourl" style="width: 200px; height: auto;" />
+      <BImg :src="logourl" style="width: 200px; height: auto" />
     </BNavbarBrand>
-    
-    
 
     <BNavbarToggle target="nav-collapse" class="bg-white" />
     <BCollapse id="nav-collapse" is-nav>
@@ -13,7 +11,11 @@
         class="nav-items-container d-flex flex-grow-1 justify-content-around"
       >
         <BNavItem v-for="(nav, index) in navs" :key="nav.name">
-          <RouterLink class="text-white text-decoration-none" :to="nav.path" active-class="active-link">
+          <RouterLink
+            class="text-white text-decoration-none"
+            :to="nav.path"
+            active-class="active-link"
+          >
             {{ nav.name }}
           </RouterLink>
         </BNavItem>
@@ -34,27 +36,26 @@
   </BNavbar>
 </template>
 <script>
-import logo from '@assets/portfolio/icons/logo.png';
-import { AUTH_MUTATION_TYPES } from '@store/modules/auth/mutaion';
+import logo from "@assets/portfolio/icons/logo.png";
+import { AUTH_MUTATION_TYPES } from "@store/modules/auth/mutaion";
 
 export default {
   computed: {
     isLogin() {
-      return this.$store.state.Auth.isLogin
-    }
+      return this.$store.state.Auth.isLogin;
+    },
   },
   data() {
     return {
-
       logourl: logo,
       navs: [
         {
           name: "Home",
-          path: "portfolio",
+          path: `/${this.$route.params.name}/portfolio`,
         },
         {
           name: "Project",
-          path: `project`,
+          path: `/${this.$route.params.name}/project`,
         },
         {
           name: "Resume",
@@ -62,21 +63,20 @@ export default {
         },
         {
           name: "Blog",
-          path: `blog`,
+          path: `/${this.$route.params.name}/blog`,
         },
         {
           name: "Contact",
-          path: `contact`,
+          path: `/${this.$route.params.name}/contact`,
         },
       ],
     };
   },
   methods: {
     handleLogout() {
-      
       localStorage.removeItem("ACCESS_TOKEN");
       localStorage.removeItem("CURRENT_USER");
-      this.$store.commit(AUTH_MUTATION_TYPES.LOGOUT)
+      this.$store.commit(AUTH_MUTATION_TYPES.LOGOUT);
       this.$router.replace(`/@yongun/portfolio`);
     },
   },
@@ -92,6 +92,4 @@ export default {
 .active-link {
   color: rgb(255, 248, 43) !important;
 }
-
-
 </style>

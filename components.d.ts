@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AwardAndCertificationList: typeof import('./src/components/resume/AwardAndCertificationList.vue')['default']
     AwardsAndCertificationDetail: typeof import('./src/components/resume/AwardsAndCertificationDetail.vue')['default']
     AwardsAndCertificationForm: typeof import('./src/components/resume/AwardsAndCertificationForm.vue')['default']
     BannerSlider: typeof import('./src/components/portfolio/BannerSlider.vue')['default']
@@ -40,6 +41,7 @@ declare module 'vue' {
     DesiredJobListItem: typeof import('./src/components/resume/DesiredJobListItem.vue')['default']
     EducationDetail: typeof import('./src/components/resume/EducationDetail.vue')['default']
     EducationForm: typeof import('./src/components/resume/EducationForm.vue')['default']
+    EducationList: typeof import('./src/components/resume/EducationList.vue')['default']
     GithubRepository: typeof import('./src/components/resume/GithubRepository.vue')['default']
     ImageSlider: typeof import('./src/components/project/ProjectForm/ImageSlider.vue')['default']
     ImageUpload: typeof import('./src/components/project/ProjectForm/ImageUpload.vue')['default']
@@ -53,13 +55,11 @@ declare module 'vue' {
     MyView: typeof import('./src/components/portfolio/MyView.vue')['default']
     PostView: typeof import('./src/components/blog/PostView.vue')['default']
     Profile: typeof import('./src/components/resume/Profile.vue')['default']
-    ProjectCard: typeof import('./src/components/project/ProjectCard.vue')['default']
     ProjectAdd: typeof import('./src/components/project/ProjectAdd.vue')['default']
     ProjectCard: typeof import('./src/components/project/ProjectCard.vue')['default']
     ProjectDescription: typeof import('./src/components/project/ProjectForm/ProjectDescription.vue')['default']
     ProjectDetail: typeof import('./src/components/project/ProjectDetail.vue')['default']
     ProjectForm: typeof import('./src/components/project/ProjectForm.vue')['default']
-    ProjectList: typeof import('./src/components/project/ProjectList.vue')['default']
     ProjectList: typeof import('./src/components/project/ProjectList.vue')['default']
     ProjectTitle: typeof import('./src/components/project/ProjectForm/ProjectTitle.vue')['default']
     ResumeDetailHeader: typeof import('./src/components/resume/ResumeDetailHeader.vue')['default']
@@ -72,5 +72,6 @@ declare module 'vue' {
     TechnologyListItem: typeof import('./src/components/resume/TechnologyListItem.vue')['default']
     WorkExperienceDetail: typeof import('./src/components/resume/WorkExperienceDetail.vue')['default']
     WorkExperienceForm: typeof import('./src/components/resume/WorkExperienceForm.vue')['default']
+    WorkExperienceList: typeof import('./src/components/resume/WorkExperienceList.vue')['default']
   }
 }

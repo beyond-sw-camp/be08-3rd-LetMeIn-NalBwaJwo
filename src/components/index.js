@@ -20,12 +20,14 @@ import DesiredJobList from "./resume/DesiredJobList.vue";
 import DesiredJobListItem from "./resume/DesiredJobListItem.vue";
 import ResumeList from "./resume/ResumeList.vue";
 import WorkExperienceDetail from "./resume/WorkExperienceDetail.vue";
+import EducationList from "./resume/EducationList.vue";
 import EducationDetail from "./resume/EducationDetail.vue";
+import AwardAndCertificationList from "./resume/AwardAndCertificationList.vue";
 import AwardsAndCertificationDetail from "./resume/awardsAndCertificationDetail.vue";
-
+import WorkExperienceList from "./resume/WorkExperienceList.vue";
 
 // common
-export { MainNavHeader,  MainFooter};
+export { MainNavHeader, MainFooter };
 
 // login
 export { LoginForm };
@@ -47,6 +49,9 @@ export {
   DesiredJobList,
   DesiredJobListItem,
   WorkExperienceDetail,
+  EducationList,
   EducationDetail,
+  AwardAndCertificationList,
   AwardsAndCertificationDetail,
+  WorkExperienceList,
 };

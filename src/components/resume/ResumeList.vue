@@ -1,71 +1,84 @@
 <template>
   <hr class="first-hr" />
-  <div v-for="(list, index) in resumes" :key="list.resumeId" class="resume">
+  <div v-for="list in resumes" :key="list.resumeId" class="resume">
     <div class="info">
       <div class="icons-wrapper">
-        <span v-if="isLogin" @click="confirmSelect(list.resumeId)" class="click-text icon"><emptyStar /></span>
-        <span v-if="isLogin" @click="confirmDelete(index)" class="click-text icon"><DeleteIcon /></span>
+        <span
+          v-if="isLogin"
+          @click="confirmSelect(list.resumeId)"
+          class="click-text icon"
+          ><emptyStar
+        /></span>
+        <span
+          v-if="isLogin"
+          @click="confirmDelete(list.resumeId)"
+          class="click-text icon"
+          ><DeleteIcon
+        /></span>
       </div>
       <h3 class="text-bold resume-title" @click="onClickDetail(list.resumeId)">
         <span>{{ list.title }}</span>
         <span class="star-box">
-          <StarIcon v-if="selectedIndex === list.resumeId" class="icon star-icon" />
+          <StarIcon
+            v-if="defaultResumeId === list.resumeId"
+            class="icon star-icon"
+          />
         </span>
       </h3>
       <p>{{ list.date }}</p>
       <hr class="last-hr" />
     </div>
   </div>
-  <Modal />
 </template>
 
 <script>
+import { RESUME_MUTATION_TYPES } from "@store/modules/resume/mutation.js";
 import MaterialSymbolsLightEditOutline from "~icons/material-symbols-light/edit-outline";
 import MaterialSymbolsLightPageviewOutline from "~icons/material-symbols-light/pageview-outline";
 import MaterialSymbolsLightFileCopyOutlineRounded from "~icons/material-symbols-light/file-copy-outline-rounded";
 import MaterialSymbolsLightDeleteOutline from "~icons/material-symbols-light/delete-outline";
-import MeteoconsStarFill from '~icons/meteocons/star-fill';
-import MaterialSymbolsLightStarOutline from '~icons/material-symbols-light/star-outline';
+import MeteoconsStarFill from "~icons/meteocons/star-fill";
+import MaterialSymbolsLightStarOutline from "~icons/material-symbols-light/star-outline";
 
 export default {
   name: "ResumeList",
-  data() {
-    return {
-      selectedIndex: null,
-      resumes: [
-        { resumeId: 1, title: "일등", date: "2022-03-23" },
-        { resumeId: 2, title: "이등", date: "2023-03-23" },
-        { resumeId: 3, title: "삼등", date: "2024-03-23" }
-      ],
-    };
+  computed: {
+    isLogin() {
+      return this.$store.state.Auth.isLogin;
+    },
+    resumes() {
+      return this.$store.state.Resume.resumes;
+    },
+    defaultResumeId() {
+      return this.$store.getters.getDefaultResumeId;
+    },
   },
   methods: {
     confirmSelect(resumeId) {
-      if (this.selectedIndex === resumeId) {
+      console.log(resumeId);
+
+      if (this.defaultResumeId === resumeId) {
         alert("이미 선택된 이력서입니다.");
       } else {
         if (confirm("이 이력서를 대표 이력서로 설정하시겠습니까?")) {
-          this.selectItem(resumeId);
+          this.$store.commit(RESUME_MUTATION_TYPES.SET_DEFAULT_RESUME, {
+            resumeId,
+          });
         }
       }
     },
-    selectItem(resumeId) {
-      this.selectedIndex = resumeId;
-    },
-    confirmDelete(index) {
+
+    confirmDelete(resumeId) {
       if (confirm("정말 이 이력서를 삭제하시겠습니까?")) {
-        this.deleteResume(index);
+        this.deleteResume(resumeId);
       }
     },
-    deleteResume(index) {
-      this.resumes.splice(index, 1);
-      
-      // 삭제된 후 selectedIndex 조정
-      if (this.selectedIndex === this.resumes[index]?.resumeId) {
-        this.selectedIndex = null;
-      } else if (this.selectedIndex > this.resumes[index]?.resumeId) {
-        this.selectedIndex--;
-      }
+    deleteResume(resumeId) {
+      console.log(resumeId);
+
+      this.$store.commit(RESUME_MUTATION_TYPES.DELETE_RESUME, {
+        resumeId,
+      });
     },
     onClickDetail(resumeId) {
       console.log(resumeId);
@@ -78,17 +91,7 @@ export default {
     CopyIcon: MaterialSymbolsLightFileCopyOutlineRounded,
     DeleteIcon: MaterialSymbolsLightDeleteOutline,
     StarIcon: MeteoconsStarFill,
-    emptyStar: MaterialSymbolsLightStarOutline
-  },
-  computed: {
-    selectedItem() {
-      return this.selectedIndex !== null
-        ? this.resumes.find(item => item.resumeId === this.selectedIndex)
-        : null;
-    },
-    isLogin() {
-      return this.$store.state.Auth.isLogin
-    },
+    emptyStar: MaterialSymbolsLightStarOutline,
   },
 };
 </script>

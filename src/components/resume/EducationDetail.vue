@@ -1,5 +1,5 @@
 <template>
-  <BCard>
+  <BCard class="mb-3">
     <BCardText>학교 : {{ detail.school }}</BCardText>
     <BCardText>전공 : {{ detail.stack }}</BCardText>
     <BCardText>학위 : {{ detail.job }}</BCardText>
@@ -11,10 +11,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  computed: {
-    detail() {
-      return this.$store.state.Resume.educationDetail;
+  props: {
+    detail: {
+      type: Object,
+      required: true,
     },
   },
 };
