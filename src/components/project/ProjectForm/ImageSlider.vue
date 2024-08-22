@@ -61,6 +61,13 @@ export default {
       this.$emit("show-image-uploader"); // 이벤트를 통해 모달을 열도록 함
     },
   },
+  watch: {
+    images(newImages, oldImages) {
+      if (newImages !== oldImages) {
+        this.currentImageIndex = 0; // images prop이 변경될 때 인덱스 초기화
+      }
+    },
+  }
 };
 </script>
 
