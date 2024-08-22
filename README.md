@@ -109,7 +109,6 @@
             <summary>메인 화면</summary>
             <img src="https://github.com/user-attachments/assets/84370361-93d8-42d8-af02-135d476c8fbe">
         </details>
-      <br>
       <details>
             <summary>메인 화면-스킬, 링크</summary>
             <img src="https://github.com/user-attachments/assets/c02bf616-b92e-4702-bcad-9b6da17d2dda">
@@ -124,22 +123,18 @@
             <summary>게시물 조회</summary>
             <img  src="https://github.com/user-attachments/assets/f2c72f87-c4b1-449f-89a9-17b8b5f47569">
         </details>
-      <br>
       <details>
             <summary>게시물 수정</summary>
             <img  src="https://github.com/user-attachments/assets/a3ac95ff-7817-416e-a53e-8a2cf6ce28c4">
         </details>
-       <br>
       <details>
             <summary>게시물 삭제</summary>
             <img  src="https://github.com/user-attachments/assets/d606a432-f935-4062-8999-f0b4fc283ca5">
         </details>
-      <br>
       <details>
             <summary>게시물 추가</summary>
             <img  src="https://github.com/user-attachments/assets/157e469c-ba30-4e66-8f6e-f09d31971d83">
         </details>
-       <br>
        <details>
             <summary>게시물 즐겨찾기</summary>
             <img  src="https://github.com/user-attachments/assets/d0bc254c-d768-45cd-b600-27bbb2157270">
@@ -154,7 +149,6 @@
             <summary>이력서 조회</summary>
             <img src="https://github.com/user-attachments/assets/e2474e53-4599-49c2-825a-d94fe480045a">
         </details>
-      <br>
       <details>
             <summary>이력서 삭제 및 즐겨찾기(로그인 시)</summary>
             <img src="https://github.com/user-attachments/assets/cd851000-5aee-45ac-97c5-28a120e07f9e">
@@ -169,17 +163,14 @@
             <summary>게시글 조회</summary>
             <img  src="https://github.com/user-attachments/assets/0f2b85d3-23c7-485e-85d5-08e8d5978527">
         </details>
-      <br>
       <details>
             <summary>게시글 확인(로그인 시)</summary>
             <img  src="https://github.com/user-attachments/assets/26e201c5-9dd6-4a7b-b2d3-44e8feddbab0">
         </details>
-       <br>
       <details>
             <summary>게시글 삭제 및 수정 (로그인 시</summary>
             <img  src="https://github.com/user-attachments/assets/92446fe2-b821-4753-8d7b-45678f015e7a">
         </details>
-      <br>
       <details>
             <summary>게시글 추가 (로그인 시)</summary>
             <img  src="https://github.com/user-attachments/assets/48e351c7-2f1a-4436-bab1-fea67bd67989">
