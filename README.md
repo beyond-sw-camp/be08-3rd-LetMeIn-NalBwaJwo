@@ -1,10 +1,6 @@
 # be08-3rd-LetMeIn-NalBwaJwo
 
-(임시사진)
-
-
-![image](https://github.com/user-attachments/assets/5d5cc20b-2665-477f-a25f-7d1c057b33c2)
-
+https://cdn.discordapp.com/attachments/1269885434339655763/1275644526039666752/-012_2.png?ex=66c74ccb&is=66c5fb4b&hm=e665644214d71511a988151bcc965bdec29d3f39f468867f00ffb6d4de514c55&
 
 
 
