@@ -6,7 +6,7 @@
 
 <br>
 <br>
-<div align=center>
+
 ## 👨‍💻 팀원 
 |계용운<br>(팀장)|서현지|윤호연|이지정|전지연|최규범|
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -48,7 +48,7 @@
 
 <br>
 <br>
-</div>
+
 
 ## ⚙️ 개발 환경
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white"> 
