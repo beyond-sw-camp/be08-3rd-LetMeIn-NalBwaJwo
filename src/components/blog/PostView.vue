@@ -98,7 +98,7 @@ export default {
                     image: this.newImageUrl,
                     title: this.newPostTitle,
                     link: this.newPostUrl,
-                    content: this.newPostContent
+                    content: this.newPostContent,
                     
                 });
 
@@ -117,9 +117,9 @@ export default {
             this.newImageUrl = post.image;
             this.newPostTitle = post.title;
             this.newPostUrl = post.link;
+            this.newPostContent = post.content;
             this.imagePreview = post.image;
             this.showModal = true;
-            this.image = null;
         },
         updatePost() {
             if (this.newImageUrl && this.newPostTitle && this.newPostUrl && this.newPostContent && this.editMode !== null) {
@@ -149,7 +149,6 @@ export default {
                 reader.onload = (e) => {
                     this.newImageUrl = e.target.result;
                     this.imagePreview = e.target.result;
-                    this.image = e.target.result;
                 };
 
                 if(file.type.startsWith('image/')){
@@ -211,7 +210,7 @@ export default {
     .post-image:hover {
         transform: scale(1.05);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        filter: brightness(0.8);
+        filter: brightness(0.5);
     }
 
     .post-container:hover .title-overlay {
