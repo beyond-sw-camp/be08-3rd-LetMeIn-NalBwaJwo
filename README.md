@@ -67,7 +67,11 @@
 
 
 ## ✏️ 요구사항 명세서 
-[바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0){:target="_blank"}
+[바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0)<br>
+
+![20240822_141138](https://github.com/user-attachments/assets/59d4fc2a-a5e1-4d39-8a56-207699d2f8c7)
+
+
 
 <br>
 <br>
