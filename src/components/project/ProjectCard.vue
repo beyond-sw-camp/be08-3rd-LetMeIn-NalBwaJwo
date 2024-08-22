@@ -67,14 +67,15 @@ export default {
 <style scoped>
 .project-card {
   position: relative;
-  flex: 1 1 calc(33.333% - 32px);
+  /* flex: 1 1 calc(33.333% - 32px); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   background-color: #fff;
-  margin: 48px 16px;
+  margin-top: 30px;
+  margin-bottom: 100px;
   box-sizing: border-box;
   cursor: pointer;
   overflow: hidden; /* 카드에서 요소가 넘치지 않도록 설정 */
@@ -83,7 +84,6 @@ export default {
 .card-header {
   position: relative;
   top:0px;
-  left: 120px;
   display: flex;
   gap: 8px;
 }
@@ -98,9 +98,11 @@ export default {
   color: rgb(238, 44, 95);
   height: 40px;
 }
+
 .project-card {
   width: 100%;
-  flex: 1 1 100%;
+  height: 100%;
+  /* flex: 1 1 100%; */
   aspect-ratio: 3 / 2;
   display: flex;
   flex-direction: column;
@@ -112,10 +114,11 @@ export default {
 }
 
 .project-image {
-  width: 60%;
+  width: 100%;
   height: auto; 
   object-fit: cover;
   border-radius: 4px 4px 0 0;
+  
   aspect-ratio: 3 / 2;
 }
 
