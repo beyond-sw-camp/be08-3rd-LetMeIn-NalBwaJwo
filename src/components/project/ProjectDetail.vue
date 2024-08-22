@@ -63,12 +63,6 @@
     <!-- 링크 섹션 -->
     <div class="modal-footer d-flex flex-wrap justify-content-end">
       <template v-if="isLogin">
-        <LinkInput
-          v-if="isLinkModalVisible"
-          :modelValue="localLinks"
-          @update:modelValue="updateLinks"
-          @close="isLinkModalVisible = false"
-        />
         <BButton variant="danger" class="red-button" @click="deleteProject">
           삭제
         </BButton>
@@ -111,10 +105,6 @@ export default {
       type: Array,
       default: () => []
     },
-    links: {
-      type: Array,
-      default: () => []
-    },
   },
   computed: {
     isLogin() {
@@ -127,7 +117,6 @@ export default {
       localTitle: this.title,
       localContent: this.content,
       localImages: [...this.images],
-      isLinkModalVisible: false,
       imageUploaderVisible: false, // 이미지 업로더 모달 표시 여부
     };
   },
@@ -137,9 +126,6 @@ export default {
     },
     toggleEdit(section) {
       this[section] = !this[section];
-    },
-    showLinkModal() {
-      this.isLinkModalVisible = true;
     },
     deleteProject() {
       if (confirm("정말로 이 프로젝트를 삭제하시겠습니까?")) {
