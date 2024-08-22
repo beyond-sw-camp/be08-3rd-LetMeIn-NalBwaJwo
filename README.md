@@ -14,7 +14,7 @@
 
 <br>
 <br>
-
+<div align=center>
 ## 📜프로젝트 개요
 "Let Me In" 프로젝트는 취업 면접에서 제출할 수 있는 **포트폴리오 및 이력서를 위한 웹사이트** 제작입니다. <br>
 이 사이트는 나의 기술과 프로젝트들을 깔끔하게 정리하여 보여줌으로써 **개발 능력을 강조**하는 데 목적이 있습니다. <br>
@@ -55,6 +55,8 @@
 
 <br>
 <br>
+</div>
+
 
 ## ✏️ 요구사항 명세서 
 [새 탭에서 열기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0)<br>
