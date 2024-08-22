@@ -101,8 +101,8 @@
   ![프로젝트_비로그인_](https://github.com/user-attachments/assets/fff8a0e2-c72a-4d80-85d4-748a3ba8ac41)
 
 ### 이력서
-- **이력서 조회**  
-  ![이력서_비로그인_](https://github.com/user-attachments/assets/ed835394-99d1-41a0-abd3-b8bd43a4eab7)
+- **이력서 조회**
+  ![이력서(비로그인)](https://github.com/user-attachments/assets/bcb1978b-feaa-4f19-bc33-23710a70c19a)
 
 - **이력서 삭제 및 즐겨찾기 (로그인 시)**  
   ![이력서_로그인_-게시글삭제및즐겨찾기](https://github.com/user-attachments/assets/cd851000-5aee-45ac-97c5-28a120e07f9e)
