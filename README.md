@@ -41,42 +41,47 @@
 <br>
 
 ## ✏️ 요구사항 명세서 
-[요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0)
-![image](https://github-production-user-asset-6210df.s3.amazonaws.com/101792825/359407166-8bafe96b-2d67-4e95-b9a4-197d8f6c7c9a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240822%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240822T010612Z&X-Amz-Expires=300&X-Amz-Signature=d9c8a2de4bc1882b8cab200519853263c240d2bca953d9b7bf4cb4088ac2a70b&X-Amz-SignedHeaders=host&actor_id=101792825&key_id=0&repo_id=844908626)
+[요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0)<br>
+![image](https://github.com/user-attachments/assets/79bc81b2-52d3-4497-9704-76d02dd481f9)
+
 
 <br>
 <br>
 
 ## 📁 기능 명세서
-[기능 명세서](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)
-![image](https://github.com/user-attachments/assets/912ecb81-c34b-4b79-98f8-8b64bdea27e4)
+[기능 명세서 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)<br>
+![image](https://github.com/user-attachments/assets/3211f3b0-4447-4736-9629-d83be76ab902)
+
 
 
 <br>
 <br>
 
 ## 📋 모델링
-[테이블 명세서 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1603772059#gid=1603772059)
-<br>
-![image](https://github.com/user-attachments/assets/c09685b4-d66d-4532-b5f6-27ac8c03b27e)
+[테이블 명세서 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1603772059#gid=1603772059)<br>
+![image](https://github.com/user-attachments/assets/c98dad27-5fb6-4402-8a22-340d36f12897)
 
 
-[ERD 바로가기](https://www.erdcloud.com/d/bHwGquKuqyZhcPCKa)
-![image](https://github.com/user-attachments/assets/9a393ca0-5fa9-4ffe-8e73-897ce48c3fdd)
+
+[ERD 바로가기](https://www.erdcloud.com/d/bHwGquKuqyZhcPCKa)<br>
+![image](https://github.com/user-attachments/assets/7da6d7d5-9afd-4305-ab58-be7cb6b86879)
+
 
 <br>
 <br>
 
 ## 💻 화면 설계서 
-[Figma 바로가기](https://www.figma.com/design/EV81DsJRDIgnZxRSLyqw3A/Untitled?node-id=0-1&t=IAdWOXM1TXy2L9wM-0)
-![image](https://github.com/user-attachments/assets/6f83a21b-3fd5-4693-86e3-df5e4eae0a05)
+[Figma 바로가기](https://www.figma.com/design/EV81DsJRDIgnZxRSLyqw3A/Untitled?node-id=0-1&t=IAdWOXM1TXy2L9wM-0)<br>
+![image](https://github.com/user-attachments/assets/1d2b8fcb-e228-4012-bfd5-576cb3dd7664)
+
 
 <br>
 <br>
 
 ## 📚 WBS
-[WBS 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)
-![image](https://github.com/user-attachments/assets/1df54bf8-a0ab-4c7e-b041-ceb47be9328e)
+[WBS 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=1210692566#gid=1210692566)<br>
+![image](https://github.com/user-attachments/assets/b074a957-5f70-4744-8a7c-b0df198c4e73)
+
 
 
 <br>
@@ -106,4 +111,3 @@
 | 이지정 | 회고4 |
 | 전지연 | 회고5 |
 | 최규범 | 회고6 |
-
