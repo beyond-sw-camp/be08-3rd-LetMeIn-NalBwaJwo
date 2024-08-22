@@ -42,7 +42,7 @@
 
 ## ✏️ 요구사항 명세서 
 [요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1N5Ki46fUt2ips9-_E4Fl_BENWiWv6BDpHgMQuWn-99Q/edit?gid=0#gid=0)
-![image](https://github.com/user-attachments/assets/8bafe96b-2d67-4e95-b9a4-197d8f6c7c9a)
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/101792825/359407166-8bafe96b-2d67-4e95-b9a4-197d8f6c7c9a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240822%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240822T010612Z&X-Amz-Expires=300&X-Amz-Signature=d9c8a2de4bc1882b8cab200519853263c240d2bca953d9b7bf4cb4088ac2a70b&X-Amz-SignedHeaders=host&actor_id=101792825&key_id=0&repo_id=844908626)
 
 <br>
 <br>
