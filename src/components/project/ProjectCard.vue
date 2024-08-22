@@ -15,25 +15,29 @@
       </button>
     </div>
     <!-- 프로젝트 이미지 -->
-    <img :src="project.images?.[0].url" alt="Project Image" class="project-image" 
-      @error="onImageError"/>
+    <img
+      @click="openProject"
+      :src="project.images?.[0].url"
+      alt="Project Image"
+      class="project-image"
+      @error="onImageError"
+    />
     <h2 class="project-title">{{ project.title }}</h2>
   </div>
 </template>
 
 <script>
-
 export default {
   props: {
     project: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     isLogin() {
-      return this.$store.state.Auth.isLogin
-    }
+      return this.$store.state.Auth.isLogin;
+    },
   },
   data() {
     return {
@@ -44,24 +48,27 @@ export default {
     toggleFavorite() {
       this.isFavorite = !this.isFavorite;
       if (this.isFavorite) {
-        alert('즐겨찾기에 추가되었습니다.');
+        alert("즐겨찾기에 추가되었습니다.");
       } else {
-        alert('즐겨찾기에서 취소되었습니다.');
+        alert("즐겨찾기에서 취소되었습니다.");
       }
     },
     emitEditProject() {
-      this.$emit('edit-project', this.project);
+      this.$emit("open-project", this.project);
+    },
+    openProject() {
+      this.$emit("open-project", this.project);
     },
     emitDeleteProject() {
-      if (confirm('정말로 삭제하시겠습니까?')) {
-        this.$emit('delete-project', this.project);
+      if (confirm("정말로 삭제하시겠습니까?")) {
+        this.$emit("delete-project", this.project);
       }
     },
-    onImageError(event){
+    onImageError(event) {
       // event.target.src = require("@assets/project/default-image.png");
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -83,7 +90,7 @@ export default {
 
 .card-header {
   position: relative;
-  top:0px;
+  top: 0px;
   display: flex;
   gap: 8px;
 }
@@ -115,10 +122,10 @@ export default {
 
 .project-image {
   width: 100%;
-  height: auto; 
+  height: auto;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
-  
+
   aspect-ratio: 3 / 2;
 }
 
