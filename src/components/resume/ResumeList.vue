@@ -33,9 +33,9 @@ export default {
     return {
       selectedIndex: null,
       resumes: [
-        { resumeId: 1, title: "일등", date: "2022-03-23" },
-        { resumeId: 2, title: "이등", date: "2023-03-23" },
-        { resumeId: 3, title: "삼등", date: "2024-03-23" }
+        { resumeId: 1, title: "그 회사에 꼭 필요한 지원자 길동이여유", date: "2024-03-23" },
+        { resumeId: 2, title: "일등을 위해 달린다...! Victory...!", date: "2023-02-25" },
+        { resumeId: 3, title: "새해를 맞이하며 이력서를 씁니다...", date: "2023-01-01" }
       ],
     };
   },

@@ -2,7 +2,7 @@
   <BContainer class="pt-5">
     <div class="header">
       <h1 class="text-bold">이력서 관리</h1>
-      <RouterLink to="/@yongun/resume/1" class="resume-insert">등록하기</RouterLink>
+      <RouterLink to="/@yongun/resume/1" class="resume-insert" v-if="isLogin">등록하기</RouterLink>
     </div>
     <br>
     <ResumeList />
@@ -17,6 +17,11 @@ export default {
   components: {
     ResumeList,
     RouterLink
+  },
+  computed:{
+    isLogin() {
+      return this.$store.state.Auth.isLogin
+    },
   }
 };
 </script>
