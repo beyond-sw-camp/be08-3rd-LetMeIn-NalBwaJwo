@@ -105,15 +105,22 @@
 
 > ## 메인페이지
 **메인 화면**
-  
-![main](https://github.com/user-attachments/assets/613feb4f-c517-4c30-bf1a-ec9db1d5f210)
+![main기본](https://github.com/user-attachments/assets/84370361-93d8-42d8-af02-135d476c8fbe)
+
+**메인 화면-스킬, 링크**
+![main-스킬,링크](https://github.com/user-attachments/assets/c02bf616-b92e-4702-bcad-9b6da17d2dda)
+
 
 > ## 프로젝트
  **게시물 조회**
 
 ![프로젝트_비로그인_](https://github.com/user-attachments/assets/f2c72f87-c4b1-449f-89a9-17b8b5f47569)
 
-**게시물 삭제 및 변경 (로그인 시)**
+**게시물 수정  (로그인 시)**
+![프로젝트](https://github.com/user-attachments/assets/a3ac95ff-7817-416e-a53e-8a2cf6ce28c4)
+
+**게시물 삭제  (로그인 시)**
+![프로젝트 삭제](https://github.com/user-attachments/assets/d606a432-f935-4062-8999-f0b4fc283ca5)
 
 
 **게시물 추가**
