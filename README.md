@@ -88,13 +88,41 @@
 <br>
 
 ## 📌 테스트 
-> 프로젝트
 
-> 이력서
+### 메인 화면
+- **포트폴리오**
 
-> 블로그
+### 프로젝트
+- **게시물 조회**
+  ![프로젝트_비로그인_](https://github.com/user-attachments/assets/f2c72f87-c4b1-449f-89a9-17b8b5f47569)
 
-> 쪽지
+- **게시물 삭제 및 변경 (로그인 시)**  
+  ![프로젝트_비로그인_](https://github.com/user-attachments/assets/fff8a0e2-c72a-4d80-85d4-748a3ba8ac41)
+
+### 이력서
+- **이력서 조회**  
+  ![이력서_비로그인_](https://github.com/user-attachments/assets/ed835394-99d1-41a0-abd3-b8bd43a4eab7)
+
+- **이력서 삭제 및 즐겨찾기 (로그인 시)**  
+  ![이력서_로그인_-게시글삭제및즐겨찾기](https://github.com/user-attachments/assets/cd851000-5aee-45ac-97c5-28a120e07f9e)
+
+### 블로그
+- **게시글 조회**  
+  ![blog_로그인_-게시글-조회](https://github.com/user-attachments/assets/0f2b85d3-23c7-485e-85d5-08e8d5978527)
+
+- **게시글 확인 (로그인 시)**  
+  ![blog_로그인_-게시글-조회](https://github.com/user-attachments/assets/26e201c5-9dd6-4a7b-b2d3-44e8feddbab0)
+
+- **게시글 삭제 및 수정 (로그인 시)**  
+  ![blog_로그인_-게시글삭제및수정](https://github.com/user-attachments/assets/92446fe2-b821-4753-8d7b-45678f015e7a)
+
+- **게시글 추가 (로그인 시)**  
+  ![blog_로그인_-게시글추가](https://github.com/user-attachments/assets/48e351c7-2f1a-4436-bab1-fea67bd67989)
+
+### 쪽지
+- **Contact 메시지 보내기**  
+  ![contact](https://github.com/user-attachments/assets/092843f9-8471-4065-b84b-58f62a6d7f1f)
+
 
 
 
