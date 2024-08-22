@@ -31,12 +31,12 @@ export default {
 </script>
 
 <style scoped>
-.project-form{
-  width: 100%;
-  height: 100%;
+/* .project-form{
+  width: 200%;
+  height: 120%;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
   aspect-ratio: 3 / 2;
   
-};
+}; */
 </style>
