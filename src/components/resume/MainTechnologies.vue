@@ -37,7 +37,7 @@ export default {
       currentTech: "",
       options: [
         { text: "Java", value: "Java" },
-        { text: "React.js", value: "React" },
+        { text: "React.js", value: "React.js" },
         { text: "React-Native", value: "React-Native" },
         { text: "Vue.js", value: "Vue.js" },
         { text: "Angular.js", value: "Angular.js" },

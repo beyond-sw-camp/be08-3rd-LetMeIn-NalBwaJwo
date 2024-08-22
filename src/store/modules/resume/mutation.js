@@ -60,6 +60,8 @@ export const mutations = {
   [RESUME_MUTATION_TYPES.EDIT_EMAIL](state, payload) {
     const { resumeId, email } = payload;
 
+    if (email === "") return;
+
     const resume = state.resumes.find((resume) => resume.resumeId === resumeId);
     const profile = resume.details.profile;
 
@@ -68,6 +70,8 @@ export const mutations = {
   // 전화번호 수정
   [RESUME_MUTATION_TYPES.EDIT_PHONE](state, payload) {
     const { resumeId, phone } = payload;
+
+    if (phone === "") return;
 
     const resume = state.resumes.find((resume) => resume.resumeId === resumeId);
     const profile = resume.details.profile;
@@ -78,17 +82,27 @@ export const mutations = {
   [RESUME_MUTATION_TYPES.ADD_MAIN_TECH](state, payload) {
     const { resumeId, tech } = payload;
 
+    if (tech === "") return;
+
     const resume = state.resumes.find((resume) => resume.resumeId === resumeId);
     const techs = resume.details.techs;
-    techs.push(tech);
+
+    if (techs.find((t) => t === tech) == undefined) {
+      techs.push(tech);
+    }
   },
   // 희망 직업 추가
   [RESUME_MUTATION_TYPES.ADD_DESIRED_JOB](state, payload) {
     const { resumeId, desiredJob } = payload;
 
+    if (desiredJob === "") return;
+
     const resume = state.resumes.find((resume) => resume.resumeId === resumeId);
     const desiredJobs = resume.details.desiredJobs;
-    desiredJobs.push(desiredJob);
+
+    if (desiredJobs.find((j) => j === desiredJob) == undefined) {
+      desiredJobs.push(desiredJob);
+    }
   },
   // 대표 이력서 설정
   [RESUME_MUTATION_TYPES.SET_DEFAULT_RESUME](state, payload) {

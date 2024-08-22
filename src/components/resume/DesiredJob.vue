@@ -28,8 +28,8 @@ export default {
     return {
       currentJob: "",
       options: [
-        { text: "Backend", value: "Backend" },
-        { text: "FrontEnd", value: "Frontend" },
+        { text: "Backend", value: "BackEnd" },
+        { text: "FrontEnd", value: "FrontEnd" },
         { text: "Infra", value: "Infra" },
         { text: "UI/UX", value: "UI/UX" },
         { text: "DBA", value: "DBA" },
