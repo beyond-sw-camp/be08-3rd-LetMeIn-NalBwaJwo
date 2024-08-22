@@ -102,69 +102,100 @@
 
 
 # 📌 테스트 
+<details>
+    <summary>메인 화면</summary>
+    <blockquote>
+        <details>
+            <summary>메인 화면</summary>
+            <img src="https://github.com/user-attachments/assets/84370361-93d8-42d8-af02-135d476c8fbe">
+        </details>
+      <br>
+      <details>
+            <summary>메인 화면-스킬, 링크</summary>
+            <img src="https://github.com/user-attachments/assets/c02bf616-b92e-4702-bcad-9b6da17d2dda">
+        </details>
+    </blockquote>
+</details>
 
-> ## 메인페이지
-**메인 화면**
-![main기본](https://github.com/user-attachments/assets/84370361-93d8-42d8-af02-135d476c8fbe)
+<details>
+    <summary>프로젝트</summary>
+    <blockquote>
+        <details>
+            <summary>게시물 조회</summary>
+            <img  src="https://github.com/user-attachments/assets/f2c72f87-c4b1-449f-89a9-17b8b5f47569">
+        </details>
+      <br>
+      <details>
+            <summary>게시물 수정</summary>
+            <img  src="https://github.com/user-attachments/assets/a3ac95ff-7817-416e-a53e-8a2cf6ce28c4">
+        </details>
+       <br>
+      <details>
+            <summary>게시물 삭제</summary>
+            <img  src="https://github.com/user-attachments/assets/d606a432-f935-4062-8999-f0b4fc283ca5">
+        </details>
+      <br>
+      <details>
+            <summary>게시물 추가</summary>
+            <img  src="https://github.com/user-attachments/assets/157e469c-ba30-4e66-8f6e-f09d31971d83">
+        </details>
+       <br>
+       <details>
+            <summary>게시물 즐겨찾기</summary>
+            <img  src="https://github.com/user-attachments/assets/d0bc254c-d768-45cd-b600-27bbb2157270">
+        </details>
+    </blockquote>
+</details>
 
-**메인 화면-스킬, 링크**
-![main-스킬,링크](https://github.com/user-attachments/assets/c02bf616-b92e-4702-bcad-9b6da17d2dda)
+<details>
+    <summary>이력서</summary>
+    <blockquote>
+        <details>
+            <summary>이력서 조회</summary>
+            <img src="https://github.com/user-attachments/assets/bcb1978b-feaa-4f19-bc33-23710a70c19a">
+        </details>
+      <br>
+      <details>
+            <summary>이력서 삭제 및 즐겨찾기(로그인 시)</summary>
+            <img src="https://github.com/user-attachments/assets/cd851000-5aee-45ac-97c5-28a120e07f9e">
+        </details>
+    </blockquote>
+</details>
 
+<details>
+    <summary>블로그</summary>
+    <blockquote>
+        <details>
+            <summary>게시글 조회</summary>
+            <img  src="https://github.com/user-attachments/assets/0f2b85d3-23c7-485e-85d5-08e8d5978527">
+        </details>
+      <br>
+      <details>
+            <summary>게시글 확인(로그인 시)</summary>
+            <img  src="https://github.com/user-attachments/assets/26e201c5-9dd6-4a7b-b2d3-44e8feddbab0">
+        </details>
+       <br>
+      <details>
+            <summary>게시글 삭제 및 수정 (로그인 시</summary>
+            <img  src="https://github.com/user-attachments/assets/92446fe2-b821-4753-8d7b-45678f015e7a">
+        </details>
+      <br>
+      <details>
+            <summary>게시글 추가 (로그인 시)</summary>
+            <img  src="https://github.com/user-attachments/assets/48e351c7-2f1a-4436-bab1-fea67bd67989">
+        </details>
+    </blockquote>
+</details>
 
-> ## 프로젝트
- **게시물 조회**
-
-![프로젝트_비로그인_](https://github.com/user-attachments/assets/f2c72f87-c4b1-449f-89a9-17b8b5f47569)
-
-**게시물 수정  (로그인 시)**
-![프로젝트](https://github.com/user-attachments/assets/a3ac95ff-7817-416e-a53e-8a2cf6ce28c4)
-
-**게시물 삭제  (로그인 시)**
-![프로젝트 삭제](https://github.com/user-attachments/assets/d606a432-f935-4062-8999-f0b4fc283ca5)
-
-
-**게시물 추가**
-![프로젝트_로그인_-게시물추가](https://github.com/user-attachments/assets/157e469c-ba30-4e66-8f6e-f09d31971d83)
-
-
-**게시물 즐겨 찾기**
-
-![프로젝트_로그인_-즐겨찾기](https://github.com/user-attachments/assets/d0bc254c-d768-45cd-b600-27bbb2157270)
-
-> ## 이력서
-**이력서 조회**
-  
-   ![이력서(비로그인)](https://github.com/user-attachments/assets/bcb1978b-feaa-4f19-bc33-23710a70c19a)
-
- **이력서 삭제 및 즐겨찾기 (로그인 시)**
-  
-  ![이력서_로그인_-게시글삭제및즐겨찾기](https://github.com/user-attachments/assets/cd851000-5aee-45ac-97c5-28a120e07f9e)
-
-> ## 블로그
-### 블로그
- **게시글 조회**
-  
-  ![blog_로그인_-게시글-조회](https://github.com/user-attachments/assets/0f2b85d3-23c7-485e-85d5-08e8d5978527)
-
- **게시글 확인 (로그인 시)**
-  
-  ![blog_로그인_-게시글-조회](https://github.com/user-attachments/assets/26e201c5-9dd6-4a7b-b2d3-44e8feddbab0)
-
- **게시글 삭제 및 수정 (로그인 시)**
-  
-  ![blog_로그인_-게시글삭제및수정](https://github.com/user-attachments/assets/92446fe2-b821-4753-8d7b-45678f015e7a)
-
- **게시글 추가 (로그인 시)**
-  
-  ![blog_로그인_-게시글추가](https://github.com/user-attachments/assets/48e351c7-2f1a-4436-bab1-fea67bd67989)
-
-
-> ## 쪽지
-### 쪽지
- **Contact 메시지 보내기**
-  
-  ![contact](https://github.com/user-attachments/assets/092843f9-8471-4065-b84b-58f62a6d7f1f)
-
+<details>
+    <summary>쪽지</summary>
+    <blockquote>
+        <details>
+            <summary>Contact 메시지 보내기</summary>
+            <img src="https://github.com/user-attachments/assets/092843f9-8471-4065-b84b-58f62a6d7f1f">
+        </details>
+    </blockquote>
+</details>
 
 
 <br>
