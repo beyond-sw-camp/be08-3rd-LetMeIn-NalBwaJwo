@@ -101,7 +101,7 @@
 <br>
 
 
-# 📌 테스트 
+## 📌 테스트 
 <details>
     <summary>메인 화면</summary>
     <blockquote>
