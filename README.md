@@ -91,6 +91,7 @@
 
 ### 메인 화면
 - **포트폴리오**
+  ![main](https://github.com/user-attachments/assets/613feb4f-c517-4c30-bf1a-ec9db1d5f210)
 
 ### 프로젝트
 - **게시물 조회**
